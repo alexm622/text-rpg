@@ -2,10 +2,16 @@ package rpg.utilities.Json;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.util.Map;
+
 
 import com.fasterxml.jackson.databind.*;
+
+import rpg.Main;
+
 import com.fasterxml.jackson.core.*;
 
 @SuppressWarnings("unused")
@@ -23,7 +29,6 @@ public class JsonMain {
 	}
 	
 	private void fix_file() {
-		ClassLoader classLoader = getClass().getClassLoader();
-		file = new File(classLoader.getResource("/GameData/Items/Armor/LightArmor.json").getFile());
+		
 	}
 }
