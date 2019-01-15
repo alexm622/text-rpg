@@ -1,0 +1,17 @@
+{
+	"Items": {
+		"Item":{
+			"ItemName":"",
+			"ItemBuy": "",
+			"ItemSell":"",
+			"Rarity":"",
+			"Purchasable": false,
+			"Modifiers": [
+			{"ID": null, "lvl":null}
+			],
+			"ArmorClass":"",
+			"ArmorType":"",
+			"MaxDex":""						
+		}
+	}
+}

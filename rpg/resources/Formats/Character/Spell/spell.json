@@ -1,0 +1,19 @@
+{
+	"Spells": [
+		{
+		"(id)":
+			{
+			"Name": "",
+			"Desc": "",
+			"School":"",
+			"DmgType":"",
+			"Classes":[
+				{"Class":"", "SubClass":""}
+			],
+			"BaseLVL":null,
+			"MaxLVL":null,
+			"LVLmod":""
+			}
+		}
+	]
+}
