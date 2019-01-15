@@ -1,1 +1,0 @@
-the Armor.json file applies to all armor types
