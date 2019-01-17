@@ -7,18 +7,19 @@ import java.net.URL;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import rpg.utilities.json.classses.items.Armor;
+import  rpg.utilities.json.classses.Index;
 
 public class IndexHandler {
+	
+	private Index index;
+	
 	public void init() {
-		URL dir_url = ClassLoader.getSystemResource("res/GameData/Items/Armor/LightArmor.json");
+		URL dir_url = ClassLoader.getSystemResource("res/Index.json");
 		ObjectMapper om = new ObjectMapper();
 		try {
 			File file = new File(dir_url.toURI());
 			try {
-				Armor arm = om.readValue(file, Armor.class);
-				System.out.println(arm.getItems()[0].getItemname());
-				System.out.println(arm.getItems()[0].getModifiers()[0].getid());
+				index = om.readValue(file, Index.class);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				System.out.println("error reading contents");
@@ -31,7 +32,11 @@ public class IndexHandler {
 		}
 	}
 	
-	public Index getIndex() {
-		
+	public Index getIndex() throws Error{
+		if(index == null) {
+			Error e = new Error("please initialize index first");
+			throw e;
+		}
+		return index;
 	}
 }

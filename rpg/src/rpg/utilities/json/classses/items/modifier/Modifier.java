@@ -1,4 +1,4 @@
-package rpg.utilities.json.classses.items;
+package rpg.utilities.json.classses.items.modifier;
 
 public abstract class Modifier {
 	private int id;

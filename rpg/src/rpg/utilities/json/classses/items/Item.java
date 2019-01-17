@@ -27,7 +27,7 @@ public abstract class Item {
 	public Modifier[] getModifiers() {return this.modifiers;}
 	public void setModifiers(Modifier[] modifiers) {this.modifiers = modifiers;}
 	
-	public static class Modifier extends rpg.utilities.json.classses.items.Modifier{
+	public static class Modifier extends rpg.utilities.json.classses.items.modifier.Modifier{
 		
 	}
 	

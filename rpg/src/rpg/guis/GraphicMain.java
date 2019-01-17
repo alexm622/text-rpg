@@ -195,8 +195,7 @@ public class GraphicMain {
 		JMenuItem mntmOpen = new JMenuItem("Load");
 		mntmOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JsonMain j = new JsonMain();
-				j.test_class();
+				
 			}
 		});
 		menuBar.add(mntmOpen);
