@@ -1,4 +1,4 @@
-package rpg.items;
+package rpg.utilities.json.classses.items;
 
 
 public class Armor {
@@ -7,7 +7,7 @@ public class Armor {
 	public Item[] getItems() {return this.items;}
 	public void setItem(Item[] items) {this.items = items;}
 	
-	public static class Item extends rpg.items.Item {
+	public static class Item extends rpg.utilities.json.classses.items.Item {
 		private int armorclass;
 		private int armortype;
 		private int maxdex;

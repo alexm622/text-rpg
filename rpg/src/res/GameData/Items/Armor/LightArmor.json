@@ -6,7 +6,7 @@
 		"rarity":1,
 		"purchasable": false,
 		"modifiers": [
-			{"id": 2, "lvl":3}
+			{"id": 0, "lvl":1}
 			],
 		"armorclass":"2",
 		"armortype":"3",

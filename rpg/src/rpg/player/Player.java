@@ -59,7 +59,7 @@ public class Player {
 				try {
 					localstats[i-1] = Integer.parseInt(stats[i]);					
 				}catch(Exception e) {
-					System.out.println("why does stats entry " + i + " have a non-numeric character?");
+					System.out.println("why does stats entry " + i + " have a non-numeric Character?");
 					x = true;
 					break;
 				}
