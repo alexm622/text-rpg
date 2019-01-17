@@ -24,7 +24,7 @@ import javax.swing.ScrollPaneConstants;
 import rpg.game.Game;
 import rpg.game.Handler;
 import rpg.utilities.SaveManager;
-import rpg.utilities.Json.JsonMain;
+import rpg.utilities.json.JsonMain;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
