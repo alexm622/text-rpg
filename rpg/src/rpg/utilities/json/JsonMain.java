@@ -30,9 +30,14 @@ public class JsonMain {
 	}
 	
 	public Class Read(String type) {
+		Class c = TypeToClass(type);
 		return null;
 	}
 	
+	private Class TypeToClass(String type) {
+		
+		return null;
+	}
 	
 	private void fix_file() {
 		URL dir_url = ClassLoader.getSystemResource("res/GameData/Items/Armor/LightArmor.json");

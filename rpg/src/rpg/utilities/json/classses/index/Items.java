@@ -3,7 +3,6 @@ package rpg.utilities.json.classses.index;
 public abstract class Items {
 	
 	//private definitions
-	
 	private Armor[] armor;
 	private Weapons[] weapons;
 	private Consumable[] consumable;
