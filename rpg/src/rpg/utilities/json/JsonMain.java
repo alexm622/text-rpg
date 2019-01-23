@@ -21,14 +21,14 @@ import com.fasterxml.jackson.core.*;
 public class JsonMain {
 	private JsonReader Jr;
 	private JsonWriter Jw;
-	private IndexHandler ih;
-	private Game g;
+	private Index index;
+	private Handler h;
 	
-	public void init(Game g) {
+	public void init(Handler h) {
 		this.Jr = new JsonReader();
 		this.Jw = new JsonWriter();
-		this.ih = new IndexHandler();
-		this.g = g;
+		this.h = h;
+		this.index = h.getIndex();
 	}
 	
 	public Class Read(String type) {
@@ -39,7 +39,15 @@ public class JsonMain {
 	private Class TypeToClass(String type) {
 		//find type in array of index
 		Class c;
-		
+		Path[] ptdata;
+		boolean temp = false;
+		while(!temp){
+			for(int i=0; i < ptdata.length; i++){
+				if(ptdata[i].getType() != type){
+				  continue;
+}else{}
+			}
+		}
 		return null;
 	}
 	
