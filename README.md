@@ -18,3 +18,4 @@
 - save manager
 - populate the game data folders with data
 - index handler
+- completely restructure the index
