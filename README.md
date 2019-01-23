@@ -19,3 +19,4 @@
 - populate the game data folders with data
 - index handler
 - completely restructure the index
+- pass around main class

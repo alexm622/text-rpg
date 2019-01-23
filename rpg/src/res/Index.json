@@ -1,16 +1,5 @@
-{
-   "character": {},
-   "events": {},
-   "items": {
-      "armor": [
-      	{"type":"lightarmor", "path":"res/GameData/Items/Armor/LightArmor.json"},
+[
+   {"type":"lightarmor", "path":"res/GameData/Items/Armor/LightArmor.json"},
       	{"type:":"mediumarmor", "path":"res/GameData/Items/Armor/MediumArmor.json"},
       	{"type":"heavyarmor", "path":"res/GameData/Items/Armor/HeavyArmor.json"}
-      ],
-      "weapon": [],
-      "consumable": [],
-      "quest": []
-   },
-   "storyline": {},
-   "modifiers":{}
-}
+]

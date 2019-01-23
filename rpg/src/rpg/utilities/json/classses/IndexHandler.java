@@ -13,7 +13,7 @@ public class IndexHandler {
 	
 	private Index index;
 	
-	public void init() {
+	public void init(Handler h) {
 		URL dir_url = ClassLoader.getSystemResource("res/Index.json");
 		ObjectMapper om = new ObjectMapper();
 		try {
