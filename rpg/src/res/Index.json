@@ -1,5 +1,5 @@
 [
-   {"type":"lightarmor", "path":"res/GameData/Items/Armor/LightArmor.json"},
-      	{"type:":"mediumarmor", "path":"res/GameData/Items/Armor/MediumArmor.json"},
-      	{"type":"heavyarmor", "path":"res/GameData/Items/Armor/HeavyArmor.json"}
+   {"type":"lightarmor", "cla":"armor", "path":"res/GameData/Items/Armor/LightArmor.json"},
+   {"type:":"mediumarmor", "cla":"armor", "path":"res/GameData/Items/Armor/MediumArmor.json"},
+   {"type":"heavyarmor", "cla":"armor", "path":"res/GameData/Items/Armor/HeavyArmor.json"}
 ]
