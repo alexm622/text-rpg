@@ -22,11 +22,13 @@ public class JsonMain {
 	private JsonReader Jr;
 	private JsonWriter Jw;
 	private IndexHandler ih;
+	private Game g;
 	
-	public void init() {
+	public void init(Game g) {
 		this.Jr = new JsonReader();
 		this.Jw = new JsonWriter();
 		this.ih = new IndexHandler();
+		this.g = g;
 	}
 	
 	public Class Read(String type) {
@@ -35,6 +37,8 @@ public class JsonMain {
 	}
 	
 	private Class TypeToClass(String type) {
+		//find type in array of index
+		Class c;
 		
 		return null;
 	}
