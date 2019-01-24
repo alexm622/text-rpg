@@ -1,6 +1,6 @@
-package rpg.utilities.json.classses;
+package rpg.utilities.json.classes;
 
-import rpg.utilities.json.classses.index.Path;
+import rpg.utilities.json.classes.index.Path;
 
 public class Index {
 

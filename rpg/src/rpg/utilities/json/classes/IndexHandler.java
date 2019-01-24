@@ -1,4 +1,4 @@
-package rpg.utilities.json.classses;
+package rpg.utilities.json.classes;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.net.URL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
-import rpg.utilities.json.classses.index.Path;
+import rpg.utilities.json.classes.index.Path;
 
 public class IndexHandler {
 

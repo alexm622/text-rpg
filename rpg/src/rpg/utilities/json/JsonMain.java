@@ -12,10 +12,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.Main;
 import rpg.game.Handler;
-import rpg.utilities.json.classses.IndexHandler;
-import rpg.utilities.json.classses.Index;
-import rpg.utilities.json.classses.index.Path;
-import rpg.utilities.json.classses.items.Armor;
+import rpg.utilities.json.classes.IndexHandler;
+import rpg.utilities.json.classes.Index;
+import rpg.utilities.json.classes.index.Path;
+import rpg.utilities.json.classes.items.Armor;
 
 import com.fasterxml.jackson.core.*;
 

@@ -21,3 +21,4 @@
 - ~~completely restructure the index~~
 - pass around main class
 - work on making the handler class
+- for the love of god, REFRACTOR the folder named classses to classes

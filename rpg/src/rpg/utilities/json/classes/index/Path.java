@@ -1,4 +1,4 @@
-package rpg.utilities.json.classses.index;
+package rpg.utilities.json.classes.index;
 
 public class Path {
 

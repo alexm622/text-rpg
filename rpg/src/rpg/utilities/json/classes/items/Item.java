@@ -1,4 +1,4 @@
-package rpg.utilities.json.classses.items;
+package rpg.utilities.json.classes.items;
 
 public abstract class Item {
 	private String itemname;
@@ -56,7 +56,7 @@ public abstract class Item {
 		this.modifiers = modifiers;
 	}
 
-	public static class Modifier extends rpg.utilities.json.classses.items.modifier.Modifier {
+	public static class Modifier extends rpg.utilities.json.classes.items.modifier.Modifier {
 
 	}
 

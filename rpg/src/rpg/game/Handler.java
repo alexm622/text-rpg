@@ -4,9 +4,9 @@ import rpg.guis.GraphicMain;
 import rpg.player.Player;
 import rpg.utilities.SaveFileReader;
 import rpg.utilities.json.JsonMain;
-import rpg.utilities.json.classses.Index;
-import rpg.utilities.json.classses.IndexHandler;
-import rpg.utilities.json.classses.index.Path;
+import rpg.utilities.json.classes.Index;
+import rpg.utilities.json.classes.IndexHandler;
+import rpg.utilities.json.classes.index.Path;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;;
