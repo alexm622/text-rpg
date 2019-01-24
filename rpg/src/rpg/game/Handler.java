@@ -8,6 +8,7 @@ import rpg.utilities.json.classses.Index;
 import rpg.utilities.json.classses.IndexHandler;
 import rpg.utilities.json.classses.index.Path;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;;
 
 public class Handler {
@@ -45,9 +46,10 @@ public class Handler {
 			System.out.println("test");
 		}
 		try {
-			Method m = temp.getMethod("getItemName", null);
+			Method m = temp.getMethod("getItemName");
+            m.invoke(null);
 			System.out.println(m.toString());
-		} catch (NoSuchMethodException | SecurityException | Error e) {
+		} catch (NoSuchMethodException | SecurityException | IllegalAccessException |  InvocationTargetException |Error e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
