@@ -15,7 +15,7 @@ import rpg.game.Handler;
 import rpg.utilities.json.classes.IndexHandler;
 import rpg.utilities.json.classes.Index;
 import rpg.utilities.json.classes.index.Path;
-import rpg.utilities.json.classes.items.Armor;
+import rpg.objects.items.Armor;
 
 import com.fasterxml.jackson.core.*;
 
@@ -29,7 +29,22 @@ public class JsonMain {
 	public void Init(Handler h) {
 		this.Jw = new JsonWriter();
 		this.h = h;
-		this.index = h.getIndex();
+		InitIndex();
+		System.out.println(index.getIndex()[0].getClas());
+	}
+
+	private void InitIndex() {
+		// TODO Auto-generated method stub
+		IndexHandler indexh = new IndexHandler();
+		indexh.init(this.h);
+		this.index = new Index();
+		try {
+			this.index.setIndex(indexh.getIndex());
+			this.h.setPTdata(indexh.getIndex());
+		} catch (Error e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public Class<?> Read(String type) {
@@ -46,22 +61,33 @@ public class JsonMain {
 		// find type in array of index
 		Class<?> c;
 		Path[] ptdata = h.getPTdata();
-
-		boolean temp = false;
-		while (!temp) {
-			for (int i = 0; i < ptdata.length; i++) {
-				if (ptdata[i].getType() != type) {
-					continue;
-				} else {
-					try {
-						Class<?> clas = Class.forName(ptdata[i].getClas());
-						return clas;
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+		System.out.println(type);
+		System.out.println(ptdata[0].getType());
+		System.out.println(type.equals(ptdata[0].getType()));
+		for (int i = 0; i < ptdata.length; i++) {
+			if (!(type.equals(ptdata[i].getType()))) {
+				continue;
+			} else {
+				try {
+					ClassLoader cl = new ClassLoader() {
+					};
+					c = cl.loadClass(ptdata[i].getClas());
+					System.out.println("classloader");
+					System.out.println(c.getName());
+					System.out.println(c.getMethods()[1].getName());
+					Class<?> clas = Class.forName(ptdata[i].getClas());
+					System.out.println("for name");
+					System.out.println(clas.getName());
+					System.out.println(clas.getMethods()[1].getName());
+					System.out.println("found it");
+					return c;
+				} catch (Exception e) {
+					System.out.println("didn't find it");
+					e.printStackTrace();
 				}
 			}
 		}
+		System.out.println("didn't find");
 		throw new Error("could not find the class for type " + type);
 	}
 
@@ -70,17 +96,15 @@ public class JsonMain {
 		Path[] ptdata;
 		ptdata = index.getIndex();
 		boolean temp = false;
-		while (!temp) {
-			for (int i = 0; i < ptdata.length; i++) {
-				if (ptdata[i].getType() != type) {
-					continue;
-				} else {
-					try {
-						path = ptdata[i].getPath();
-						return path;
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+		for (int i = 0; i < ptdata.length; i++) {
+			if (!(type.equals(ptdata[i].getType()))) {
+				continue;
+			} else {
+				try {
+					path = ptdata[i].getPath();
+					return path;
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}

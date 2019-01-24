@@ -1,11 +1,8 @@
 package rpg.game;
 
-import rpg.guis.GraphicMain;
 import rpg.player.Player;
 import rpg.utilities.SaveFileReader;
 import rpg.utilities.json.JsonMain;
-import rpg.utilities.json.classes.Index;
-import rpg.utilities.json.classes.IndexHandler;
 import rpg.utilities.json.classes.index.Path;
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,68 +12,54 @@ public class Handler {
 	private Game g;
 	private Player p;
 	private SaveFileReader fm;
-	private Index index;
 	private JsonMain jm;
-	private GraphicMain gm;
 	private Path[] ptdata;
 
-	public Handler(GraphicMain gm) {
-		this.gm = gm;
-		InitGm(gm);
+	public Handler(Game g) {
+		this.ptdata = new Path[0];
 		InitPlayer();
 		InitFm();
-		InitIndex();
 		InitJson();
-		InitGame();
+		InitGame(g);
 		fm.Init();
-		TestIndex();
 	}
 
-	private void InitGm(GraphicMain gm) {
-		gm.main(null);
-		gm.Init(gm);
-	}
-
+	/*
+	 * TestIndex is a debug class testing to see if typetoclass works, and if it can
+	 * fetch the class properties based on the type name
+	 */
 	public void TestIndex() {
-		System.out.println("test");
+		// debug
+		System.out.println("TestIndex called");
+		System.out.println(ptdata[0].getClas());
 		Class<?> temp = jm.Read("lightarmor");
-		if (temp == null) {
+		System.out.println(temp.getName().toString());
+		if (temp.equals(null)) {
 			System.out.println("temp is null");
 		} else {
-			System.out.println("test");
+			System.out.println("test03");
+
 		}
 		try {
 			Method m = temp.getMethod("getItemName");
-            m.invoke(null);
-			System.out.println(m.toString());
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException |  InvocationTargetException |Error e) {
+			Object o = m.invoke(null);
+			System.out.println(o.toString());
+		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException
+				| Error e) {
 			// TODO Auto-generated catch block
+			System.out.println("error");
 			e.printStackTrace();
 		}
 
 	}
 
-	private void InitGame() {
-		this.g = new Game();
+	private void InitGame(Game g) {
+		this.g = g;
 	}
 
 	private void InitJson() {
 		this.jm = new JsonMain();
 		this.jm.Init(this);
-	}
-
-	private void InitIndex() {
-		// TODO Auto-generated method stub
-		IndexHandler indexh = new IndexHandler();
-		indexh.init(this);
-		this.ptdata = indexh.getIndex();
-		this.index = new Index();
-		try {
-			this.index.setIndex(indexh.getIndex());
-		} catch (Error e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	private void InitFm() {
@@ -105,28 +88,12 @@ public class Handler {
 		this.fm = fm;
 	}
 
-	public Index getIndex() {
-		return this.index;
-	}
-
-	public void setIndex(Index index) {
-		this.index = index;
-	}
-
 	public JsonMain getJm() {
 		return this.jm;
 	}
 
 	public void setJm(JsonMain jm) {
 		this.jm = jm;
-	}
-
-	public GraphicMain getGm() {
-		return this.gm;
-	}
-
-	public void setGm(GraphicMain gm) {
-		this.gm = gm;
 	}
 
 	public Game getG() {
@@ -138,7 +105,9 @@ public class Handler {
 	}
 
 	public void setPTdata(Path[] path) {
+		System.out.println("set ptdata");
 		this.ptdata = path;
+		System.out.println(this.ptdata[0].getClas());
 	}
 
 }

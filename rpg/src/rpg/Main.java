@@ -1,17 +1,12 @@
 package rpg;
 
-import rpg.game.Handler;
-import rpg.guis.GraphicMain;
+import rpg.game.Game;
 
 public class Main {
-	public Handler h;
 
 	public static void main(String[] args) {
-		GraphicMain gm = new GraphicMain();
-        Handler h = new Handler(gm);
+		new Game();
 
 	}
-
-
 
 }

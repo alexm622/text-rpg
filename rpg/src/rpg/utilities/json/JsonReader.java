@@ -8,21 +8,29 @@ import java.net.URL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonReader {
-	private Class<?> c;
+	private Class c;
 	private String path;
+	private Object o;
 
 	JsonReader(Class<?> c, String path) {
 		this.c = c;
+		try {
+			this.o = c.newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.path = path;
 	}
 
 	public Class<?> Read() {
-		URL dir_url = ClassLoader.getSystemResource(path);
+		URL dir_url = ClassLoader.getSystemResource(this.path);
 		ObjectMapper om = new ObjectMapper();
 		try {
 			File file = new File(dir_url.toURI());
 			try {
-				c = om.readValue(file, this.c.getClass());
+
+				c = om.readValue(file, c.getClass());
 				System.out.println("working");
 				return c;
 			} catch (IOException e) {
