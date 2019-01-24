@@ -8,11 +8,13 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.Main;
+import rpg.game.Handler;
 import rpg.utilities.json.classses.IndexHandler;
+import rpg.utilities.json.classses.Index;
+import rpg.utilities.json.classses.index.Path;
 import rpg.utilities.json.classses.items.Armor;
 
 import com.fasterxml.jackson.core.*;
@@ -23,34 +25,69 @@ public class JsonMain {
 	private JsonWriter Jw;
 	private Index index;
 	private Handler h;
-	
-	public void init(Handler h) {
-		this.Jr = new JsonReader();
+
+	public void Init(Handler h) {
 		this.Jw = new JsonWriter();
 		this.h = h;
 		this.index = h.getIndex();
 	}
-	
-	public Class Read(String type) {
-		Class c = TypeToClass(type);
-		return null;
+
+	public Class<?> Read(String type) {
+		Class<?> c = TypeToClass(type);
+		System.out.println(c.getName());
+		String path = TypeToPath(type);
+		System.out.println(path);
+		this.Jr = new JsonReader(c, path);
+		c = Jr.Read();
+		return c;
 	}
-	
-	private Class TypeToClass(String type) {
-		//find type in array of index
-		Class c;
-		Path[] ptdata;
+
+	private Class<?> TypeToClass(String type) {
+		// find type in array of index
+		Class<?> c;
+		Path[] ptdata = h.getPTdata();
+
 		boolean temp = false;
-		while(!temp){
-			for(int i=0; i < ptdata.length; i++){
-				if(ptdata[i].getType() != type){
-				  continue;
-}else{}
+		while (!temp) {
+			for (int i = 0; i < ptdata.length; i++) {
+				if (ptdata[i].getType() != type) {
+					continue;
+				} else {
+					try {
+						Class<?> clas = Class.forName(ptdata[i].getClas());
+						return clas;
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 			}
 		}
-		return null;
+		throw new Error("could not find the class for type " + type);
 	}
-	
+
+	private String TypeToPath(String type) {
+		String path;
+		Path[] ptdata;
+		ptdata = index.getIndex();
+		boolean temp = false;
+		while (!temp) {
+			for (int i = 0; i < ptdata.length; i++) {
+				if (ptdata[i].getType() != type) {
+					continue;
+				} else {
+					try {
+						path = ptdata[i].getPath();
+						return path;
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		throw new Error("could not find the path for type " + type);
+
+	}
+
 	private void fix_file() {
 		URL dir_url = ClassLoader.getSystemResource("res/GameData/Items/Armor/LightArmor.json");
 		ObjectMapper om = new ObjectMapper();
@@ -70,9 +107,7 @@ public class JsonMain {
 			System.out.println("error with uri");
 			e1.printStackTrace();
 		}
-		
-		
+
 	}
-	
-	
+
 }

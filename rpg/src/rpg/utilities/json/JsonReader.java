@@ -7,18 +7,24 @@ import java.net.URL;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import rpg.utilities.json.classses.items.Armor;
-
 public class JsonReader {
-	public Class read(String path) {
-		Class c;
-		URL dir_url = ClassLoader.getSystemResource("res/GameData/Items/Armor/LightArmor.json");
+	private Class<?> c;
+	private String path;
+
+	JsonReader(Class<?> c, String path) {
+		this.c = c;
+		this.path = path;
+	}
+
+	public Class<?> Read() {
+		URL dir_url = ClassLoader.getSystemResource(path);
 		ObjectMapper om = new ObjectMapper();
 		try {
 			File file = new File(dir_url.toURI());
 			try {
-				Armor arm = om.readValue(file, Armor.class);
-				
+				c = om.readValue(file, this.c.getClass());
+				System.out.println("working");
+				return c;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				System.out.println("error reading contents");

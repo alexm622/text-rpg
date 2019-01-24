@@ -1,21 +1,36 @@
 package rpg.utilities.json.classses.index;
 
-public abstract class Path {
+public class Path {
 
-	//definitions
+	// definitions
 
 	private String path;
 	private String type;
-    private String cla;
+	private String clas;
 
-	//getters and setters
+	// getters and setters
 
-	public String getPath() {return this.path;}
-	public void setPath(String path) {this.path = path;}
+	public String getPath() {
+		return this.path;
+	}
 
-	public String getType() {return this.type;}
-	public void setType(String type) {this.type = type;}
+	public void setPath(String path) {
+		this.path = path;
+	}
 
-    public String getCla() {return this.cla;}
-    public Void setCla(String cla) {this.cla = cla;}
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getClas() {
+		return this.clas;
+	}
+
+	public void setClas(String clas) {
+		this.clas = clas;
+	}
 }

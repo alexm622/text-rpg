@@ -20,3 +20,4 @@
 - index handler
 - ~~completely restructure the index~~
 - pass around main class
+- work on making the handler class
