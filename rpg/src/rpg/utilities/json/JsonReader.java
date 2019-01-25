@@ -12,12 +12,14 @@ public class JsonReader {
 	private String path;
 	private Object o;
 
+    //TODO make this return a class of type T given class T
+    //https://stackoverflow.com/questions/2240646/how-to-pass-a-type-as-a-method-parameter-in-java
+
 	JsonReader(Class<?> c, String path) {
 		this.c = c;
 		try {
 			this.o = c.newInstance();
 		} catch (InstantiationException | IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.path = path;
@@ -34,12 +36,12 @@ public class JsonReader {
 				System.out.println("working");
 				return c;
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				System.out.println("error reading contents");
 				e.printStackTrace();
 			}
 		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
+
 			System.out.println("error with uri");
 			e1.printStackTrace();
 		}

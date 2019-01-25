@@ -22,3 +22,4 @@
 - pass around main class
 - work on making the handler class
 - make it so the program will dump all data to memory
+- Jsonread accept a class type as an argument

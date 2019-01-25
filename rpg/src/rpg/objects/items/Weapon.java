@@ -1,6 +1,6 @@
 package rpg.objects.items;
 
-import rpg.objects.Item;
+
 
 public class Weapon {
     private Item[] items;
@@ -42,42 +42,8 @@ public class Weapon {
             this.damage = damage;
         }
 
-        public static class Dmg {
-            private int dieamt;
-            private int dietype;
-            private String die;
+        public static class Dmg extends rpg.objects.Attack{
 
-            public void setDie(String die) {
-                this.die = die;
-                SplitToDie(die);
-            }
-
-            private void SplitToDie(String die) {
-                String s = die;
-                String[] ss = s.split("d", 2);
-                this.dieamt = Integer.parseInt(ss[0]);
-                this.dietype = Integer.parseInt(ss[1]);
-            }
-
-            private String getDie() {
-                return this.die;
-            }
-
-            public int getDieamt() {
-                return dieamt;
-            }
-
-            public void setDieamt(int dieamt) {
-                this.dieamt = dieamt;
-            }
-
-            public int getDietype() {
-                return dietype;
-            }
-
-            public void setDietype(int dietype) {
-                this.dietype = dietype;
-            }
         }
     }
 

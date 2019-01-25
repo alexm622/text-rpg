@@ -46,7 +46,7 @@ public class Handler {
 			System.out.println(o.toString());
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException
 				| Error e) {
-			// TODO Auto-generated catch block
+
 			System.out.println("error");
 			e.printStackTrace();
 		}
@@ -63,7 +63,6 @@ public class Handler {
 	}
 
 	private void InitFm() {
-		// TODO Auto-generated method stub
 		this.fm = new SaveFileReader();
 		this.fm.Init();
 	}

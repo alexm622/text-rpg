@@ -30,7 +30,6 @@ public class SaveFileReader {
 			}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			if (e.getMessage().contains("The system cannot find the path specified")) {
 				new File(("C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\"))
 						.mkdirs();
@@ -38,7 +37,6 @@ public class SaveFileReader {
 					f.createNewFile();
 					res = true;
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				if (res) {
@@ -57,12 +55,11 @@ public class SaveFileReader {
 		 * create the directory if not present, then make the file, if not already
 		 * there. would like to make a gui to allow users to select the loc of a custom
 		 * save
-		 * 
+		 *
 		 */
 		try {
 			fw = new FileWriter(f);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		w = new BufferedWriter(fw);
@@ -81,7 +78,6 @@ public class SaveFileReader {
 			}
 			w.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -99,7 +95,6 @@ public class SaveFileReader {
 		try {
 			fr = new FileReader(f);
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -110,7 +105,6 @@ public class SaveFileReader {
 				text[length] = line;
 				length++;
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				break;
 			}

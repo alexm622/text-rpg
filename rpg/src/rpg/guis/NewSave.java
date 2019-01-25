@@ -319,7 +319,6 @@ public class NewSave {
 	}
 
 	public void Create(String text) {
-		// TODO Auto-generated method stub
 		refresh();
 		String[] stats = { text, Integer.toString(values[0]), Integer.toString(values[1]), Integer.toString(values[2]),
 				Integer.toString(values[3]), Integer.toString(values[4]), Integer.toString(values[5]) };

@@ -22,12 +22,12 @@ public class IndexHandler {
 			try {
 				index = mapper.readValue(file, Path[].class);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				System.out.println("error reading contents");
 				e.printStackTrace();
 			}
 		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
+
 			System.out.println("error with uri");
 			e1.printStackTrace();
 		}

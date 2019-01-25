@@ -15,7 +15,7 @@ public class Player {
 	 * dexterity
 	 * constitution
 	 * proficiency
-	 * 
+	 *
 	 */
 	public int stren, chari, intel, wis;
 	public int dex;
@@ -24,13 +24,12 @@ public class Player {
 	public int armor;
 	private Object[] localstats = {xp, gp, lvl, stren, chari, intel, wis, dex, consti};
 	public String[] stats = new String[44];
-	public void Create(String x) { //make this accept an array soon, so that the selection of starting gear/class and stats
-		// TODO Auto-generated method stub
+	public void Create(String x) { //TODO make this accept an array soon, so that the selection of starting gear/class and stats
 		name = x;
 		stats[0] = x;
 		return;
 	}
-	
+
 	public void initStats(String[] s) {
 		if(s.length != 7) {
 			System.out.println("error");
@@ -46,10 +45,10 @@ public class Player {
 				System.out.println("how was this fucked up??");
 			}
 		}
-		
+
 	}
-	
-	
+
+
 	private boolean setStats() {
 		boolean x = false;
 		for(int i = 0; i < 6; i++) {
@@ -57,13 +56,13 @@ public class Player {
 				name = stats[i];
 			}else {
 				try {
-					localstats[i-1] = Integer.parseInt(stats[i]);					
+					localstats[i-1] = Integer.parseInt(stats[i]);
 				}catch(Exception e) {
 					System.out.println("why does stats entry " + i + " have a non-numeric Character?");
 					x = true;
 					break;
 				}
-				
+
 			}
 		}
 		if(x) {
@@ -72,7 +71,7 @@ public class Player {
 		}else {
 			x = true;
 		}
-		return x;		
+		return x;
 	}
 
 	//getters and setters
@@ -151,7 +150,7 @@ public class Player {
 	public String[] getStats() {
 		return stats;
 	}
-	
-	
-	
+
+
+
 }

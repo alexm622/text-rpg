@@ -8,5 +8,6 @@ public class Memory {
     private Weapon weapon;
 
     Memory() {
+        
     }
 }

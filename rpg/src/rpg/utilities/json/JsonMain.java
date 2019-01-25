@@ -34,7 +34,6 @@ public class JsonMain {
 	}
 
 	private void InitIndex() {
-		// TODO Auto-generated method stub
 		IndexHandler indexh = new IndexHandler();
 		indexh.init(this.h);
 		this.index = new Index();
@@ -122,12 +121,10 @@ public class JsonMain {
 				System.out.println(arm.getItems()[0].getItemname());
 				System.out.println(arm.getItems()[0].getModifiers()[0].getid());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				System.out.println("error reading contents");
 				e.printStackTrace();
 			}
 		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
 			System.out.println("error with uri");
 			e1.printStackTrace();
 		}
