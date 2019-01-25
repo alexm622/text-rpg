@@ -12,7 +12,7 @@ public class JsonReader {
 	private String path;
 	private Object o;
 
-    //TODO make this return a class of type T given class T
+    // TODO make this return a class of type T given class T
     //https://stackoverflow.com/questions/2240646/how-to-pass-a-type-as-a-method-parameter-in-java
 
 	JsonReader(Class<?> c, String path) {
