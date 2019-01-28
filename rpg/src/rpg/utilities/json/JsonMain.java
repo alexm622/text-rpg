@@ -52,7 +52,7 @@ public class JsonMain {
 		String path = TypeToPath(type);
 		System.out.println(path);
 		this.Jr = new JsonReader(c, path);
-		c = Jr.Read();
+		c = this.Jr.Read();
 		return c;
 	}
 
@@ -111,24 +111,5 @@ public class JsonMain {
 
 	}
 
-	private void fix_file() {
-		URL dir_url = ClassLoader.getSystemResource("res/GameData/Items/Armor/LightArmor.json");
-		ObjectMapper om = new ObjectMapper();
-		try {
-			File file = new File(dir_url.toURI());
-			try {
-				Armor arm = om.readValue(file, Armor.class);
-				System.out.println(arm.getItems()[0].getItemname());
-				System.out.println(arm.getItems()[0].getModifiers()[0].getid());
-			} catch (IOException e) {
-				System.out.println("error reading contents");
-				e.printStackTrace();
-			}
-		} catch (URISyntaxException e1) {
-			System.out.println("error with uri");
-			e1.printStackTrace();
-		}
-
-	}
 
 }

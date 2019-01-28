@@ -310,4 +310,81 @@ public class GraphicMain {
 		return this;
 	}
 
+	/**
+	 * @return the frmRpg
+	 */
+	public JFrame getFrmRpg() {
+		return frmRpg;
+	}
+
+	/**
+	 * @param frmRpg the frmRpg to set
+	 */
+	public void setFrmRpg(JFrame frmRpg) {
+		this.frmRpg = frmRpg;
+	}
+
+	/**
+	 * @return the radioButtons
+	 */
+	public ButtonGroup getRadioButtons() {
+		return radioButtons;
+	}
+
+	/**
+	 * @return the query
+	 */
+	public JTextField getQuery() {
+		return query;
+	}
+
+	/**
+	 * @param query the query to set
+	 */
+	public void setQuery(JTextField query) {
+		this.query = query;
+	}
+
+	/**
+	 * @return the hp_gold
+	 */
+	public JTextField getHp_gold() {
+		return hp_gold;
+	}
+
+	/**
+	 * @param hp_gold the hp_gold to set
+	 */
+	public void setHp_gold(JTextField hp_gold) {
+		this.hp_gold = hp_gold;
+	}
+
+	/**
+	 * @return the choice_yes
+	 */
+	public JRadioButton getChoice_yes() {
+		return choice_yes;
+	}
+
+	/**
+	 * @param choice_yes the choice_yes to set
+	 */
+	public void setChoice_yes(JRadioButton choice_yes) {
+		this.choice_yes = choice_yes;
+	}
+
+	/**
+	 * @return the choice_no
+	 */
+	public JRadioButton getChoice_no() {
+		return choice_no;
+	}
+
+	/**
+	 * @param choice_no the choice_no to set
+	 */
+	public void setChoice_no(JRadioButton choice_no) {
+		this.choice_no = choice_no;
+	}
+
 }

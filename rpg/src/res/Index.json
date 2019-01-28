@@ -1,5 +1,6 @@
 [
-   {"type":"lightarmor", "clas":"rpg.utilities.json.classes.items.Armor", "path":"res/GameData/Items/Armor/LightArmor.json"},
-   {"type":"mediumarmor", "clas":"rpg.utilities.json.classes.items.Armor", "path":"res/GameData/Items/Armor/MediumArmor.json"},
-   {"type":"heavyarmor", "clas":"rpg.utilities.json.classes.items.Armor", "path":"res/GameData/Items/Armor/HeavyArmor.json"}
+   {"type":"lightarmor", "clas":"rpg.objects.items.Armor", "path":"res/GameData/Items/Armor/LightArmor.json"},
+   {"type":"mediumarmor", "clas":"rpg.objects.items.Armor", "path":"res/GameData/Items/Armor/MediumArmor.json"},
+   {"type":"heavyarmor", "clas":"rpg.objects.items.Armor", "path":"res/GameData/Items/Armor/HeavyArmor.json"},
+   {"type":"weapons", "clas":"rpg.objects.items.Weapon", "path":"res/GameData/Items/Weapons/Weapons.json"}
 ]

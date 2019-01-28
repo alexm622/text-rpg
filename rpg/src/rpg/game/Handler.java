@@ -28,30 +28,6 @@ public class Handler {
 	 * TestIndex is a debug class testing to see if typetoclass works, and if it can
 	 * fetch the class properties based on the type name
 	 */
-	public void TestIndex() {
-		// debug
-		System.out.println("TestIndex called");
-		System.out.println(ptdata[0].getClas());
-		Class<?> temp = jm.Read("lightarmor");
-		System.out.println(temp.getName().toString());
-		if (temp.equals(null)) {
-			System.out.println("temp is null");
-		} else {
-			System.out.println("test03");
-
-		}
-		try {
-			Method m = temp.getMethod("getItemName");
-			Object o = m.invoke(null);
-			System.out.println(o.toString());
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException
-				| Error e) {
-
-			System.out.println("error");
-			e.printStackTrace();
-		}
-
-	}
 
 	private void InitGame(Game g) {
 		this.g = g;

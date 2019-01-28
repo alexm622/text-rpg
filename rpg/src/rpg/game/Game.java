@@ -1,17 +1,19 @@
 package rpg.game;
 
 import rpg.guis.GraphicMain;
+import rpg.utilities.memory.Memory;
 
 public class Game {
     private Handler h;
     private GraphicMain gm;
+    private Memory mem;
 
     public Game() {
         System.out.println("ran");
         GraphicMain.main(null);
-        gm = new GraphicMain();
-        h = new Handler(this);
-        h.TestIndex();
+        this.gm = new GraphicMain();
+        this.h = new Handler(this);
+        this.mem = new Memory(this.h);
     }
 
     public void Begin() {
