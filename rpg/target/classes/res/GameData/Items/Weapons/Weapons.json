@@ -1,0 +1,20 @@
+{
+	"items":[{
+		"itemname":"test",
+		"itembuy": 3,
+		"itemsell":4,
+		"rarity":1,
+		"purchasable": false,
+		"modifiers": [
+			{"id": 0, "lvl":1}
+			],
+		"weapontype":"thing",
+		"weaponskill":"something",
+		
+		"damage":{
+			"name":"generic attack",
+			"desc":"this is a generic attack",
+			"die":"2d6"
+		}
+	}]		
+}
