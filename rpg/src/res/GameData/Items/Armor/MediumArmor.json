@@ -1,0 +1,15 @@
+{
+	"items":[{
+		"itemname":"test",
+		"itembuy": 3,
+		"itemsell":4,
+		"rarity":1,
+		"purchasable": false,
+		"modifiers": [
+			{"id": 0, "lvl":1}
+			],
+		"armorclass":"2",
+		"armortype":"3",
+		"maxdex":"4"		
+	}]		
+}
