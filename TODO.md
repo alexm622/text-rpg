@@ -9,6 +9,9 @@
 - the main game
 - a plugin system
 - an outline of how events will work
+- work on inventory
+- restructure the player save loading
+- memload gui
 
 **fix**
 

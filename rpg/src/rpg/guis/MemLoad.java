@@ -105,4 +105,12 @@ public class MemLoad {
 	public void setLoadingText(JLabel loadingText) {
 		this.loadingText = loadingText;
 	}
+
+	public JFrame getFrame(){
+		return this.frame;
+	}
+
+	public void setFrame(JFrame frame){
+		this.frame = frame;
+	}
 }
