@@ -1,5 +1,9 @@
 package rpg.utilities.memory;
 
+import rpg.objects.Character;
+import rpg.objects.StoryEvents;
+
+import rpg.objects.items.*;
 
 public class AbsMem{
     //private vars
@@ -12,6 +16,14 @@ public class AbsMem{
         //weapons
 
         private Weapon weapons;
+
+        //events
+
+        private StoryEvents events;
+
+        //character
+
+        private Character character;
 
     //getters and setters
 
@@ -59,13 +71,33 @@ public class AbsMem{
                 this.weapons = weapons;
             }
 
+        //events
+            
+            //getters
+
+            public StoryEvents getEvents(){
+                return this.events;
+            }
+
+            //setters
+
+            public void setEvents(StoryEvents events){
+                this.events = events;
+            }
+        
+        //character
+            
+            //getters
+
+            public Character getCharacter(){
+                return this.character;
+            }
+
+            //setters
+
+            public void setCharacter(Character character){
+                this.character = character;
+            }
 
     //class definitions
-    public static class Armor extends rpg.objects.items.Armor{
-
-    }
-
-    public static class Weapon extends rpg.objects.items.Weapon{
-
-    }
 }

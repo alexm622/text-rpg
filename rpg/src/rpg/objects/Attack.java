@@ -1,6 +1,6 @@
 package rpg.objects;
 
-public abstract class Attack{
+public class Attack{
     private String name;
     private String desc;
     private int dienum;

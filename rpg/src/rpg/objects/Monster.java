@@ -1,14 +1,13 @@
 package rpg.objects;
 
+import rpg.objects.Attack;
+
 public abstract class Monster{
     private int hp;
     private int xp;
     private int lvl;
     private Attack[] attacks;
 
-    public static class Attack extends rpg.objects.Attack{
-
-    }
 
     public int getHp(){
         return this.hp;

@@ -8,6 +8,7 @@
 - story.json
 - the main game
 - a plugin system
+- an outline of how events will work
 
 **fix**
 

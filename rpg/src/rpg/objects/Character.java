@@ -1,8 +1,6 @@
 package rpg.objects;
 
-import rpg.utilities.memory.AbsMem.Armor;
-
-import rpg.utilities.memory.AbsMem.Weapon;
+import rpg.objects.items.*;
 
 
 public class Character{
