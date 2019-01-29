@@ -21,14 +21,15 @@ import com.fasterxml.jackson.core.*;
 
 @SuppressWarnings("unused")
 public class JsonMain {
-	private JsonReader Jr;
 	private JsonWriter Jw;
 	private Index index;
 	private Handler h;
+	private ObjectMapper om;
 
 	public void Init(Handler h) {
 		this.Jw = new JsonWriter();
 		this.h = h;
+		this.om = new ObjectMapper();
 		InitIndex();
 		System.out.println(index.getIndex()[0].getClas());
 	}
@@ -45,52 +46,7 @@ public class JsonMain {
 		}
 
 	}
-
-	public Class<?> Read(String type) {
-		Class<?> c = TypeToClass(type);
-		System.out.println(c.getName());
-		String path = TypeToPath(type);
-		System.out.println(path);
-		this.Jr = new JsonReader(c, path);
-		c = this.Jr.Read();
-		return c;
-	}
-
-	private Class<?> TypeToClass(String type) {
-		// find type in array of index
-		Class<?> c;
-		Path[] ptdata = h.getPTdata();
-		System.out.println(type);
-		System.out.println(ptdata[0].getType());
-		System.out.println(type.equals(ptdata[0].getType()));
-		for (int i = 0; i < ptdata.length; i++) {
-			if (!(type.equals(ptdata[i].getType()))) {
-				continue;
-			} else {
-				try {
-					ClassLoader cl = new ClassLoader() {
-					};
-					c = cl.loadClass(ptdata[i].getClas());
-					System.out.println("classloader");
-					System.out.println(c.getName());
-					System.out.println(c.getMethods()[1].getName());
-					Class<?> clas = Class.forName(ptdata[i].getClas());
-					System.out.println("for name");
-					System.out.println(clas.getName());
-					System.out.println(clas.getMethods()[1].getName());
-					System.out.println("found it");
-					return c;
-				} catch (Exception e) {
-					System.out.println("didn't find it");
-					e.printStackTrace();
-				}
-			}
-		}
-		System.out.println("didn't find");
-		throw new Error("could not find the class for type " + type);
-	}
-
-	private String TypeToPath(String type) {
+	public String TypeToPath(String type) {
 		String path;
 		Path[] ptdata;
 		ptdata = index.getIndex();
@@ -111,5 +67,15 @@ public class JsonMain {
 
 	}
 
+	public ObjectMapper getOm(){
+		return this.om;
+	}
 
+	public File getFile(String path) throws URISyntaxException {
+		File file;
+		URL dir_url = ClassLoader.getSystemResource(path);
+		file = new File(dir_url.toURI());
+		return file;
+		
+	}
 }

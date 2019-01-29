@@ -5,9 +5,6 @@ import rpg.utilities.SaveFileReader;
 import rpg.utilities.json.JsonMain;
 import rpg.utilities.json.classes.index.Path;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;;
-
 public class Handler {
 	private Game g;
 	private Player p;

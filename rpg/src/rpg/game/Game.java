@@ -11,9 +11,9 @@ public class Game {
     public Game() {
         System.out.println("ran");
         GraphicMain.main(null);
-        this.gm = new GraphicMain();
-        this.h = new Handler(this);
-        this.mem = new Memory(this.h);
+        gm = new GraphicMain();
+        h = new Handler(this);
+        mem = new Memory(this.h);
     }
 
     public void Begin() {
@@ -45,6 +45,14 @@ public class Game {
      */
     public void setGm(GraphicMain gm) {
         this.gm = gm;
+    }
+
+    public Memory getMemory(){
+        return this.mem;
+    }
+
+    public void setMemory(Memory mem){
+        this.mem = mem;
     }
 
 }

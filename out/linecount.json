@@ -5,11 +5,11 @@
     "linecount": [
         {
             "version": "0.1.7",
-            "counttime": "2019-01-28 13:17:06",
-            "filesum": 138,
-            "codesum": 2113,
-            "commentsum": 175,
-            "blanksum": 406,
+            "counttime": "2019-01-29 09:37:34",
+            "filesum": 144,
+            "codesum": 2205,
+            "commentsum": 254,
+            "blanksum": 453,
             "filelist": [
                 {
                     "blank": 2,
@@ -145,7 +145,7 @@
                 },
                 {
                     "blank": 0,
-                    "code": 5,
+                    "code": 6,
                     "comment": 0,
                     "filename": "rpg\\src\\res\\Index.json"
                 },
@@ -183,14 +183,14 @@
                     "filename": "rpg\\src\\rpg\\game\\.gitignore"
                 },
                 {
-                    "blank": 9,
-                    "code": 30,
+                    "blank": 11,
+                    "code": 35,
                     "comment": 12,
                     "filename": "rpg\\src\\rpg\\game\\Game.java"
                 },
                 {
-                    "blank": 19,
-                    "code": 65,
+                    "blank": 18,
+                    "code": 63,
                     "comment": 4,
                     "filename": "rpg\\src\\rpg\\game\\Handler.java"
                 },
@@ -229,6 +229,24 @@
                     "code": 45,
                     "comment": 0,
                     "filename": "rpg\\src\\rpg\\objects\\Attack.java"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "rpg\\src\\rpg\\objects\\Character.java"
+                },
+                {
+                    "blank": 13,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "rpg\\src\\rpg\\objects\\GenericItem.java"
+                },
+                {
+                    "blank": 40,
+                    "code": 114,
+                    "comment": 101,
+                    "filename": "rpg\\src\\rpg\\objects\\Inventory.java"
                 },
                 {
                     "blank": 16,
@@ -327,16 +345,10 @@
                     "filename": "rpg\\src\\rpg\\utilities\\json\\DataWriter.java"
                 },
                 {
-                    "blank": 14,
-                    "code": 100,
-                    "comment": 1,
+                    "blank": 12,
+                    "code": 69,
+                    "comment": 0,
                     "filename": "rpg\\src\\rpg\\utilities\\json\\JsonMain.java"
-                },
-                {
-                    "blank": 9,
-                    "code": 39,
-                    "comment": 2,
-                    "filename": "rpg\\src\\rpg\\utilities\\json\\JsonReader.java"
                 },
                 {
                     "blank": 2,
@@ -345,15 +357,15 @@
                     "filename": "rpg\\src\\rpg\\utilities\\json\\JsonWriter.java"
                 },
                 {
-                    "blank": 20,
-                    "code": 26,
-                    "comment": 7,
-                    "filename": "rpg\\src\\rpg\\utilities\\memory\\MemLoader.java"
+                    "blank": 25,
+                    "code": 35,
+                    "comment": 11,
+                    "filename": "rpg\\src\\rpg\\utilities\\memory\\AbsMem.java"
                 },
                 {
-                    "blank": 37,
-                    "code": 76,
-                    "comment": 36,
+                    "blank": 28,
+                    "code": 56,
+                    "comment": 13,
                     "filename": "rpg\\src\\rpg\\utilities\\memory\\Memory.java"
                 },
                 {
@@ -460,7 +472,7 @@
                 },
                 {
                     "blank": 0,
-                    "code": 5,
+                    "code": 6,
                     "comment": 0,
                     "filename": "rpg\\target\\classes\\res\\Index.json"
                 },
@@ -693,6 +705,27 @@
                     "comment": 0
                 },
                 {
+                    "filename": "rpg\\target\\classes\\rpg\\objects\\Character.class",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "rpg\\target\\classes\\rpg\\objects\\GenericItem.class",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "rpg\\target\\classes\\rpg\\objects\\Inventory.class",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
                     "filename": "rpg\\target\\classes\\rpg\\objects\\Item$Modifier.class",
                     "isbinaryfile": true,
                     "blank": 0,
@@ -837,21 +870,7 @@
                     "comment": 0
                 },
                 {
-                    "filename": "rpg\\target\\classes\\rpg\\utilities\\json\\JsonMain$1.class",
-                    "isbinaryfile": true,
-                    "blank": 0,
-                    "code": 0,
-                    "comment": 0
-                },
-                {
                     "filename": "rpg\\target\\classes\\rpg\\utilities\\json\\JsonMain.class",
-                    "isbinaryfile": true,
-                    "blank": 0,
-                    "code": 0,
-                    "comment": 0
-                },
-                {
-                    "filename": "rpg\\target\\classes\\rpg\\utilities\\json\\JsonReader.class",
                     "isbinaryfile": true,
                     "blank": 0,
                     "code": 0,
@@ -865,7 +884,21 @@
                     "comment": 0
                 },
                 {
-                    "filename": "rpg\\target\\classes\\rpg\\utilities\\memory\\MemLoader.class",
+                    "filename": "rpg\\target\\classes\\rpg\\utilities\\memory\\AbsMem$Armor.class",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "rpg\\target\\classes\\rpg\\utilities\\memory\\AbsMem$Weapon.class",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "rpg\\target\\classes\\rpg\\utilities\\memory\\AbsMem.class",
                     "isbinaryfile": true,
                     "blank": 0,
                     "code": 0,
@@ -898,6 +931,12 @@
                     "blank": 0,
                     "code": 0,
                     "comment": 0
+                },
+                {
+                    "blank": 6,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "TODO.md"
                 }
             ]
         }

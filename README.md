@@ -4,11 +4,11 @@
 
 - ~~make the program retrieve from within the resources folder~~
 - saving and retrieving save files in a json format **got the retreving done**
-- make a json file reader/parser
+- ~~make a json file reader/parser~~
 - make a json file writer with an object/class as input
 - actually add the base game
 - develop a combat system
-- find out how to manage inventory
+- find out how to manage inventory (this will be done with an abstract class and loaded items)
 - make a solid method handler
 - abstract classes (got this for json files, might be usefull for other things though)
 - modding support
