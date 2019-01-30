@@ -328,7 +328,6 @@ public class NewSave {
 		System.out.println("done");
 		// GraphicMain.get_Handler().getG().getP().Create(text);
 		h.getP().initStats(stats);
-		h.getG().Begin();
 		return;
 	}
 

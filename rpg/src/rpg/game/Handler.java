@@ -11,6 +11,7 @@ public class Handler {
 	private SaveFileReader fm;
 	private JsonMain jm;
 	private Path[] ptdata;
+	private Thread t;
 
 	public Handler(Game g) {
 		this.ptdata = new Path[0];
@@ -19,12 +20,18 @@ public class Handler {
 		InitJson();
 		InitGame(g);
 		fm.Init();
+		//InitThread();
+
+		t.start();
 	}
 
-	/*
-	 * TestIndex is a debug class testing to see if typetoclass works, and if it can
-	 * fetch the class properties based on the type name
-	 */
+
+	//init thread
+
+	private void InitThread(){
+		this.t = new Thread(g);
+	}
+
 
 	private void InitGame(Game g) {
 		this.g = g;
@@ -44,6 +51,15 @@ public class Handler {
 		this.p = new Player();
 	}
 
+	//getters and setters
+
+	public Thread getT(){
+		return this.t;
+	}
+
+	public void setT(Thread t){
+		this.t = t;
+	}
 	public Player getP() {
 		return this.p;
 	}

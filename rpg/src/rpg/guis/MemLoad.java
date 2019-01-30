@@ -16,8 +16,6 @@ public class MemLoad {
 	private JProgressBar loadProgress;
 	private JLabel loadingText;
 
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -39,9 +37,17 @@ public class MemLoad {
 	 */
 	public MemLoad() {
 		initialize();
+		frame.setFocusable(false);
+		frame.setVisible(true);
 	}
-	
+
 	public void Close() {
+		try {
+			Thread.sleep(250);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		frame.dispose();
 	}
 
@@ -54,11 +60,13 @@ public class MemLoad {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		loadingAsset = new JLabel("Asset Being Loaded");
+		loadingAsset = new JLabel();
+		loadingAsset.setText("Asset Being Loaded");
 		loadingAsset.setBounds(22, 52, 386, 25);
 		frame.getContentPane().add(loadingAsset);
 		
-		percent = new JLabel("percent");
+		percent = new JLabel();
+		percent.setText("percent");
 		percent.setFont(new Font("Tahoma", Font.BOLD, 15));
 		percent.setBounds(236, 11, 101, 30);
 		frame.getContentPane().add(percent);
@@ -67,11 +75,18 @@ public class MemLoad {
 		loadProgress.setBounds(10, 52, 414, 25);
 		frame.getContentPane().add(loadProgress);
 		
-		loadingText = new JLabel("Loading:");
+		loadingText = new JLabel();
+		loadingText.setText("Loading:");
 		loadingText.setHorizontalAlignment(SwingConstants.TRAILING);
 		loadingText.setFont(new Font("Tahoma", Font.BOLD, 15));
 		loadingText.setBounds(140, 11, 94, 30);
 		frame.getContentPane().add(loadingText);
+	}
+
+	public void setAsset(String path){
+		System.out.println("ran the set asset");
+		this.percent.setText("ssds");
+		frame.validate();
 	}
 	
 	public JLabel getLoadingAsset() {

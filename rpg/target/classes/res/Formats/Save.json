@@ -1,0 +1,74 @@
+{
+    "Name":"name",
+    "lvl":0,
+    "stren":0,
+    "chari":0,
+    "intel":0,
+    "wis":0,
+    "dex":0,
+    "consti":0,
+    "prof":0,
+    "xp":0,
+    "gp":0,
+    "inv":{
+        "items":[
+            {
+                "id":0,
+                "count":0,
+                "name":"name",
+                "lore":"lore",
+                "modifiers":[
+                    {"id":0, "lvl": 0}
+
+                ]
+            }
+        ]
+    },
+    "boots":{
+        "id":0,
+            "count":0,
+            "name":"name",
+            "lore":"lore",
+            "modifiers":[
+                {"id":0, "lvl": 0}
+            ]
+    },
+    "pants":{
+        "id":0,
+            "count":0,
+            "name":"name",
+            "lore":"lore",
+            "modifiers":[
+                {"id":0, "lvl": 0}
+            ]
+    },
+    "chest":{
+        "id":0,
+            "count":0,
+            "name":"name",
+            "lore":"lore",
+            "modifiers":[
+                {"id":0, "lvl": 0}
+            ]
+    },
+    "helmet":{
+        "id":0,
+            "count":0,
+            "name":"name",
+            "lore":"lore",
+            "modifiers":[
+                {"id":0, "lvl": 0}
+            ]
+    },
+    "equipped":{
+        "id":0,
+            "count":0,
+            "name":"name",
+            "lore":"lore",
+            "modifiers":[
+                {"id":0, "lvl": 0}
+            ]
+    }
+    
+
+}

@@ -32,14 +32,15 @@ import java.awt.event.ActionEvent;
 @SuppressWarnings("unused")
 public class GraphicMain {
 
-	public JFrame frmRpg;
-	public final ButtonGroup radioButtons = new ButtonGroup();
-	public JTextField query;
-	public JTextField name_level;
-	public JTextField hp_gold;
-	public JTextPane output;
-	public static Handler h;
-	public JRadioButton choice_1, choice_2, choice_3, choice_4, choice_5, choice_6, choice_yes, choice_no;
+	private JFrame frmRpg;
+	private JPanel panel;
+	private final ButtonGroup radioButtons = new ButtonGroup();
+	private JTextField question;
+	private JTextField name_level;
+	private JTextField hp_gold;
+	private JTextPane output;
+	private static Handler h;
+	private JRadioButton choice_1, choice_2, choice_3, choice_4, choice_5, choice_6, choice_yes, choice_no;
 	private static SaveManager SM;
 
 	/**
@@ -67,6 +68,7 @@ public class GraphicMain {
 	 */
 	public GraphicMain() {
 		initialize();
+		frmRpg.setVisible(true);
 	}
 
 	/**
@@ -81,11 +83,11 @@ public class GraphicMain {
 		frmRpg.getContentPane().setLayout(null);
 
 		output = new JTextPane();
+		output.setText(" sdfs");
 		output.setBounds(0, 23, 625, 274);
 		output.setEditable(false);
-		output.setEnabled(false);
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 308, 647, 127);
 		frmRpg.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -145,20 +147,21 @@ public class GraphicMain {
 		choice_no.setVisible(false);
 		choice_no.setBounds(438, 67, 98, 23);
 		panel.add(choice_no);
+
 		JButton choice_select = new JButton("Choose");
 		choice_select.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println(radioButtons.getSelection().getActionCommand());
+				Thread.currentThread().notify();
 			}
 		});
 		choice_select.setBounds(548, 93, 89, 23);
-		choice_select.setVisible(false);
+		choice_select.setVisible(true);
 		panel.add(choice_select);
 
-		query = new JTextField();
-		query.setBounds(0, 11, 647, 20);
-		panel.add(query);
-		query.setColumns(10);
+		question = new JTextField();
+		question.setBounds(0, 11, 647, 20);
+		panel.add(question);
+		question.setColumns(10);
 
 		JButton invButton = new JButton("Inventory");
 		invButton.setBounds(548, 41, 89, 23);
@@ -332,17 +335,17 @@ public class GraphicMain {
 	}
 
 	/**
-	 * @return the query
+	 * @return the question
 	 */
-	public JTextField getQuery() {
-		return query;
+	public JTextField getQuestion() {
+		return question;
 	}
 
 	/**
-	 * @param query the query to set
+	 * @param question the question to set
 	 */
-	public void setQuery(JTextField query) {
-		this.query = query;
+	public void setQuestion(JTextField query) {
+		this.question = query;
 	}
 
 	/**

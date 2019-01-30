@@ -9,8 +9,8 @@ public class Character{
     private int stren, chari, intel, wis, dex, consti, prof;
     private int xp, gp;
     private Inventory inv;
-    private Armor boots, pants, chest, helmet;
-    private Weapon equipped;
+    private GenericItem boots, pants, chest, helmet;
+    private GenericItem equipped;
 
     public Inventory getInv(){
         return this.inv;
@@ -155,70 +155,70 @@ public class Character{
 	/**
 	 * @return the boots
 	 */
-	public Armor getBoots() {
+	public GenericItem getBoots() {
 		return boots;
 	}
 
 	/**
 	 * @param boots the boots to set
 	 */
-	public void setBoots(Armor boots) {
+	public void setBoots(GenericItem boots) {
 		this.boots = boots;
 	}
 
 	/**
 	 * @return the pants
 	 */
-	public Armor getPants() {
+	public GenericItem getPants() {
 		return pants;
 	}
 
 	/**
 	 * @param pants the pants to set
 	 */
-	public void setPants(Armor pants) {
+	public void setPants(GenericItem pants) {
 		this.pants = pants;
 	}
 
 	/**
 	 * @return the chest
 	 */
-	public Armor getChest() {
+	public GenericItem getChest() {
 		return chest;
 	}
 
 	/**
 	 * @param chest the chest to set
 	 */
-	public void setChest(Armor chest) {
+	public void setChest(GenericItem chest) {
 		this.chest = chest;
 	}
 
 	/**
 	 * @return the helmet
 	 */
-	public Armor getHelmet() {
+	public GenericItem getHelmet() {
 		return helmet;
 	}
 
 	/**
 	 * @param helmet the helmet to set
 	 */
-	public void setHelmet(Armor helmet) {
+	public void setHelmet(GenericItem helmet) {
 		this.helmet = helmet;
 	}
 
 	/**
 	 * @return the equipped
 	 */
-	public Weapon getEquipped() {
+	public GenericItem getEquipped() {
 		return equipped;
 	}
 
 	/**
 	 * @param equipped the equipped to set
 	 */
-	public void setEquipped(Weapon equipped) {
+	public void setEquipped(GenericItem equipped) {
 		this.equipped = equipped;
 	}
     

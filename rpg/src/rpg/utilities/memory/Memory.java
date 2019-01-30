@@ -53,11 +53,12 @@ public class Memory {
 
         //open memload gui
         ml = new MemLoad();
-        MemLoad.main(null);
+        //MemLoad.main(null);
 
         // load
         try {
             Load();
+            ml.Close();
             this.h.getG().getGm().getFrmRpg().setEnabled(true);
         } catch (Error e) {
             e.printStackTrace();
@@ -90,43 +91,46 @@ public class Memory {
                 loading = "lightarmor";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                this.lightarmor = om.readValue(file, Armor.class);
-                this.mem.setLightArmor(this.lightarmor);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
-                pb.setValue(1*(pb.getMaximum()/size));
+                pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
                 frame.revalidate();
+
+                this.lightarmor = om.readValue(file, Armor.class);
+                this.mem.setLightArmor(this.lightarmor);
 
                 // medium armor
                 loading = "mediumarmor";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                this.mediumarmor = om.readValue(file, Armor.class);
-                this.mem.setMediumArmor(this.mediumarmor);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
-                pb.setValue(1*(pb.getMaximum()/size));
+                pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
                 frame.revalidate();
+
+                this.mediumarmor = om.readValue(file, Armor.class);
+                this.mem.setMediumArmor(this.mediumarmor);
 
                 // heavy armor
                 loading = "heavyarmor";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                this.heavyarmor = om.readValue(file, Armor.class);
-                this.mem.setHeavyArmor(this.heavyarmor);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
-                pb.setValue(1*(pb.getMaximum()/size));
+                pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
                 frame.revalidate();
+
+                this.heavyarmor = om.readValue(file, Armor.class);
+                this.mem.setHeavyArmor(this.heavyarmor);
 
             // load weapons
 
@@ -134,20 +138,32 @@ public class Memory {
                 loading = "weapons";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                this.weapon = om.readValue(file, Weapon.class);
-                this.mem.setWeapons(this.weapon);
-                frame.revalidate();
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
-                pb.setValue(1*(pb.getMaximum()/size));
+                pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
                 frame.revalidate();
 
+                this.weapon = om.readValue(file, Weapon.class);
+                this.mem.setWeapons(this.weapon);
+
+                System.out.println("doing");
+
+                
             // load events
 
             // events
+
+            //Done
+
+            num++;
+            percentstr = Integer.toString(100) + "%";
+            asset.setText("Done");
+            pb.setValue(pb.getMaximum());
+            percent.setText(percentstr);
+            frame.revalidate();
 
         } catch (Exception e) {
             System.out.println(this.mem.getLightArmor().getItems()[0].getItemname());

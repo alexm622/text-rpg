@@ -7,11 +7,11 @@
 - monsters.json
 - story.json
 - the main game
-- a plugin system
 - an outline of how events will work
 - work on inventory
 - restructure the player save loading
-- memload gui
+- ~~memload gui~~
+- work on main thread
 
 **fix**
 
@@ -20,3 +20,4 @@
 **other**
 
 - transfer the save file format to the json format
+- some sort of plugin system (this will be far in the future)
