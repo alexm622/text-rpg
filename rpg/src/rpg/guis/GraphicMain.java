@@ -42,6 +42,7 @@ public class GraphicMain {
 	private static Handler h;
 	private JRadioButton choice_1, choice_2, choice_3, choice_4, choice_5, choice_6, choice_yes, choice_no;
 	private static SaveManager SM;
+	private JButton btnMods;
 
 	/**
 	 * Launch the application.
@@ -170,6 +171,14 @@ public class GraphicMain {
 		JButton stats_button = new JButton("Stats");
 		stats_button.setBounds(548, 67, 89, 23);
 		panel.add(stats_button);
+		
+		btnMods = new JButton("Mods");
+		btnMods.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnMods.setBounds(442, 93, 89, 23);
+		panel.add(btnMods);
 
 		JSplitPane splitPane = new JSplitPane();
 		splitPane.setBounds(0, 0, 647, 25);
@@ -389,5 +398,4 @@ public class GraphicMain {
 	public void setChoice_no(JRadioButton choice_no) {
 		this.choice_no = choice_no;
 	}
-
 }

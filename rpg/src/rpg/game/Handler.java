@@ -20,18 +20,12 @@ public class Handler {
 		InitJson();
 		InitGame(g);
 		fm.Init();
-		//InitThread();
 
-		t.start();
+		//run the thread        
 	}
 
 
 	//init thread
-
-	private void InitThread(){
-		this.t = new Thread(g);
-	}
-
 
 	private void InitGame(Game g) {
 		this.g = g;

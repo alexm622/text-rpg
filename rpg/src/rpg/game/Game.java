@@ -6,18 +6,19 @@ import javax.swing.JFrame;
 
 import rpg.guis.GraphicMain;
 import rpg.utilities.memory.Memory;
+import rpg.utilities.plugin.PluginLoader;
 
-public class Game implements Runnable{
-    //handler
+public class Game implements Runnable {
+    // handler
     private Handler h;
 
-    //graphics window
+    // graphics window
     private GraphicMain gm;
 
-    //memory class
+    // memory class
     private Memory mem;
-    
-    //gui items
+
+    // gui items
     // frame, outpute pane, radio buttons, and question
     //
     private JFrame frame;
@@ -25,7 +26,8 @@ public class Game implements Runnable{
     private ButtonGroup group;
     private JTextArea question;
     private String sull;
-
+    private Thread t, pl;
+    private PluginLoader pluginLoader;
 
     public Game() {
         System.out.println("ran");
@@ -34,14 +36,26 @@ public class Game implements Runnable{
         mem = new Memory(this.h);
         this.frame = this.gm.getFrmRpg();
         System.out.println("done");
-        Thread t = new Thread(this);
+        pluginLoader = new PluginLoader(h, mem);
+        pl = new Thread(pluginLoader);
+        t = new Thread(this);
         this.h.setT(t);
-        this.h.getT().start();
+        t.run();
     }
 
     public void run() {
-        //set the focus to the main screen
+        // set the focus to the main screen
+        System.out.println("ran main thread method");
         frame.requestFocus();
+        pl.run();
+        try {
+            pl.join();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        
     }
 
     /**

@@ -12,6 +12,7 @@ public class AbsMem{
         private Armor lightarmor;
         private Armor mediumarmor;
         private Armor heavyarmor;
+        private Armor genericArmor;
 
         //weapons
 
@@ -55,6 +56,14 @@ public class AbsMem{
 
             public void setHeavyArmor(Armor heavyarmor){
                 this.heavyarmor = heavyarmor;
+            }
+
+            public Armor getGenericArmor(){
+                return this.genericArmor;
+            }
+
+            public void setGenericArmor(Armor genericArmor){
+                this.genericArmor = genericArmor;
             }
         
         //weapons
