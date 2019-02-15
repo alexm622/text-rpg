@@ -3,6 +3,7 @@ package rpg.utilities.memory;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,6 +24,7 @@ public class Memory {
     //game assets
     private Character character;
     private Armor lightarmor, mediumarmor, heavyarmor;
+    private Armor collectiveArmor;
     private Weapon weapon;
 
     //program assets
@@ -165,11 +167,20 @@ public class Memory {
             percent.setText(percentstr);
             frame.revalidate();
 
+            //make data collective
+
+            //armor
+            lumparmor();
+
         } catch (Exception e) {
-            System.out.println(this.mem.getLightArmor().getItems()[0].getItemname());
-            e.printStackTrace();
-            Error r = new Error("failed to load: " + loading);
-            throw r;
+            if(loading == "weapons") {
+
+            }else{
+                e.printStackTrace();
+                Error r = new Error("failed to load: " + loading);
+                throw r;
+            }
+            
 
         }
     }
@@ -183,6 +194,19 @@ public class Memory {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    public void lumparmor(){
+        List<rpg.objects.items.Armor.Item[]> temp = null;
+        
+        temp.add(lightarmor.getItems());
+        System.out.println("lightarmor");
+        temp.add(mediumarmor.getItems());
+        System.out.println("mediumarmor");
+        temp.add(heavyarmor.getItems());
+        System.out.println("heavyarmor");
+        collectiveArmor.setItem((rpg.objects.items.Armor.Item[]) temp.toArray());
+        System.out.println("done");
     }
 
     public AbsMem getMem(){

@@ -21,11 +21,21 @@ public class PluginLoader implements Runnable {
     private File[] mods;
     private Handler h;
     private Memory m;
+    private Armor armor;
+    private Weapon weapons;
 
     public void run() {
         modDir = new File(
                 ("C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\mods\\"));
+        if(!modDir.exists()){
+            modDir.mkdirs();
+            return;
+        }
         mods = modDir.listFiles();
+        if(mods.length == 0){
+            System.out.println("mods is empty");
+            return;
+        }
         for (File file : mods) {
             if ((file.isFile()) && (file.getName().split(".")[file.getName().split(".").length - 1] == "jar")) {
                 try {
@@ -43,22 +53,17 @@ public class PluginLoader implements Runnable {
 
     private void loadPlugin(Plugin plugin) throws Error {
         // TODO this will load the plugin contents and handle the id assigning and so on
-        Armor.Item[] armor = plugin.getArmor().getItems();
-        Weapon.Item[] weapons = plugin.getWeapon().getItems();
+        armor = new Armor();
+        armor.setItem(plugin.getArmor().getItems());
+        weapons = new Weapon();
+        weapons.setItems(plugin.getWeapon().getItems());
 
         // TODO implement monster and story events setting down here
 
-        loadArmor(armor);
-        loadWeapon(weapons);
+        
     }
 
-    private void loadWeapon(rpg.objects.items.Weapon.Item[] weapons) {
-
-    }
-
-    private void loadArmor(Armor.Item[] armor) {
-        Armor.Item[] temp = m.getMem().getGenericArmor().getItems();
-    }
+    
 
     public PluginLoader(Handler h, Memory m) {
         this.h = h;

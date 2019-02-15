@@ -20,4 +20,5 @@
 **other**
 
 - transfer the save file format to the json format
-- some sort of plugin system (this will be far in the future)
+- work on modloader menu
+- make a mod api
