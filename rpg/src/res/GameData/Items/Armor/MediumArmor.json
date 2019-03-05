@@ -1,6 +1,7 @@
 {
 	"items":[{
-		"itemname":"test",
+		"itemname":"tessdt",
+		"id":"mediumarmortest",
 		"itembuy": 3,
 		"itemsell":4,
 		"rarity":1,

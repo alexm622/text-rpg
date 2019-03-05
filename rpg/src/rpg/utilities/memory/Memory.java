@@ -11,11 +11,16 @@ import javax.swing.JProgressBar;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import rpg.game.Handler;
 import rpg.guis.MemLoad;
 import rpg.utilities.json.JsonMain;
 import rpg.objects.Character;
 import rpg.objects.items.*;
+
+
+
 
 public class Memory {
     // TODO make this manage memory
@@ -25,6 +30,7 @@ public class Memory {
     private Character character;
     private Armor lightarmor, mediumarmor, heavyarmor;
     private Armor collectiveArmor;
+    private String[] armorIds = null;
     private Weapon weapon;
 
     //program assets
@@ -33,6 +39,7 @@ public class Memory {
     private ObjectMapper om;
     private JsonMain jm;
     private MemLoad ml;
+    private LoadIds idloader;
 
     public Memory(Handler h) {
         // assign handler
@@ -52,6 +59,10 @@ public class Memory {
         //lock out the main gui
 
         this.h.getG().getGm().getFrmRpg().setEnabled(false);
+
+        //idloader
+
+        this.idloader = new LoadIds();
 
         //open memload gui
         ml = new MemLoad();
@@ -196,17 +207,41 @@ public class Memory {
         }
     }
 
-    public void lumparmor(){
-        List<rpg.objects.items.Armor.Item[]> temp = null;
-        
-        temp.add(lightarmor.getItems());
+    private void lumparmor(){
+        this.collectiveArmor = new Armor();
+
+        System.out.println("lumping");
+
+        rpg.objects.items.Armor.Item[] items = null;
+
+        System.out.println("started lumping");
+
+        items = this.lightarmor.getItems();
+
         System.out.println("lightarmor");
-        temp.add(mediumarmor.getItems());
-        System.out.println("mediumarmor");
-        temp.add(heavyarmor.getItems());
-        System.out.println("heavyarmor");
-        collectiveArmor.setItem((rpg.objects.items.Armor.Item[]) temp.toArray());
-        System.out.println("done");
+
+        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, this.mediumarmor.getItems());
+
+        System.out.println("medium armor");
+
+        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, this.heavyarmor.getItems());
+
+        System.out.println("heavy armor");
+
+        this.collectiveArmor.setItem(items);
+
+        System.out.println(collectiveArmor.getItems().length);
+
+        armorIds = new String[collectiveArmor.getItems().length];
+
+        this.armorIds = idloader.Armor(this.collectiveArmor);
+
+        System.out.println("armorIds is: " + armorIds.length);
+
+        System.out.println(armorIds[1]);
+        
+        System.out.println("done lumping");
+
     }
 
     public AbsMem getMem(){

@@ -2,12 +2,21 @@ package rpg.objects;
 
 public abstract class Item {
 	private String itemname;
+	private String id;
 	private int itembuy;
 	private int itemsell;
 	private int rarity;
 	private boolean purchasable;
 	private Modifier[] modifiers;
 
+	public String getId(){
+		return this.id;
+	}
+
+	public void setId(String id){
+		this.id = id;
+	}
+	
 	public String getItemname() {
 		return this.itemname;
 	}

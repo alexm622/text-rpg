@@ -1,6 +1,7 @@
 {
 	"items":[{
 		"itemname":"test",
+		"id":"heavyarmortest",
 		"itembuy": 3,
 		"itemsell":4,
 		"rarity":1,

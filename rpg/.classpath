@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="src/res/Libs/jackson-core-2.9.8.jar"/>
 	<classpathentry kind="lib" path="src/res/Libs/jackson-databind-2.9.8.jar"/>
 	<classpathentry kind="lib" path="src/res/Libs/jackson-annotations-2.9.8.jar"/>
+	<classpathentry kind="lib" path="src/res/Libs/commons-lang3-3.8.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
