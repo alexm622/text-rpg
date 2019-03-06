@@ -1,7 +1,7 @@
 package rpg.utilities.memory;
 
 import rpg.objects.Character;
-import rpg.objects.StoryEvents;
+import rpg.objects.StoryLine;
 
 import rpg.objects.items.*;
 
@@ -13,6 +13,8 @@ public class AbsMem{
         private Armor mediumarmor;
         private Armor heavyarmor;
         private Armor genericArmor;
+        private Armor armor;
+        private String[] armorIds;
 
         //weapons
 
@@ -20,7 +22,7 @@ public class AbsMem{
 
         //events
 
-        private StoryEvents events;
+        private StoryLine events;
 
         //character
 
@@ -31,6 +33,14 @@ public class AbsMem{
         //armor
             
             //getters
+
+            public String[] getArmorIds(){
+                return this.armorIds;
+            }
+
+            public Armor getArmor(){
+                return this.armor;
+            }
 
             public Armor getLightArmor(){
                 return this.lightarmor;
@@ -45,6 +55,14 @@ public class AbsMem{
             }
 
             //setters
+
+            public void setArmorIds(String[] armorIds){
+                this.armorIds = armorIds;
+            }
+
+            public void setArmor(Armor armor){
+                this.armor = armor;
+            }
 
             public void setLightArmor(Armor lightarmor){
                 this.lightarmor = lightarmor;
@@ -84,13 +102,13 @@ public class AbsMem{
             
             //getters
 
-            public StoryEvents getEvents(){
+            public StoryLine getEvents(){
                 return this.events;
             }
 
             //setters
 
-            public void setEvents(StoryEvents events){
+            public void setEvents(StoryLine events){
                 this.events = events;
             }
         

@@ -258,7 +258,8 @@ public class Memory {
     }
 
 	public void FinalizePlugins() {
-
+        this.mem.setArmorIds(armorIds);
+        this.mem.setArmor(collectiveArmor);
 	}
 
 	public void LoadPlugins(Armor armor, Weapon weapons) {

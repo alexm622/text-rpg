@@ -1,24 +1,31 @@
 package rpg.objects;
 
+import rpg.objects.items.loot.LootArmor;
+import rpg.objects.items.loot.LootWeapon;
+
 public class StoryEvent{
-    private int eventId;
+    private String eventId;
     private String name;
     private String desc;
     private Monster[] monsters;
     private int lvl;
     private int xp;
-    private int gp;
-    private GenericItem[] loot;
+	private int gp;
+	
+	private LootArmor[] lootArmor;
+	private LootWeapon[] lootWeapons;
+	private String[] lootItems;
+	
 	/**
 	 * @return the eventId
 	 */
-	public int getEventId() {
+	public String getEventId() {
 		return eventId;
 	}
 	/**
 	 * @param eventId the eventId to set
 	 */
-	public void setEventId(int eventId) {
+	public void setEventId(String eventId) {
 		this.eventId = eventId;
 	}
 	/**
@@ -93,16 +100,29 @@ public class StoryEvent{
 	public void setGp(int gp) {
 		this.gp = gp;
 	}
-	/**
-	 * @return the loot
-	 */
-	public GenericItem[] getLoot() {
-		return loot;
+	
+	public void setLootItems(String[] lootItems){
+		this.lootItems = lootItems;
 	}
-	/**
-	 * @param loot the loot to set
-	 */
-	public void setLoot(GenericItem[] loot) {
-		this.loot = loot;
+
+	public void setLootArmor(LootArmor[] lootArmor){
+		this.lootArmor = lootArmor;
 	}
+
+	public void setLootWeapons(LootWeapon[] lootWeapons){
+		this.lootWeapons = lootWeapons;
+	}
+
+	public String[] getLootItems(){
+		return this.lootItems;
+	}
+
+	public LootArmor[] getLootArmor(){
+		return this.lootArmor;
+	}
+
+	public LootWeapon[] getLootWeapons(){
+		return this.lootWeapons;
+	}
+
 }
