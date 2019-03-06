@@ -33,6 +33,9 @@ public class Memory {
     private String[] armorIds = null;
     private Weapon weapon;
 
+    //lumping
+    private rpg.objects.items.Armor.Item[] items = null;
+
     //program assets
     private Handler h;
     private AbsMem mem;
@@ -40,6 +43,10 @@ public class Memory {
     private JsonMain jm;
     private MemLoad ml;
     private LoadIds idloader;
+
+    //plugins
+    private Armor pluginArmor;
+    private Weapon pluginWeapon;
 
     public Memory(Handler h) {
         // assign handler
@@ -212,27 +219,25 @@ public class Memory {
 
         System.out.println("lumping");
 
-        rpg.objects.items.Armor.Item[] items = null;
-
         System.out.println("started lumping");
 
-        items = this.lightarmor.getItems();
+        this.items = this.lightarmor.getItems();
 
         System.out.println("lightarmor");
 
-        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, this.mediumarmor.getItems());
+        this.items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(this.items, this.mediumarmor.getItems());
 
         System.out.println("medium armor");
 
-        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, this.heavyarmor.getItems());
+        this.items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(this.items, this.heavyarmor.getItems());
 
         System.out.println("heavy armor");
 
-        this.collectiveArmor.setItem(items);
+        this.collectiveArmor.setItem(this.items);
 
         System.out.println(collectiveArmor.getItems().length);
 
-        armorIds = new String[collectiveArmor.getItems().length];
+        this.armorIds = new String[collectiveArmor.getItems().length];
 
         this.armorIds = idloader.Armor(this.collectiveArmor);
 
@@ -251,5 +256,22 @@ public class Memory {
     public void setMem(AbsMem mem){
         this.mem = mem;
     }
+
+	public void FinalizePlugins() {
+
+	}
+
+	public void LoadPlugins(Armor armor, Weapon weapons) {
+        //new items list
+        this.items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(this.items, armor.getItems());
+
+        //new collective armor
+        this.collectiveArmor.setItem(this.items);
+
+        //new Id list
+        this.armorIds = new String[collectiveArmor.getItems().length];
+        this.armorIds = idloader.Armor(this.collectiveArmor);
+
+	}
     
 }

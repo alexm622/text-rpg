@@ -1,7 +1,5 @@
 package rpg.game;
 
-import javax.swing.JTextArea;
-import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 
 import rpg.guis.GraphicMain;
@@ -22,10 +20,6 @@ public class Game implements Runnable {
     // frame, outpute pane, radio buttons, and question
     //
     private JFrame frame;
-    private JTextArea output;
-    private ButtonGroup group;
-    private JTextArea question;
-    private String sull;
     private Thread t, pl;
     private PluginLoader pluginLoader;
 

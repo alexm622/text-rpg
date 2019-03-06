@@ -49,6 +49,7 @@ public class PluginLoader implements Runnable {
                 }
             }
         }
+        m.FinalizePlugins();
     }
 
     private void loadPlugin(Plugin plugin) throws Error {
@@ -60,7 +61,9 @@ public class PluginLoader implements Runnable {
 
         // TODO implement monster and story events setting down here
 
-        
+        // TODO add values to memeory
+
+        m.LoadPlugins(armor, weapons);
     }
 
     
