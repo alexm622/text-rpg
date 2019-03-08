@@ -275,4 +275,7 @@ public class Memory {
 
 	}
     
+    public void Update(Handler h) {
+		this.h = h;
+	}
 }

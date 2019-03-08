@@ -3,6 +3,7 @@ package rpg.game;
 import javax.swing.JFrame;
 
 import rpg.guis.GraphicMain;
+import rpg.player.Player;
 import rpg.utilities.memory.Memory;
 import rpg.utilities.plugin.PluginLoader;
 
@@ -22,12 +23,15 @@ public class Game implements Runnable {
     private JFrame frame;
     private Thread t, pl;
     private PluginLoader pluginLoader;
+    private Player p;
 
     public Game() {
         System.out.println("ran");
         gm = new GraphicMain();
         h = new Handler(this);
         mem = new Memory(this.h);
+        p = new Player(this.h);
+
         this.frame = this.gm.getFrmRpg();
         System.out.println("done");
         pluginLoader = new PluginLoader(h, mem);
@@ -48,8 +52,39 @@ public class Game implements Runnable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        long tempNano = System.nanoTime();
+        long lastTickTime = tempNano;
+        while (true) {
+            for (int i = 0; i < 60; i++) {
+
+                Refresh();
+                tempNano = System.nanoTime();
+                if((i+1)%4 == 0){
+                    
+                    double f = 1000000000 / ((tempNano - lastTickTime)); // miliseconds between last 60 tick pt.
+                    gm.getHp_gold().setText(Double.toString(f));
+                    gm.getFrmRpg().revalidate();
+                }
+                
+                lastTickTime = tempNano;
+                try {
+                    Thread.sleep(1000/60);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                
+            }
+        }
         
         
+    }
+
+    private void Refresh(){
+        h.Update();
+        gm.Update(this.h);
+        mem.Update(this.h);
+        p.Update(this.h);
     }
 
     /**
@@ -86,6 +121,15 @@ public class Game implements Runnable {
 
     public void setMemory(Memory mem){
         this.mem = mem;
+    }
+
+    
+    public Player getP(){
+        return this.p;
+    }
+
+    public void setP(Player p){
+        this.p = p;
     }
 
 }

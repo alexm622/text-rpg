@@ -194,8 +194,7 @@ public class GraphicMain {
 		JMenuItem mntmNew = new JMenuItem("New");
 		mntmNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				NewSave n = new NewSave();
-				n.main(h);
+				NewSave n = new NewSave(h);
 			}
 		});
 		menuBar.add(mntmNew);
@@ -227,11 +226,13 @@ public class GraphicMain {
 		splitPane.setRightComponent(splitPane_1);
 
 		name_level = new JTextField();
+		name_level.setText("test1");
 		name_level.setEditable(false);
 		splitPane_1.setLeftComponent(name_level);
 		name_level.setColumns(10);
 
 		hp_gold = new JTextField();
+		hp_gold.setText("test2");
 		hp_gold.setEditable(false);
 		splitPane_1.setRightComponent(hp_gold);
 		hp_gold.setColumns(10);
@@ -397,5 +398,9 @@ public class GraphicMain {
 	 */
 	public void setChoice_no(JRadioButton choice_no) {
 		this.choice_no = choice_no;
+	}
+
+	public void Update(Handler h2) {
+		this.h = h2;
 	}
 }

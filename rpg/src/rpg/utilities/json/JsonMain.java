@@ -78,4 +78,8 @@ public class JsonMain {
 		return file;
 		
 	}
+
+	public void Update(Handler h) {
+		this.h = h;
+	}
 }

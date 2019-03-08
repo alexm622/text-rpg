@@ -7,7 +7,6 @@ import rpg.utilities.json.classes.index.Path;
 
 public class Handler {
 	private Game g;
-	private Player p;
 	private SaveFileReader fm;
 	private JsonMain jm;
 	private Path[] ptdata;
@@ -15,17 +14,17 @@ public class Handler {
 
 	public Handler(Game g) {
 		this.ptdata = new Path[0];
-		InitPlayer();
+		
 		InitFm();
 		InitJson();
 		InitGame(g);
+		
 		fm.Init();
 
-		//run the thread        
+     
 	}
 
 
-	//init thread
 
 	private void InitGame(Game g) {
 		this.g = g;
@@ -41,9 +40,7 @@ public class Handler {
 		this.fm.Init();
 	}
 
-	private void InitPlayer() {
-		this.p = new Player();
-	}
+
 
 	//getters and setters
 
@@ -54,13 +51,7 @@ public class Handler {
 	public void setT(Thread t){
 		this.t = t;
 	}
-	public Player getP() {
-		return this.p;
-	}
-
-	public void setP(Player p) {
-		this.p = p;
-	}
+	
 
 	public SaveFileReader getFm() {
 		return this.fm;
@@ -90,6 +81,11 @@ public class Handler {
 		System.out.println("set ptdata");
 		this.ptdata = path;
 		System.out.println(this.ptdata[0].getClas());
+	}
+
+	public void Update(){
+		jm.Update(this);
+		
 	}
 
 }

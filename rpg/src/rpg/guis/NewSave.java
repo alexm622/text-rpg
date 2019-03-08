@@ -68,8 +68,8 @@ public class NewSave {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NewSave window = new NewSave();
-					window.frmNewSave.setVisible(true);
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -81,8 +81,10 @@ public class NewSave {
 	/**
 	 * Create the application.
 	 */
-	public NewSave() {
+	public NewSave(Handler h) {
+		this.h = h;
 		initialize();
+		frmNewSave.setVisible(true);
 	}
 
 	/**
@@ -110,7 +112,6 @@ public class NewSave {
 			public void actionPerformed(ActionEvent arg0) {
 				// new save
 				Create(txtEnterCharacterName.getText());
-				h.getFm().Write(h.getP().stats);
 				// add stat array
 				frmNewSave.dispose();
 			}
@@ -327,7 +328,9 @@ public class NewSave {
 		 */
 		System.out.println("done");
 		// GraphicMain.get_Handler().getG().getP().Create(text);
-		h.getP().initStats(stats);
+		System.out.println(stats[0]);
+		System.out.println((h.getG().getP() == null));
+		h.getG().getP().init(stats);
 		return;
 	}
 
