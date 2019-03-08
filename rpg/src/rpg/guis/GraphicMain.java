@@ -24,7 +24,7 @@ import javax.swing.ScrollPaneConstants;
 import rpg.game.Game;
 import rpg.game.Handler;
 import rpg.utilities.SaveManager;
-import rpg.utilities.json.JsonMain;
+import rpg.utilities.json.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -202,7 +202,7 @@ public class GraphicMain {
 		JMenuItem mntmOpen = new JMenuItem("Load");
 		mntmOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				new Load(h);
 			}
 		});
 		menuBar.add(mntmOpen);
@@ -402,5 +402,6 @@ public class GraphicMain {
 
 	public void Update(Handler h2) {
 		this.h = h2;
+		
 	}
 }

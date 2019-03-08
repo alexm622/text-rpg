@@ -16,7 +16,7 @@ public class Player {
 	}
 
 	public void init(String[] stats) {
-		this.c = h.getG().getMemory().getMem().getCharacter();
+		this.c = new Character();
 		c.setName(stats[0]);
 		c.setStren(Integer.parseInt(stats[1]));
 		c.setChari(Integer.parseInt(stats[2]));
@@ -26,6 +26,8 @@ public class Player {
 		c.setConsti(Integer.parseInt(stats[6]));
 		h.getG().getMemory().getMem().setCharacter(this.c);
 	}
+
+
 
 	public void Update(Handler h) {
 		this.h = h;

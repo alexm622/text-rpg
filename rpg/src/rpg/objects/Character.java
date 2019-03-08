@@ -5,13 +5,22 @@ import rpg.objects.items.*;
 
 public class Character{
     private String name;
-    private int lvl;
+	private int lvl;
+	private int hp;
     private int stren, chari, intel, wis, dex, consti, prof;
     private int xp, gp;
     private Inventory inv;
     private GenericItem boots, pants, chest, helmet;
-    private GenericItem equipped;
+	private GenericItem equipped;
+	
+	public int getHp(){
+		return this.hp;
+	}
 
+	public void setHp(int hp){
+		this.hp = hp;
+	}
+	
     public Inventory getInv(){
         return this.inv;
     }

@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import rpg.game.Game;
 import rpg.game.Handler;
 import rpg.utilities.SaveFileReader;
+import rpg.utilities.json.Save;
 
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -331,6 +332,7 @@ public class NewSave {
 		System.out.println(stats[0]);
 		System.out.println((h.getG().getP() == null));
 		h.getG().getP().init(stats);
+		new Save(this.h);
 		return;
 	}
 

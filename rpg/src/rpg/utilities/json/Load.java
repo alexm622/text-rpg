@@ -6,21 +6,24 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
+import rpg.guis.GraphicMain;
 import rpg.objects.Character;
 
-public class Save {
+public class Load {
     private Handler h;
     private ObjectMapper om;
     private Character c;
 
-    public Save(Handler h) {
+    public Load(Handler h) {
         this.h = h;
         this.om = h.getJm().getOm();
-        this.c = h.getG().getMemory().getMem().getCharacter();
         try {
-            om.writeValue(new File(
+            c = om.readValue(new File(
                     "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\save.sav"),
-                    c);
+                    Character.class);
+            h.getG().getMemory().getMem().setCharacter(c);
+            h.getG().getGm().getName_level().setText(c.getName() + " | " + Integer.toString(c.getLvl()));
+            h.getG().getGm().getHp_gold().setText("hp: " + Integer.toString(c.getHp()) + " | gp: " + Integer.toString(c.getGp()));
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
