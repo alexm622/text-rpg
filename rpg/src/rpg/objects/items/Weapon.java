@@ -1,6 +1,6 @@
 package rpg.objects.items;
 
-import rpg.objects.Attack;
+import rpg.objects.Action;
 
 public class Weapon {
     private Item[] items;
@@ -16,7 +16,7 @@ public class Weapon {
     public static class Item extends rpg.objects.Item {
         private String weapontype;
         private String weaponskill;
-        private Attack damage;
+        private Action damage;
 
         public String getWeapontype() {
             return weapontype;
@@ -34,15 +34,14 @@ public class Weapon {
             this.weaponskill = weaponskill;
         }
 
-        public Attack getDamage() {
+        public Action getDamage() {
             return damage;
         }
 
-        public void setDamage(Attack damage) {
+        public void setDamage(Action damage) {
             this.damage = damage;
         }
-        
+
     }
-    
 
 }
