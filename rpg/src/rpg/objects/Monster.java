@@ -2,7 +2,7 @@ package rpg.objects;
 
 import rpg.objects.Action;
 
-public abstract class Monster {]
+public abstract class Monster {
     private int hp;
     private int xp;
     private int lvl;
@@ -10,7 +10,7 @@ public abstract class Monster {]
     private String name;
     private String id;
     private Dialogue dialogue;
-    private int[] stats;
+    private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
 
     public int getHp() {
         return this.hp;
