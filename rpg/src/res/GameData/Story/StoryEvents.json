@@ -1,0 +1,17 @@
+{
+    "events":[
+            {
+                "eventId":"testevent1",
+                "name":"testevent1",
+                "desc":"a test event",
+                "monsters":[],
+                "lvl":1,
+                "xp":10,
+                "gp":10,
+
+                "lootArmor":[],
+                "lootWeapons":[],
+                "lootItems":[]
+            }
+        ]
+}

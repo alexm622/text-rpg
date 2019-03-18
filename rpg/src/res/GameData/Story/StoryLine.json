@@ -1,0 +1,10 @@
+{
+    "name":"testline",
+    "desc":"test",
+    "id":"test",
+    "startingEventId":"testevent1",
+    "eventIds":[],
+    "armorIds":[],
+    "weaponIds":[],
+    "itemIds":[]
+}
