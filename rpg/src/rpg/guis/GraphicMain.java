@@ -212,7 +212,7 @@ public class GraphicMain {
 		mntmSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// save the player data
-				SM.initSave();
+				new Save(h);
 			}
 		});
 		menuBar.add(mntmSave);
@@ -400,8 +400,8 @@ public class GraphicMain {
 		this.choice_no = choice_no;
 	}
 
-	public void Update(Handler h2) {
-		this.h = h2;
+	public void Update(Handler h) {
+		this.h = h;
 		
 	}
 }

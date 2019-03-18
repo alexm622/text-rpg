@@ -1,6 +1,5 @@
 package rpg.game;
 
-import rpg.player.Player;
 import rpg.utilities.SaveFileReader;
 import rpg.utilities.json.JsonMain;
 import rpg.utilities.json.classes.index.Path;

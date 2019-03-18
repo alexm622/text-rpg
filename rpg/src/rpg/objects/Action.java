@@ -12,6 +12,15 @@ public class Action {
     private String dmgmod;
     private String tohit;
     private String id;
+    private String range;
+
+    public String getRange(){
+        return this.range;
+    }
+
+    public void setRange(String range){
+        this.range = range;
+    }
 
     public String[] getHitdialogue() {
         return this.hitdialogue;

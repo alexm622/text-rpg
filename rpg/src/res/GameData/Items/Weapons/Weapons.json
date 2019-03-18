@@ -1,20 +1,33 @@
 {
-	"items":[{
-		"itemname":"test",
-		"itembuy": 3,
-		"itemsell":4,
-		"rarity":1,
-		"purchasable": false,
-		"modifiers": [
-			{"id": 0, "lvl":1}
+	"items":[
+		{
+			"itemname":"testweapon",
+			"id":"testweapon",
+			"itembuy":0,
+			"itemsell":0,
+			"rarity":1,
+			"purchasable":false,
+			"modifiers":[
+				{
+					"id":null,"lvl":null
+				}
 			],
-		"weapontype":"thing",
-		"weaponskill":"something",
-		
-		"damage":{
-			"name":"generic attack",
-			"desc":"this is a generic attack",
-			"die":"2d6"
+			"weapontype":"melee",
+			"weaponskill":"str",
+			"damage":{
+				"name":"slap",
+				"desc":"a slap",
+				"hitdialogue":"he's been slapped",
+				"critdialogue":"critical slap",
+				"hitmod":"2",
+				"damagetype":"pierce",
+				"dmgmod":"+s+1",
+				"tohit":"20",
+				"id":"slap",
+				"missdialoge":"your slap missed",
+				"die":"1s20",
+				"range":10
+			}
 		}
-	}]		
+	]
 }
