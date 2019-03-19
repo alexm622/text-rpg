@@ -80,6 +80,7 @@ public class Memory {
             ml.Close();
             this.h.getG().getGm().getFrmRpg().setEnabled(true);
         } catch (Error e) {
+            System.out.println("error");
             e.printStackTrace();
         }
 
@@ -179,6 +180,7 @@ public class Memory {
                 loading = "storyitems";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
+                System.out.println(path);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
