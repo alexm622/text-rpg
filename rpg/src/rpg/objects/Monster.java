@@ -1,6 +1,5 @@
 package rpg.objects;
 
-import rpg.objects.Action;
 
 public abstract class Monster {
     private int hp;
@@ -11,6 +10,10 @@ public abstract class Monster {
     private String id;
     private Dialogue dialogue;
     private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
+
+    public static class Action extends rpg.objects.Action{
+        
+    }
 
     public String getName(){
         return this.name;

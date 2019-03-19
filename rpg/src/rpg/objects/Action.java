@@ -1,6 +1,6 @@
 package rpg.objects;
 
-public class Action {
+public abstract class Action {
     private String name;
     private String desc;
     private String dmg;
@@ -13,6 +13,8 @@ public class Action {
     private String tohit;
     private String id;
     private String range;
+
+    //TODO this throws an error
 
     public String getRange(){
         return this.range;
@@ -108,5 +110,13 @@ public class Action {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getDmg(){
+        return this.dmg;
+    }
+
+    public void setDmg(String dmg){
+        this.dmg = dmg;
     }
 }

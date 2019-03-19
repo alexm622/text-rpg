@@ -17,15 +17,16 @@
 			"damage":{
 				"name":"slap",
 				"desc":"a slap",
-				"hitdialogue":"he's been slapped",
-				"critdialogue":"critical slap",
+				"dmg":"1d20",
+				"hitdialogue":["he's been slapped"],
+				"critdialogue":["critical slap"],
 				"hitmod":"2",
 				"damagetype":"pierce",
 				"dmgmod":"+s+1",
 				"tohit":"20",
 				"id":"slap",
-				"missdialoge":"your slap missed",
-				"die":"1s20",
+				"missdialoge":["your slap missed"],
+				"die":"1d20",
 				"range":10
 			}
 		}

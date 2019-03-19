@@ -1,14 +1,18 @@
 package rpg.objects;
 
 public class StoryItems {
-    private Item items[];
+    private Items items[];
 
-    public Item[] getItems(){
+    public Items[] getItems(){
         return this.items;
     }
 
-    public void setItems(Item[] items){
+    public void setItems(Items[] items){
         this.items = items;
+    }
+
+    static class Items extends Item{
+        
     }
 
 }

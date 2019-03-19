@@ -52,23 +52,23 @@ public class Memory {
         this.h = h;
 
         // initiate AbsMem
-        this.mem = new AbsMem();
+        mem = new AbsMem();
 
         // init jsonmain
 
-        this.jm = this.h.getJm();
+        jm = h.getJm();
 
         // get objectmapper
 
-        this.om = this.jm.getOm();
+        om = jm.getOm();
 
         //lock out the main gui
 
-        this.h.getG().getGm().getFrmRpg().setEnabled(false);
+        h.getG().getGm().getFrmRpg().setEnabled(false);
 
         //idloader
 
-        this.idloader = new LoadIds();
+        idloader = new LoadIds();
 
         //open memload gui
         ml = new MemLoad();
@@ -78,7 +78,7 @@ public class Memory {
         try {
             Load();
             ml.Close();
-            this.h.getG().getGm().getFrmRpg().setEnabled(true);
+            h.getG().getGm().getFrmRpg().setEnabled(true);
         } catch (Error e) {
             System.out.println("error");
             e.printStackTrace();
@@ -119,8 +119,8 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                this.lightarmor = om.readValue(file, Armor.class);
-                this.mem.setLightArmor(this.lightarmor);
+                lightarmor = om.readValue(file, Armor.class);
+                mem.setLightArmor(lightarmor);
 
                 // medium armor
                 loading = "mediumarmor";
@@ -134,8 +134,8 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                this.mediumarmor = om.readValue(file, Armor.class);
-                this.mem.setMediumArmor(this.mediumarmor);
+                mediumarmor = om.readValue(file, Armor.class);
+                mem.setMediumArmor(mediumarmor);
 
                 // heavy armor
                 loading = "heavyarmor";
@@ -149,8 +149,8 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                this.heavyarmor = om.readValue(file, Armor.class);
-                this.mem.setHeavyArmor(this.heavyarmor);
+                heavyarmor = om.readValue(file, Armor.class);
+                mem.setHeavyArmor(heavyarmor);
 
             // load weapons
 
@@ -166,8 +166,8 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                this.weapon = om.readValue(file, Weapon.class);
-                this.mem.setWeapons(this.weapon);
+                weapon = om.readValue(file, Weapon.class);
+                mem.setWeapons(weapon);
 
                 System.out.println("doing");
 
@@ -189,8 +189,9 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                this.storyItems = om.readValue(file, StoryItems.class);
-                this.mem.setStoryItems(this.storyItems);
+                storyItems = om.readValue(file, StoryItems.class);
+                //TODO for some reason this is null
+                mem.setStoryItems(storyItems);
 
                 System.out.println("doing");
 
@@ -210,7 +211,7 @@ public class Memory {
 
         } catch (Exception e) {
             if(loading == "weapons") {
-
+                e.printStackTrace();
             }else{
                 e.printStackTrace();
                 Error r = new Error("failed to load: " + loading);
@@ -224,8 +225,8 @@ public class Memory {
     public void loadCharacter(String path) {
         try {
             File file = jm.getFile(path);
-            this.character = om.readValue(file, Character.class);
-            this.mem.setCharacter(this.character);
+            character = om.readValue(file, Character.class);
+            mem.setCharacter(character);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
@@ -238,25 +239,25 @@ public class Memory {
 
         System.out.println("started lumping");
 
-        this.items = this.lightarmor.getItems();
+        items = lightarmor.getItems();
 
         System.out.println("lightarmor");
 
-        this.items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(this.items, this.mediumarmor.getItems());
+        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, mediumarmor.getItems());
 
         System.out.println("medium armor");
 
-        this.items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(this.items, this.heavyarmor.getItems());
+        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, heavyarmor.getItems());
 
         System.out.println("heavy armor");
 
-        this.collectiveArmor.setItem(this.items);
+        collectiveArmor.setItem(items);
 
         System.out.println(collectiveArmor.getItems().length);
 
-        this.armorIds = new String[collectiveArmor.getItems().length];
+        armorIds = new String[collectiveArmor.getItems().length];
 
-        this.armorIds = idloader.Armor(this.collectiveArmor);
+        armorIds = idloader.Armor(collectiveArmor);
 
         System.out.println("armorIds is: " + armorIds.length);
 

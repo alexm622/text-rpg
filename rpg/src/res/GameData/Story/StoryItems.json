@@ -8,6 +8,15 @@
             "rarity":1,
             "purchasable":false,
             "modifiers":[]
+        },
+        {
+            "itemname":"testitem2",
+            "id":"testitem2",
+            "itembuy":1,
+            "itemsell":0,
+            "rarity":1,
+            "purchasable":false,
+            "modifiers":[]
         }
     ]
 }

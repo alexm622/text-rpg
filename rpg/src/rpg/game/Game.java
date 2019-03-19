@@ -7,7 +7,7 @@ import rpg.player.Player;
 import rpg.utilities.memory.Memory;
 import rpg.utilities.plugin.PluginLoader;
 
-public class Game implements Runnable {
+public class Game{
     // handler
     private Handler h;
 
@@ -34,24 +34,21 @@ public class Game implements Runnable {
 
         this.frame = this.gm.getFrmRpg();
         System.out.println("done");
-        pluginLoader = new PluginLoader(h, mem);
-        pl = new Thread(pluginLoader);
-        t = new Thread(this);
-        this.h.setT(t);
-        t.run();
+        run();
     }
 
     public void run() {
         // set the focus to the main screen
         System.out.println("ran main thread method");
         frame.requestFocus();
-        pl.run();
-        try {
-            pl.join();
-        } catch (InterruptedException e) {
-            
-            e.printStackTrace();
+        Refresh();
+        // TODO this throws an error because storyitems is null or memory is null
+        if(mem.getMem().getStoryItems() != null){
+            System.out.println("not null");
+        }else{
+            System.out.println("null");
         }
+        System.out.println(h.getJm().TypeToPath("storyitems"));
         long tempNano = System.nanoTime();
         long lastTickTime = tempNano;
         while (true) {
