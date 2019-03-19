@@ -1,0 +1,13 @@
+{
+    "items":[
+        {
+            "itemname":"testitem1",
+            "id":"testitem1",
+            "itembuy":1,
+            "itemsell":0,
+            "rarity":1,
+            "purchasable":false,
+            "modifiers":[]
+        }
+    ]
+}
