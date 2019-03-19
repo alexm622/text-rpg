@@ -23,7 +23,7 @@ public class Load {
             h.getG().getGm().getName_level().setText(c.getName() + " | " + Integer.toString(c.getLvl()));
             h.getG().getGm().getHp_gold().setText("hp: " + Integer.toString(c.getHp()) + " | gp: " + Integer.toString(c.getGp()));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         

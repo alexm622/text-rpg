@@ -49,7 +49,7 @@ public class Game implements Runnable {
         try {
             pl.join();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         long tempNano = System.nanoTime();
@@ -70,7 +70,7 @@ public class Game implements Runnable {
                 try {
                     Thread.sleep(1000/60);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
+                    
                     e.printStackTrace();
                 }
                 

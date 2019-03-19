@@ -225,7 +225,6 @@ public class Memory {
             this.character = om.readValue(file, Character.class);
             this.mem.setCharacter(this.character);
         } catch (IOException | URISyntaxException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
