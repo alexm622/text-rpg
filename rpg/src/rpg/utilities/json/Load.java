@@ -6,16 +6,14 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
-import rpg.guis.GraphicMain;
+
 import rpg.objects.Character;
 
 public class Load {
-    private Handler h;
     private ObjectMapper om;
     private Character c;
 
     public Load(Handler h) {
-        this.h = h;
         this.om = h.getJm().getOm();
         try {
             c = om.readValue(new File(

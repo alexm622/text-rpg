@@ -9,12 +9,10 @@ import rpg.game.Handler;
 import rpg.objects.Character;
 
 public class Save {
-    private Handler h;
     private ObjectMapper om;
     private Character c;
 
     public Save(Handler h) {
-        this.h = h;
         this.om = h.getJm().getOm();
         this.c = h.getG().getMemory().getMem().getCharacter();
         try {
@@ -22,7 +20,6 @@ public class Save {
                     "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\save.sav"),
                     c);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         

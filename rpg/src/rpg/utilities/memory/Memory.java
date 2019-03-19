@@ -3,7 +3,6 @@ package rpg.utilities.memory;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,6 +16,7 @@ import rpg.game.Handler;
 import rpg.guis.MemLoad;
 import rpg.utilities.json.JsonMain;
 import rpg.objects.Character;
+import rpg.objects.StoryItems;
 import rpg.objects.items.*;
 
 
@@ -32,6 +32,7 @@ public class Memory {
     private Armor collectiveArmor;
     private String[] armorIds = null;
     private Weapon weapon;
+    private StoryItems storyItems;
 
     //lumping
     private rpg.objects.items.Armor.Item[] items = null;
@@ -45,8 +46,6 @@ public class Memory {
     private LoadIds idloader;
 
     //plugins
-    private Armor pluginArmor;
-    private Weapon pluginWeapon;
 
     public Memory(Handler h) {
         // assign handler
@@ -91,7 +90,7 @@ public class Memory {
         String path;
         String loading = "not started";
         File file;
-        int size = 5;
+        int size = 6;
         int num = 0;
         String percentstr;
 
@@ -175,6 +174,23 @@ public class Memory {
             // load events
 
             // events
+
+            //load story items
+                loading = "storyitems";
+                path = jm.TypeToPath(loading);
+                file = jm.getFile(path);
+
+                num++;
+                percentstr = Integer.toString((100/size)*num) + "%";
+                asset.setText(path);
+                pb.setValue(num*(pb.getMaximum()/size));
+                percent.setText(percentstr);
+                frame.revalidate();
+
+                this.storyItems = om.readValue(file, StoryItems.class);
+                this.mem.setStoryItems(this.storyItems);
+
+                System.out.println("doing");
 
             //Done
 

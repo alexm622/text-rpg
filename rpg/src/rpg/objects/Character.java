@@ -1,6 +1,6 @@
 package rpg.objects;
 
-import rpg.objects.items.*;
+
 
 
 public class Character{

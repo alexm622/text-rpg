@@ -1,6 +1,7 @@
 package rpg.utilities.memory;
 
 import rpg.objects.Character;
+import rpg.objects.StoryItems;
 import rpg.objects.StoryLine;
 
 import rpg.objects.items.*;
@@ -15,6 +16,7 @@ public class AbsMem{
         private Armor genericArmor;
         private Armor armor;
         private String[] armorIds;
+        private StoryItems storyItems;
 
         //weapons
 
@@ -124,6 +126,14 @@ public class AbsMem{
 
             public void setCharacter(Character character){
                 this.character = character;
+            }
+
+			public void setStoryItems(StoryItems storyItems) {
+                this.storyItems = storyItems;
+            }
+            
+            public StoryItems getStoryItems(){
+                return this.storyItems;
             }
 
     //class definitions

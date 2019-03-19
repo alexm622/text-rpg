@@ -12,6 +12,38 @@ public abstract class Monster {
     private Dialogue dialogue;
     private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
 
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getId(){
+        return this.id;
+    }
+
+    public void setId(String id){
+        this.id =id;
+    }
+
+    public Dialogue getDialogue(){
+        return this.dialogue;
+    }
+
+    public void setDialogue(Dialogue dialogue){
+        this.dialogue = dialogue;
+    }
+
+    public int[] getStats(){
+        return this.stats;
+    }
+
+    public void setStats(int[] stats){
+        this.stats = stats;
+    }
+
     public int getHp() {
         return this.hp;
     }

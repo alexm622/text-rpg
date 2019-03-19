@@ -7,18 +7,16 @@ import java.net.URLClassLoader;
 
 import rpg.utilities.memory.Memory;
 import rpg.utilities.plugin.Plugin;
-import java.nio.file.Path;
 
 import rpg.objects.items.Armor;
 import rpg.objects.items.Weapon;
-import rpg.objects.Monster;
 import rpg.game.Handler;
 
 public class PluginLoader implements Runnable {
 
     private File modDir;
     private File[] mods;
-    private Handler h;
+
     private Memory m;
     private Armor armor;
     private Weapon weapons;
@@ -68,7 +66,7 @@ public class PluginLoader implements Runnable {
     
 
     public PluginLoader(Handler h, Memory m) {
-        this.h = h;
+
         this.m = m;
 
     }
