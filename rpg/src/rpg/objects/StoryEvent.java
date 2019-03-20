@@ -7,7 +7,7 @@ public class StoryEvent{
     private String eventId;
     private String name;
     private String desc;
-    private Monster[] monsters;
+    private String[] monsters;
     private int lvl;
     private int xp;
 	private int gp;
@@ -55,13 +55,13 @@ public class StoryEvent{
 	/**
 	 * @return the monsters
 	 */
-	public Monster[] getMonsters() {
+	public String[] getMonsters() {
 		return monsters;
 	}
 	/**
 	 * @param monsters the monsters to set
 	 */
-	public void setMonsters(Monster[] monsters) {
+	public void setMonsters(String[] monsters) {
 		this.monsters = monsters;
 	}
 	/**

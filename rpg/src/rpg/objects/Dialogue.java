@@ -1,11 +1,11 @@
 package rpg.objects;
 
-public class Dialogue {
+public abstract class Dialogue {
     private String op1;
     private String op2;
     private String op3;
     private String op4;
-    private Dialogue[] results;
+    private Dialogues[] results;
 
     public String getOp1() {
         return this.op1;
@@ -39,11 +39,15 @@ public class Dialogue {
         this.op4 = op4;
     }
 
-    public Dialogue[] getResults() {
+    public Dialogues[] getResults() {
         return this.results;
     }
 
-    public void setResults(Dialogue[] results) {
+    public void setResults(Dialogues[] results) {
         this.results = results;
+    }
+
+    public static class Dialogues extends Dialogue{
+
     }
 }

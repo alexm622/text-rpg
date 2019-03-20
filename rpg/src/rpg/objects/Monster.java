@@ -1,7 +1,7 @@
 package rpg.objects;
 
 
-public abstract class Monster {
+public class Monster {
     private int hp;
     private int xp;
     private int lvl;

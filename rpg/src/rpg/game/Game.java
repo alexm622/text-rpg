@@ -48,7 +48,7 @@ public class Game{
         }else{
             System.out.println("null");
         }
-        System.out.println(h.getJm().TypeToPath("storyitems"));
+        System.out.println(h.getJm().TypeToPath("storyline"));
         long tempNano = System.nanoTime();
         long lastTickTime = tempNano;
         while (true) {

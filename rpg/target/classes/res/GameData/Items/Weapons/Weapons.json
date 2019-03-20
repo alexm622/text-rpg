@@ -25,7 +25,7 @@
 				"dmgmod":"+s+1",
 				"tohit":"20",
 				"id":"slap",
-				"missdialoge":["your slap missed"],
+				"missdialogue":["your slap missed"],
 				"die":"1d20",
 				"range":10
 			}
