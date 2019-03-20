@@ -1,0 +1,75 @@
+{
+    "monsters":[
+        {
+            "name":"testmonster",
+            "id":"testmonster",
+            "lvl":1,
+            "xp":1,
+            "hp":10,
+            "stats":[1, 1, 1, 1, 1, 1],
+
+            "actions":[
+                {
+                    "name":"slap",
+                    "desc":"a slap",
+                    "dmg":"1d20",
+                    "hitdialogue":["he's been slapped"],
+                    "critdialogue":["critical slap"],
+                    "hitmod":"2",
+                    "damagetype":"pierce",
+                    "dmgmod":"+s+1",
+                    "tohit":"20",
+                    "id":"slap",
+                    "missdialogue":["your slap missed"],
+                    "die":"1d20",
+                    "range":10
+                }
+            ],
+
+            "dialogue":{
+                "response":"hello, this is a test",
+                "op1":"attack",
+                "op2":"run",
+                "op3":"talk",
+                "op4":"charm",
+                
+                "results":[
+                    {
+                        "response":"+a",
+                        "op1":null,
+                        "op2":null,
+                        "op3":null,
+                        "op4":null,
+                        "results":null
+                    },
+                    {
+                        "response":"+r",
+                        "op1":null,
+                        "op2":null,
+                        "op3":null,
+                        "op4":null,
+                        "results":null
+                    },
+                    {
+                        "response":"hi",
+                        "op1":null,
+                        "op2":null,
+                        "op3":null,
+                        "op4":null,
+                        "results":null
+                    },
+                    {
+                        "response":"+c",
+                        "op1":null,
+                        "op2":null,
+                        "op3":null,
+                        "op4":null,
+                        "results":null
+                    }
+                ]
+                
+            }
+
+        }
+    ]
+}

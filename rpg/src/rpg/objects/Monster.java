@@ -1,20 +1,30 @@
 package rpg.objects;
 
 
-public class Monster {
+public abstract class Monster {
     private int hp;
     private int xp;
     private int lvl;
     private Action[] actions;
     private String name;
     private String id;
-    private Dialogue dialogue;
+    private String startdia;
+    private Dia dialogue;
     private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
 
     public static class Action extends rpg.objects.Action{
         
     }
 
+    public String getStartdia(){
+        return this.startdia;
+    }
+
+    public void setStartdia(String startdia){
+        this.startdia = startdia;
+    }
+
+    
     public String getName(){
         return this.name;
     }
@@ -31,11 +41,11 @@ public class Monster {
         this.id =id;
     }
 
-    public Dialogue getDialogue(){
+    public Dia getDialogue(){
         return this.dialogue;
     }
 
-    public void setDialogue(Dialogue dialogue){
+    public void setDialogue(Dia dialogue){
         this.dialogue = dialogue;
     }
 
@@ -77,5 +87,9 @@ public class Monster {
 
     public void setAttacks(Action[] attacks) {
         this.actions = attacks;
+    }
+
+    public static class Dia extends Dialogue{
+
     }
 }

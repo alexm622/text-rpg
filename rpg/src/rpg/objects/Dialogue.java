@@ -1,6 +1,7 @@
 package rpg.objects;
 
 public abstract class Dialogue {
+    private String response;
     private String op1;
     private String op2;
     private String op3;
