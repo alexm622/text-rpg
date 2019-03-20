@@ -16,7 +16,10 @@ import rpg.game.Handler;
 import rpg.guis.MemLoad;
 import rpg.utilities.json.JsonMain;
 import rpg.objects.Character;
+import rpg.objects.Monsters;
+import rpg.objects.StoryEvents;
 import rpg.objects.StoryItems;
+import rpg.objects.StoryLine;
 import rpg.objects.items.*;
 
 
@@ -33,6 +36,9 @@ public class Memory {
     private String[] armorIds = null;
     private Weapon weapon;
     private StoryItems storyItems;
+    private Monsters monsters;
+    private StoryEvents storyEvents;
+    private StoryLine storyline;
 
     //lumping
     private rpg.objects.items.Armor.Item[] items = null;
@@ -91,7 +97,7 @@ public class Memory {
         String path;
         String loading = "not started";
         File file;
-        int size = 6;
+        int size = 9;
         int num = 0;
         String percentstr;
 
@@ -175,6 +181,24 @@ public class Memory {
             // load events
 
             // events
+                loading = "storyevents";
+                path = jm.TypeToPath(loading);
+                file = jm.getFile(path);
+                System.out.println(path);
+
+                num++;
+                percentstr = Integer.toString((100/size)*num) + "%";
+                asset.setText(path);
+                pb.setValue(num*(pb.getMaximum()/size));
+                percent.setText(percentstr);
+                frame.revalidate();
+
+                storyEvents = om.readValue(file, StoryEvents.class);
+                //TODO for some reason this is null
+                mem.setStoryEvents(storyEvents);
+
+                System.out.println("doing");
+            
 
             //load story items
                 loading = "storyitems";
@@ -194,6 +218,40 @@ public class Memory {
                 mem.setStoryItems(storyItems);
 
                 System.out.println("doing");
+
+            //monsters
+
+                loading = "monsters";
+                path = jm.TypeToPath(loading);
+                file = jm.getFile(path);
+                System.out.println(path);
+
+                num++;
+                percentstr = Integer.toString((100/size)*num) + "%";
+                asset.setText(path);
+                pb.setValue(num*(pb.getMaximum()/size));
+                percent.setText(percentstr);
+                frame.revalidate();
+
+                monsters = om.readValue(file, Monsters.class);
+                mem.setMonsters(monsters);
+
+            //storyline
+
+                loading = "storyline";
+                path = jm.TypeToPath(loading);
+                file = jm.getFile(path);
+                System.out.println(path);
+
+                num++;
+                percentstr = Integer.toString((100/size)*num) + "%";
+                asset.setText(path);
+                pb.setValue(num*(pb.getMaximum()/size));
+                percent.setText(percentstr);
+                frame.revalidate();
+
+                storyline = om.readValue(file, StoryLine.class);
+                mem.setStoryline(storyline);
 
             //Done
 
