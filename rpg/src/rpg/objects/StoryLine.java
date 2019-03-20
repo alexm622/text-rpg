@@ -1,6 +1,6 @@
 package rpg.objects;
 
-public abstract class StoryLine {
+public class StoryLine {
     private String name;
     private String desc;
     private String id;

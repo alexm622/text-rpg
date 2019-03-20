@@ -12,8 +12,8 @@ public class StoryEvent{
     private int xp;
 	private int gp;
 	
-	private LootArmor[] lootArmor;
-	private LootWeapon[] lootWeapons;
+	private String[] lootArmor;
+	private String[] lootWeapons;
 	private String[] lootItems;
 	
 	/**
@@ -105,11 +105,11 @@ public class StoryEvent{
 		this.lootItems = lootItems;
 	}
 
-	public void setLootArmor(LootArmor[] lootArmor){
+	public void setLootArmor(String[] lootArmor){
 		this.lootArmor = lootArmor;
 	}
 
-	public void setLootWeapons(LootWeapon[] lootWeapons){
+	public void setLootWeapons(String[] lootWeapons){
 		this.lootWeapons = lootWeapons;
 	}
 
@@ -117,11 +117,11 @@ public class StoryEvent{
 		return this.lootItems;
 	}
 
-	public LootArmor[] getLootArmor(){
+	public String[] getLootArmor(){
 		return this.lootArmor;
 	}
 
-	public LootWeapon[] getLootWeapons(){
+	public String[] getLootWeapons(){
 		return this.lootWeapons;
 	}
 

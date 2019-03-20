@@ -8,6 +8,14 @@ public abstract class Dialogue {
     private String op4;
     private Dialogues[] results;
 
+    public String getResponse(){
+        return this.response;
+    }
+
+    public void setResponse(String response){
+        this.response = response;
+    }
+
     public String getOp1() {
         return this.op1;
     }

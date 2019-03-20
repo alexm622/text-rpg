@@ -5,14 +5,14 @@ public abstract class Monster {
     private int hp;
     private int xp;
     private int lvl;
-    private Action[] actions;
+    private Actions[] actions;
     private String name;
     private String id;
     private String startdia;
     private Dia dialogue;
     private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
 
-    public static class Action extends rpg.objects.Action{
+    public static class Actions extends rpg.objects.Action{
         
     }
 
@@ -81,12 +81,12 @@ public abstract class Monster {
         this.lvl = lvl;
     }
 
-    public Action[] getAttack() {
+    public Actions[] getActions() {
         return this.actions;
     }
 
-    public void setAttacks(Action[] attacks) {
-        this.actions = attacks;
+    public void setActions(Actions[] actions) {
+        this.actions = actions;
     }
 
     public static class Dia extends Dialogue{
