@@ -18,7 +18,7 @@ public class Inventory{
 
 	}
 
-	public static class Modifier implements rpg.objects.items.modifier.Modifier{
+	public static class Modifier extends rpg.objects.items.modifier.Modifier{
 
 	}
 
