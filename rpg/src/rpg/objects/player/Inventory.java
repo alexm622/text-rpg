@@ -1,9 +1,7 @@
 package rpg.objects.player;
 
 import rpg.objects.Item;
-import rpg.objects.Item.Modifier;
-import rpg.objects.items.Armor;
-import rpg.objects.items.Weapon;
+
 
 public class Inventory{
     //private class
@@ -11,6 +9,18 @@ public class Inventory{
 	private Weapon[] weapons;
 	private Item[] items;
 	private Modifier[][] modifiers;
+
+	public static class Armor extends rpg.objects.items.Armor{
+
+	}
+
+	public static class Weapon extends rpg.objects.items.Weapon{
+
+	}
+
+	public static class Modifier implements rpg.objects.items.modifier.Modifier{
+
+	}
 
 	public Armor[] getArmor(){
 		return this.armor;

@@ -1,6 +1,6 @@
 package rpg.objects.items.modifier;
 
-public class Modifier {
+public abstract class Modifier {
 	private int id;
 	private int lvl;
 
