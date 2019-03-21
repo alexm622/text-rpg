@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.story;
 
 public class StoryLine {
     private String name;

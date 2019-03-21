@@ -1,5 +1,6 @@
-package rpg.objects;
+package rpg.objects.npc.monster;
 
+import rpg.objects.npc.Dialogue;
 
 public abstract class Monster {
     private int hp;
@@ -12,7 +13,7 @@ public abstract class Monster {
     private Dia dialogue;
     private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
 
-    public static class Actions extends rpg.objects.Action{
+    public static class Actions extends rpg.objects.combat.Action{
         
     }
 

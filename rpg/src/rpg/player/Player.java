@@ -1,7 +1,7 @@
 package rpg.player;
 
 import rpg.game.Handler;
-import rpg.objects.Character;
+import rpg.objects.player.Character;
 
 public class Player {
 

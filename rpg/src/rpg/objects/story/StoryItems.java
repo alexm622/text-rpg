@@ -1,4 +1,6 @@
-package rpg.objects;
+package rpg.objects.story;
+
+import rpg.objects.Item;
 
 public class StoryItems {
     private Items items[];

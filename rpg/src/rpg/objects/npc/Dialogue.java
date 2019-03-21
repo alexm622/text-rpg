@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.npc;
 
 public abstract class Dialogue {
     private String response;

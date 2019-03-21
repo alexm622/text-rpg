@@ -6,8 +6,7 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
-
-import rpg.objects.Character;
+import rpg.objects.player.Character;
 
 public class Load {
     private ObjectMapper om;

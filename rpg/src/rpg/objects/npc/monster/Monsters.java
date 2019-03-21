@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.npc.monster;
 
 public class Monsters {
     private Mon[] monsters;

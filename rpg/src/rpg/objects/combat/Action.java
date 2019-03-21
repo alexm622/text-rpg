@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.combat;
 
 public abstract class Action {
     private String name;

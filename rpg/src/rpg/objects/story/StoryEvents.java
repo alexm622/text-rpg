@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.story;
 
 public class StoryEvents{
     private StoryEvent[] events;

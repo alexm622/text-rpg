@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.items;
 
 import rpg.objects.items.modifier.Modifier;
 

@@ -1,4 +1,4 @@
-package rpg.objects;
+package rpg.objects.story;
 
 import rpg.objects.items.loot.LootArmor;
 import rpg.objects.items.loot.LootWeapon;

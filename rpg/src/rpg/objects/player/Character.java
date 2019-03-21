@@ -1,7 +1,6 @@
-package rpg.objects;
+package rpg.objects.player;
 
-
-
+import rpg.objects.items.GenericItem;
 
 public class Character{
     private String name;

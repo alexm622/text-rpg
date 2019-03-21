@@ -3,8 +3,8 @@
    {"type":"mediumarmor", "clas":"rpg.objects.items.Armor", "path":"res/GameData/Items/Armor/MediumArmor.json"},
    {"type":"heavyarmor", "clas":"rpg.objects.items.Armor", "path":"res/GameData/Items/Armor/HeavyArmor.json"},
    {"type":"weapons", "clas":"rpg.objects.items.Weapon", "path":"res/GameData/Items/Weapons/Weapons.json"},
-   {"type":"storyline", "clas":"rpg.objects.StoryLine", "path":"res/GameData/Story/StoryLine.json"},
-   {"type":"storyevents", "clas":"rpg.objects.StoryEvents", "path":"res/GameData/Story/StoryEvents.json"},
-   {"type":"storyitems", "clas":"rpg.objects.StoryItems", "path":"res/GameData/Story/StoryItems.json"},
-   {"type":"monsters", "clas":"rpg.objects.Monsters", "path":"res/GameData/NPC/Monsters/Monster.json"}
+   {"type":"storyline", "clas":"rpg.objects.story.StoryLine", "path":"res/GameData/Story/StoryLine.json"},
+   {"type":"storyevents", "clas":"rpg.objects.story.StoryEvents", "path":"res/GameData/Story/StoryEvents.json"},
+   {"type":"storyitems", "clas":"rpg.objects.story.StoryItems", "path":"res/GameData/Story/StoryItems.json"},
+   {"type":"monsters", "clas":"rpg.objects.npc.monster.Monsters", "path":"res/GameData/NPC/Monsters/Monster.json"}
 ]

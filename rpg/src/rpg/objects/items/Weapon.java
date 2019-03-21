@@ -45,7 +45,7 @@ public class Weapon {
         }
 
     }
-    public static class Action extends rpg.objects.Action{
+    public static class Action extends rpg.objects.combat.Action{
             
     }
 

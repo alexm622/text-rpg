@@ -1,5 +1,6 @@
-package rpg.objects;
+package rpg.objects.player;
 
+import rpg.objects.Item;
 import rpg.objects.Item.Modifier;
 import rpg.objects.items.Armor;
 import rpg.objects.items.Weapon;
