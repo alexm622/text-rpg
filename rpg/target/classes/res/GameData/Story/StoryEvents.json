@@ -10,11 +10,7 @@
                 "lvl":1,
                 "xp":10,
                 "gp":10,
-                "lootArmor":[
-                    "mediumarmortest"
-                ],
-                "lootWeapons":[],
-                "lootItems":[]
+                "loot":null
             },
             {
                 "eventId":"testevent2",
@@ -26,11 +22,7 @@
                 "lvl":1,
                 "xp":10,
                 "gp":10,
-                "lootArmor":[],
-                "lootWeapons":[],
-                "lootItems":[
-                    "testitem1"
-                ]
+                "loot":null
             },
             {
                 "eventId":"testevent3",
@@ -42,11 +34,7 @@
                 "lvl":1,
                 "xp":10,
                 "gp":10,
-                "lootArmor":[],
-                "lootWeapons":[
-                    "testweapon"
-                ],
-                "lootItems":[]
+                "loot":null
             }
         ]
 }

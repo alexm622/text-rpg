@@ -14,6 +14,7 @@ public class Load {
 
     public Load(Handler h) {
         this.om = h.getJm().getOm();
+        c = new Character();
         try {
             c = om.readValue(new File(
                     "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\save.sav"),

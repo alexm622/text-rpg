@@ -1,6 +1,6 @@
 package rpg.utilities.memory;
 
-import rpg.objects.items.Items;
+import rpg.objects.Items;
 
 public class LoadIds {
 

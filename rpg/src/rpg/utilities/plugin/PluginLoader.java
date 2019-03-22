@@ -8,7 +8,7 @@ import java.net.URLClassLoader;
 import rpg.utilities.memory.Memory;
 import rpg.utilities.plugin.Plugin;
 
-import rpg.objects.items.Items;
+import rpg.objects.Items;
 import rpg.objects.items.Weapon;
 import rpg.game.Handler;
 
@@ -52,15 +52,13 @@ public class PluginLoader implements Runnable {
     private void loadPlugin(Plugin plugin) throws Error {
         // TODO this will load the plugin contents and handle the id assigning and so on
         items = new Items();
-        items.setItem(plugin.getArmor().getItems());
-        weapons = new Weapon();
-        weapons.setItems(plugin.getWeapon().getItems());
+        items = plugin.getItems();
 
         // TODO implement monster and story events setting down here
 
         // TODO add values to memeory
 
-        m.LoadPlugins(items, weapons);
+        m.LoadPlugins(items);
     }
 
     

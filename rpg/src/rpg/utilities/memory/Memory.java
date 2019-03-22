@@ -34,10 +34,10 @@ public class Memory {
     //game assets
     private Character character;
     private Items lightarmor, mediumarmor, heavyarmor;
-    private Items collectiveArmor;
+    private Items items;
     private String[] armorIds = null;
-    private Weapon weapon;
-    private StoryItems storyItems;
+    private Items weapon;
+    private Items storyItems;
     private Monsters monsters;
     private StoryEvents storyEvents;
     private StoryLine storyline;
@@ -126,7 +126,6 @@ public class Memory {
                 frame.revalidate();
 
                 lightarmor = om.readValue(file, Items.class);
-                mem.setLightArmor(lightarmor);
 
                 // medium armor
                 loading = "mediumarmor";
@@ -141,7 +140,6 @@ public class Memory {
                 frame.revalidate();
 
                 mediumarmor = om.readValue(file, Items.class);
-                mem.setMediumArmor(mediumarmor);
 
                 // heavy armor
                 loading = "heavyarmor";
@@ -156,7 +154,6 @@ public class Memory {
                 frame.revalidate();
 
                 heavyarmor = om.readValue(file, Items.class);
-                mem.setHeavyArmor(heavyarmor);
 
             // load weapons
 
@@ -172,8 +169,7 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                weapon = om.readValue(file, Weapon.class);
-                mem.setWeapons(weapon);
+                weapon = om.readValue(file, Items.class);
 
                 System.out.println("doing");
 
@@ -213,9 +209,11 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                storyItems = om.readValue(file, StoryItems.class);
+                storyItems = om.readValue(file, Items.class);
                 //TODO for some reason this is null
+
                 mem.setStoryItems(storyItems);
+                
 
                 System.out.println("doing");
 
@@ -265,7 +263,7 @@ public class Memory {
             //make data collective
 
             //armor
-            lumparmor();
+            LumpItems();
 
         } catch (Exception e) {
             if(loading == "weapons") {
@@ -280,7 +278,7 @@ public class Memory {
         }
     }
 
-    public void loadCharacter(String path) {
+    public void LoadCharacter(String path) {
         try {
             File file = jm.getFile(path);
             character = om.readValue(file, Character.class);
@@ -290,19 +288,40 @@ public class Memory {
         }
     }
 
-    private void lumparmor(){
-        this.collectiveArmor = new Items();
-        Item[] items;
+    private void LumpItems(){
+
+        // TODO make it so all items are lumped together 
+
+        this.items = new Items();
+        Item[] temp;
 
         System.out.println("lumping");
 
         System.out.println("started lumping");
 
-        items = lightarmor.getItems();
+        temp = lightarmor.getItems();
 
         System.out.println("lightarmor");
 
-        collectiveArmor.setItems(ArrayUtils.addAll(collectiveArmor.getItems(), items));
+        items.setItems(ArrayUtils.addAll(items.getItems(), temp));
+
+        temp = mediumarmor.getItems();
+
+        items.setItems(ArrayUtils.addAll(items.getItems(), temp));
+
+        temp = heavyarmor.getItems();
+
+        items.setItems(ArrayUtils.addAll(items.getItems(), temp));
+
+        temp = weapon.getItems();
+
+        items.setItems(ArrayUtils.addAll(items.getItems(), temp));
+
+        temp = storyItems.getItems();
+
+        items.setItems(ArrayUtils.addAll(items.getItems(), temp));
+
+        mem.setItems(items);
 
     }
 
@@ -315,21 +334,15 @@ public class Memory {
     }
 
 	public void FinalizePlugins() {
-        this.mem.setArmorIds(armorIds);
-        this.mem.setArmor(collectiveArmor);
+        // TODO finalize
 	}
 
-	public void LoadPlugins(Items items, Weapon weapons) {
+	public void LoadPlugins(Items temp) {
         //new items list
-        this.items = (rpg.objects.items.Items.Item[])ArrayUtils.addAll(this.items, items.getItems());
 
-        //new collective armor
-        this.collectiveArmor.setItem(this.items);
 
-        //new Id list
-        this.armorIds = new String[collectiveArmor.getItems().length];
-        this.armorIds = idloader.Items(this.collectiveArmor);
 
+        items.setItems(ArrayUtils.addAll(items.getItems(), temp.getItems()));
 	}
     
     public void Update(Handler h) {

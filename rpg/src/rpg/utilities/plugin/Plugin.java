@@ -2,9 +2,7 @@ package rpg.utilities.plugin;
 
 import javax.swing.JComponent;
 
-import rpg.objects.items.Items;
-import rpg.objects.items.GenericItem;
-import rpg.objects.items.Weapon;
+import rpg.objects.Items;
 import rpg.objects.npc.monster.Monster;
 import rpg.objects.story.StoryEvent;
 import rpg.objects.story.StoryLine;
@@ -17,11 +15,7 @@ public interface Plugin {
 
     public JComponent getComponenets();
 
-    public Items getArmor();
-
-    public Weapon getWeapon();
-
-    public GenericItem[] getItems();
+    public Items getItems();
 
     public Monster getMonster();
 
