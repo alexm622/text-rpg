@@ -1,0 +1,52 @@
+{
+    "events":[
+            {
+                "eventId":"testevent1",
+                "name":"testevent1",
+                "desc":"a test event",
+                "monsters":[
+                    "testmonster"
+                ],
+                "lvl":1,
+                "xp":10,
+                "gp":10,
+                "lootArmor":[
+                    "mediumarmortest"
+                ],
+                "lootWeapons":[],
+                "lootItems":[]
+            },
+            {
+                "eventId":"testevent2",
+                "name":"testevent2",
+                "desc":"a test event",
+                "monsters":[
+                    "testmonster"
+                ],
+                "lvl":1,
+                "xp":10,
+                "gp":10,
+                "lootArmor":[],
+                "lootWeapons":[],
+                "lootItems":[
+                    "testitem1"
+                ]
+            },
+            {
+                "eventId":"testevent3",
+                "name":"testevent3",
+                "desc":"a test event",
+                "monsters":[
+                    "testmonster"
+                ],
+                "lvl":1,
+                "xp":10,
+                "gp":10,
+                "lootArmor":[],
+                "lootWeapons":[
+                    "testweapon"
+                ],
+                "lootItems":[]
+            }
+        ]
+}
