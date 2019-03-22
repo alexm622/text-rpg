@@ -17,11 +17,9 @@ import rpg.guis.MemLoad;
 import rpg.utilities.json.JsonMain;
 import rpg.objects.Item;
 import rpg.objects.Items;
-import rpg.objects.items.*;
-import rpg.objects.npc.monster.Monsters;
+import rpg.objects.npc.Npcs;
 import rpg.objects.player.Character;
 import rpg.objects.story.StoryEvents;
-import rpg.objects.story.StoryItems;
 import rpg.objects.story.StoryLine;
 
 
@@ -38,7 +36,7 @@ public class Memory {
     private String[] armorIds = null;
     private Items weapon;
     private Items storyItems;
-    private Monsters monsters;
+    private Npcs monsters;
     private StoryEvents storyEvents;
     private StoryLine storyline;
 
@@ -231,7 +229,7 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                monsters = om.readValue(file, Monsters.class);
+                monsters = om.readValue(file, Npcs.class);
                 mem.setMonsters(monsters);
 
             //storyline

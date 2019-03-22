@@ -9,7 +9,6 @@ import rpg.utilities.memory.Memory;
 import rpg.utilities.plugin.Plugin;
 
 import rpg.objects.Items;
-import rpg.objects.items.Weapon;
 import rpg.game.Handler;
 
 public class PluginLoader implements Runnable {
@@ -19,7 +18,6 @@ public class PluginLoader implements Runnable {
 
     private Memory m;
     private Items items;
-    private Weapon weapons;
 
     public void run() {
         modDir = new File(

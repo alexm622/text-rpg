@@ -3,7 +3,7 @@ package rpg.utilities.plugin;
 import javax.swing.JComponent;
 
 import rpg.objects.Items;
-import rpg.objects.npc.monster.Monster;
+import rpg.objects.npc.Npcs;
 import rpg.objects.story.StoryEvent;
 import rpg.objects.story.StoryLine;
 
@@ -17,7 +17,7 @@ public interface Plugin {
 
     public Items getItems();
 
-    public Monster getMonster();
+    public Npcs getMonster();
 
     public StoryLine getStory();
 

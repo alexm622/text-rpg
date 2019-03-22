@@ -1,5 +1,5 @@
 {
-    "monsters":[
+    "npcs":[
         {
             "name":"testmonster",
             "id":"testmonster",

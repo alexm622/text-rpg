@@ -1,21 +1,18 @@
-package rpg.objects.npc.monster;
+package rpg.objects.npc;
 
-import rpg.objects.npc.Dialogue;
+import rpg.objects.combat.Action;
 
-public abstract class Monster {
+public class Npc {
     private int hp;
     private int xp;
     private int lvl;
-    private Actions[] actions;
+    private Action[] actions;
     private String name;
     private String id;
     private String startdia;
-    private Dia dialogue;
+    private Dialogue dialogue;
     private int[] stats; // charisma, constitution, dexterity, intellegence, strength, wisdom
 
-    public static class Actions extends rpg.objects.combat.Action{
-        
-    }
 
     public String getStartdia(){
         return this.startdia;
@@ -42,11 +39,11 @@ public abstract class Monster {
         this.id =id;
     }
 
-    public Dia getDialogue(){
+    public Dialogue getDialogue(){
         return this.dialogue;
     }
 
-    public void setDialogue(Dia dialogue){
+    public void setDialogue(Dialogue dialogue){
         this.dialogue = dialogue;
     }
 
@@ -82,15 +79,12 @@ public abstract class Monster {
         this.lvl = lvl;
     }
 
-    public Actions[] getActions() {
+    public Action[] getActions() {
         return this.actions;
     }
 
-    public void setActions(Actions[] actions) {
+    public void setActions(Action[] actions) {
         this.actions = actions;
     }
 
-    public static class Dia extends Dialogue{
-
-    }
 }

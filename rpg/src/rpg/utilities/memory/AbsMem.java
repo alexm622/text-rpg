@@ -1,11 +1,9 @@
 package rpg.utilities.memory;
 
 import rpg.objects.Items;
-import rpg.objects.items.*;
-import rpg.objects.npc.monster.Monsters;
+import rpg.objects.npc.Npcs;
 import rpg.objects.player.Character;
 import rpg.objects.story.StoryEvents;
-import rpg.objects.story.StoryItems;
 import rpg.objects.story.StoryLine;
 
 public class AbsMem{
@@ -14,7 +12,7 @@ public class AbsMem{
         //items
         private Items items;
         private Items storyItems;
-        private Monsters monsters;
+        private Npcs monsters;
         private StoryLine storyline;
         private StoryEvents storyevents;
 
@@ -70,11 +68,11 @@ public class AbsMem{
                 return this.storyItems;
             }
 
-			public void setMonsters(Monsters monsters) {
+			public void setMonsters(Npcs monsters) {
                 this.monsters = monsters;
             }
             
-            public Monsters getMonsters(){
+            public Npcs getMonsters(){
                 return this.monsters;
             }
 

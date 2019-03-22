@@ -1,6 +1,6 @@
 package rpg.objects.npc;
 
-public abstract class Dialogue {
+public class Dialogue {
     private String response;
     private String op1;
     private String op2;
