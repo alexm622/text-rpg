@@ -1,10 +1,10 @@
 package rpg.utilities.memory;
 
-import rpg.objects.items.Armor;
+import rpg.objects.items.Items;
 
 public class LoadIds {
 
-	public String[] Armor(Armor collectiveArmor) {
+	public String[] Items(Items collectiveArmor) {
         String[] ids = new String[collectiveArmor.getItems().length];
         for(int i = 0; i < collectiveArmor.getItems().length; i++){
             ids[i] = collectiveArmor.getItems()[i].getId();

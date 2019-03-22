@@ -1,5 +1,6 @@
 package rpg.utilities.memory;
 
+import rpg.objects.Items;
 import rpg.objects.items.*;
 import rpg.objects.npc.monster.Monsters;
 import rpg.objects.player.Character;
@@ -10,12 +11,12 @@ import rpg.objects.story.StoryLine;
 public class AbsMem{
     //private vars
 
-        //armor
-        private Armor lightarmor;
-        private Armor mediumarmor;
-        private Armor heavyarmor;
-        private Armor genericArmor;
-        private Armor armor;
+        //items
+        private Items lightarmor;
+        private Items mediumarmor;
+        private Items heavyarmor;
+        private Items genericArmor;
+        private Items items;
         private String[] armorIds;
         private StoryItems storyItems;
         private Monsters monsters;
@@ -36,7 +37,7 @@ public class AbsMem{
 
     //getters and setters
 
-        //armor
+        //items
             
             //getters
 
@@ -44,19 +45,19 @@ public class AbsMem{
                 return this.armorIds;
             }
 
-            public Armor getArmor(){
-                return this.armor;
+            public Items getArmor(){
+                return this.items;
             }
 
-            public Armor getLightArmor(){
+            public Items getLightArmor(){
                 return this.lightarmor;
             }
 
-            public Armor getMediumArmor(){
+            public Items getMediumArmor(){
                 return this.mediumarmor;
             }
 
-            public Armor getHeavyArmor(){
+            public Items getHeavyArmor(){
                 return this.heavyarmor;
             }
 
@@ -66,27 +67,27 @@ public class AbsMem{
                 this.armorIds = armorIds;
             }
 
-            public void setArmor(Armor armor){
-                this.armor = armor;
+            public void setArmor(Items items){
+                this.items = items;
             }
 
-            public void setLightArmor(Armor lightarmor){
+            public void setLightArmor(Items lightarmor){
                 this.lightarmor = lightarmor;
             }
 
-            public void setMediumArmor(Armor mediumarmor){
+            public void setMediumArmor(Items mediumarmor){
                 this.mediumarmor = mediumarmor;
             }
 
-            public void setHeavyArmor(Armor heavyarmor){
+            public void setHeavyArmor(Items heavyarmor){
                 this.heavyarmor = heavyarmor;
             }
 
-            public Armor getGenericArmor(){
+            public Items getGenericArmor(){
                 return this.genericArmor;
             }
 
-            public void setGenericArmor(Armor genericArmor){
+            public void setGenericArmor(Items genericArmor){
                 this.genericArmor = genericArmor;
             }
         

@@ -2,7 +2,7 @@ package rpg.utilities.plugin;
 
 import javax.swing.JComponent;
 
-import rpg.objects.items.Armor;
+import rpg.objects.items.Items;
 import rpg.objects.items.GenericItem;
 import rpg.objects.items.Weapon;
 import rpg.objects.npc.monster.Monster;
@@ -17,7 +17,7 @@ public interface Plugin {
 
     public JComponent getComponenets();
 
-    public Armor getArmor();
+    public Items getArmor();
 
     public Weapon getWeapon();
 

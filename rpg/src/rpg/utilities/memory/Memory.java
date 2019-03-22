@@ -15,6 +15,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import rpg.game.Handler;
 import rpg.guis.MemLoad;
 import rpg.utilities.json.JsonMain;
+import rpg.objects.Item;
+import rpg.objects.Items;
 import rpg.objects.items.*;
 import rpg.objects.npc.monster.Monsters;
 import rpg.objects.player.Character;
@@ -31,8 +33,8 @@ public class Memory {
     // private MemLoader ml;
     //game assets
     private Character character;
-    private Armor lightarmor, mediumarmor, heavyarmor;
-    private Armor collectiveArmor;
+    private Items lightarmor, mediumarmor, heavyarmor;
+    private Items collectiveArmor;
     private String[] armorIds = null;
     private Weapon weapon;
     private StoryItems storyItems;
@@ -40,8 +42,6 @@ public class Memory {
     private StoryEvents storyEvents;
     private StoryLine storyline;
 
-    //lumping
-    private rpg.objects.items.Armor.Item[] items = null;
 
     //program assets
     private Handler h;
@@ -125,7 +125,7 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                lightarmor = om.readValue(file, Armor.class);
+                lightarmor = om.readValue(file, Items.class);
                 mem.setLightArmor(lightarmor);
 
                 // medium armor
@@ -140,7 +140,7 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                mediumarmor = om.readValue(file, Armor.class);
+                mediumarmor = om.readValue(file, Items.class);
                 mem.setMediumArmor(mediumarmor);
 
                 // heavy armor
@@ -155,7 +155,7 @@ public class Memory {
                 percent.setText(percentstr);
                 frame.revalidate();
 
-                heavyarmor = om.readValue(file, Armor.class);
+                heavyarmor = om.readValue(file, Items.class);
                 mem.setHeavyArmor(heavyarmor);
 
             // load weapons
@@ -291,7 +291,8 @@ public class Memory {
     }
 
     private void lumparmor(){
-        this.collectiveArmor = new Armor();
+        this.collectiveArmor = new Items();
+        Item[] items;
 
         System.out.println("lumping");
 
@@ -301,27 +302,7 @@ public class Memory {
 
         System.out.println("lightarmor");
 
-        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, mediumarmor.getItems());
-
-        System.out.println("medium armor");
-
-        items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(items, heavyarmor.getItems());
-
-        System.out.println("heavy armor");
-
-        collectiveArmor.setItem(items);
-
-        System.out.println(collectiveArmor.getItems().length);
-
-        armorIds = new String[collectiveArmor.getItems().length];
-
-        armorIds = idloader.Armor(collectiveArmor);
-
-        System.out.println("armorIds is: " + armorIds.length);
-
-        System.out.println(armorIds[1]);
-        
-        System.out.println("done lumping");
+        collectiveArmor.setItems(ArrayUtils.addAll(collectiveArmor.getItems(), items));
 
     }
 
@@ -338,16 +319,16 @@ public class Memory {
         this.mem.setArmor(collectiveArmor);
 	}
 
-	public void LoadPlugins(Armor armor, Weapon weapons) {
+	public void LoadPlugins(Items items, Weapon weapons) {
         //new items list
-        this.items = (rpg.objects.items.Armor.Item[])ArrayUtils.addAll(this.items, armor.getItems());
+        this.items = (rpg.objects.items.Items.Item[])ArrayUtils.addAll(this.items, items.getItems());
 
         //new collective armor
         this.collectiveArmor.setItem(this.items);
 
         //new Id list
         this.armorIds = new String[collectiveArmor.getItems().length];
-        this.armorIds = idloader.Armor(this.collectiveArmor);
+        this.armorIds = idloader.Items(this.collectiveArmor);
 
 	}
     

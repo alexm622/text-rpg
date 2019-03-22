@@ -1,7 +1,6 @@
 package rpg.objects.player;
 
-import rpg.objects.items.Armor;
-import rpg.objects.items.Weapon;
+import rpg.objects.Item;
 
 public class Character{
     private String name;
@@ -9,14 +8,10 @@ public class Character{
 	private int hp;
     private int stren, chari, intel, wis, dex, consti, prof;
     private int xp, gp;
-    private Inv inv;
-    private Armor boots, pants, chest, helmet;
-	private Weapon equipped;
+    private Inventory inv;
+    private Item boots, pants, chest, helmet;
+	private Item equipped;
 	
-	public static class Inv extends Inventory{
-
-	}
-
 	public int getHp(){
 		return this.hp;
 	}
@@ -25,11 +20,11 @@ public class Character{
 		this.hp = hp;
 	}
 	
-    public Inv getInv(){
+    public Inventory getInv(){
         return this.inv;
     }
 
-    public void setInv(Inv inv){
+    public void setInv(Inventory inv){
         this.inv = inv;
     }
 	/**
@@ -168,70 +163,70 @@ public class Character{
 	/**
 	 * @return the boots
 	 */
-	public Armor getBoots() {
+	public Item getBoots() {
 		return boots;
 	}
 
 	/**
 	 * @param boots the boots to set
 	 */
-	public void setBoots(Armor boots) {
+	public void setBoots(Item boots) {
 		this.boots = boots;
 	}
 
 	/**
 	 * @return the pants
 	 */
-	public Armor getPants() {
+	public Item getPants() {
 		return pants;
 	}
 
 	/**
 	 * @param pants the pants to set
 	 */
-	public void setPants(Armor pants) {
+	public void setPants(Item pants) {
 		this.pants = pants;
 	}
 
 	/**
 	 * @return the chest
 	 */
-	public Armor getChest() {
+	public Item getChest() {
 		return chest;
 	}
 
 	/**
 	 * @param chest the chest to set
 	 */
-	public void setChest(Armor chest) {
+	public void setChest(Item chest) {
 		this.chest = chest;
 	}
 
 	/**
 	 * @return the helmet
 	 */
-	public Armor getHelmet() {
+	public Item getHelmet() {
 		return helmet;
 	}
 
 	/**
 	 * @param helmet the helmet to set
 	 */
-	public void setHelmet(Armor helmet) {
+	public void setHelmet(Item helmet) {
 		this.helmet = helmet;
 	}
 
 	/**
 	 * @return the equipped
 	 */
-	public Weapon getEquipped() {
+	public Item getEquipped() {
 		return equipped;
 	}
 
 	/**
 	 * @param equipped the equipped to set
 	 */
-	public void setEquipped(Weapon equipped) {
+	public void setEquipped(Item equipped) {
 		this.equipped = equipped;
 	}
     

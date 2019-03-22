@@ -1,6 +1,6 @@
 package rpg.objects.story;
 
-import rpg.objects.Item;
+import rpg.objects.Items;
 
 public class StoryItems {
     private Items items[];
@@ -13,8 +13,5 @@ public class StoryItems {
         this.items = items;
     }
 
-    static class Items extends Item{
-        
-    }
 
 }

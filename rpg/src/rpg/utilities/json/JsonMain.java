@@ -15,7 +15,7 @@ import rpg.game.Handler;
 import rpg.utilities.json.classes.IndexHandler;
 import rpg.utilities.json.classes.Index;
 import rpg.utilities.json.classes.index.Path;
-import rpg.objects.items.Armor;
+import rpg.objects.items.Items;
 
 import com.fasterxml.jackson.core.*;
 

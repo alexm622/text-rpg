@@ -1,20 +1,17 @@
 package rpg.objects.story;
 
-import rpg.objects.items.loot.LootArmor;
-import rpg.objects.items.loot.LootWeapon;
+import rpg.objects.Items;
 
 public class StoryEvent{
     private String eventId;
     private String name;
     private String desc;
-    private String[] monsters;
+    private String[] monsters; // TODO make a npc class
     private int lvl;
     private int xp;
 	private int gp;
 	
-	private String[] lootArmor;
-	private String[] lootWeapons;
-	private String[] lootItems;
+	private Items loot;
 	
 	/**
 	 * @return the eventId
@@ -101,28 +98,11 @@ public class StoryEvent{
 		this.gp = gp;
 	}
 	
-	public void setLootItems(String[] lootItems){
-		this.lootItems = lootItems;
+	public void setLoot(Items loot) {
+		this.loot = loot;
 	}
-
-	public void setLootArmor(String[] lootArmor){
-		this.lootArmor = lootArmor;
+	
+	public Items getLoot() {
+		return this.loot;
 	}
-
-	public void setLootWeapons(String[] lootWeapons){
-		this.lootWeapons = lootWeapons;
-	}
-
-	public String[] getLootItems(){
-		return this.lootItems;
-	}
-
-	public String[] getLootArmor(){
-		return this.lootArmor;
-	}
-
-	public String[] getLootWeapons(){
-		return this.lootWeapons;
-	}
-
 }

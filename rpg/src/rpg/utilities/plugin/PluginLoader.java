@@ -8,7 +8,7 @@ import java.net.URLClassLoader;
 import rpg.utilities.memory.Memory;
 import rpg.utilities.plugin.Plugin;
 
-import rpg.objects.items.Armor;
+import rpg.objects.items.Items;
 import rpg.objects.items.Weapon;
 import rpg.game.Handler;
 
@@ -18,7 +18,7 @@ public class PluginLoader implements Runnable {
     private File[] mods;
 
     private Memory m;
-    private Armor armor;
+    private Items items;
     private Weapon weapons;
 
     public void run() {
@@ -51,8 +51,8 @@ public class PluginLoader implements Runnable {
 
     private void loadPlugin(Plugin plugin) throws Error {
         // TODO this will load the plugin contents and handle the id assigning and so on
-        armor = new Armor();
-        armor.setItem(plugin.getArmor().getItems());
+        items = new Items();
+        items.setItem(plugin.getArmor().getItems());
         weapons = new Weapon();
         weapons.setItems(plugin.getWeapon().getItems());
 
@@ -60,7 +60,7 @@ public class PluginLoader implements Runnable {
 
         // TODO add values to memeory
 
-        m.LoadPlugins(armor, weapons);
+        m.LoadPlugins(items, weapons);
     }
 
     

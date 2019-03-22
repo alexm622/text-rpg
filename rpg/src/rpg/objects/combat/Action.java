@@ -1,6 +1,6 @@
 package rpg.objects.combat;
 
-public abstract class Action {
+public class Action {
     private String name;
     private String desc;
     private String dmg;
