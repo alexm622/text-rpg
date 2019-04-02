@@ -33,7 +33,6 @@ public class Memory {
     private Character character;
     private Items lightarmor, mediumarmor, heavyarmor;
     private Items items;
-    private String[] armorIds = null;
     private Items weapon;
     private Items storyItems;
     private Npcs monsters;
@@ -42,7 +41,6 @@ public class Memory {
 
 
     //program assets
-    private Handler h;
     private AbsMem mem;
     private ObjectMapper om;
     private JsonMain jm;
@@ -52,9 +50,6 @@ public class Memory {
     //plugins
 
     public Memory(Handler h) {
-        // assign handler
-        this.h = h;
-
         // initiate AbsMem
         mem = new AbsMem();
 
@@ -343,7 +338,4 @@ public class Memory {
         items.setItems(ArrayUtils.addAll(items.getItems(), temp.getItems()));
 	}
     
-    public void Update(Handler h) {
-		this.h = h;
-	}
 }

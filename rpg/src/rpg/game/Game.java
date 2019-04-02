@@ -80,7 +80,6 @@ public class Game{
     private void Refresh(){
         h.Update();
         gm.Update(this.h);
-        mem.Update(this.h);
         p.Update(this.h);
     }
 
