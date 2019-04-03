@@ -10,11 +10,13 @@ public class Tile {
     private String tableId;
 
     private String eventId;
+    
+    private String townId;
 
-    private char icon;
+    private int icon; //character hex code
 
-    private String bgColor;
-    private String iconColor;
+    private int bgColor; //rgb hex code
+    private int iconColor; //rgb hex code
 
     public String getId(){
         return this.id;
@@ -63,31 +65,39 @@ public class Tile {
     public void setEventId(String eventId){
         this.eventId = eventId;
     }
+    
+    public String getTownId(){
+	    return this.townId;
+    }
+    
+    public void setTownId(String townId){
+	    this.townId = townId;
+    }
 
-    public char getIcon(){
+    public int getIcon(){
         return this.icon;
     }
 
-    public void setIcon(char icon){
+    public void setIcon(int icon){
         this.icon = icon;
     }
 
     //iconColor
     //bgColor
 
-    public String getBgColor(){
+    public int getBgColor(){
         return this.bgColor;
     }
 
-    public void setBgColor(String bgColor){
+    public void setBgColor(int bgColor){
         this.bgColor = bgColor;
     }
 
-    public String getIconColor(){
+    public int getIconColor(){
         return this.iconColor;
     }
 
-    public void setIconColor(String iconColor){
+    public void setIconColor(int iconColor){
         this.iconColor = iconColor;
     }
 

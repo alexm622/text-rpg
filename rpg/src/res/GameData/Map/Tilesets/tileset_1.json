@@ -1,0 +1,43 @@
+{
+   "id": "testtileset",
+   "name": "testtileset",
+   "biome": "grass",
+   "tiles": [
+      {
+         "name": "test1",
+         "id": "testtile1",
+         "biomeId": "grass",
+         "difficulty": 1,
+         "eventId": "",
+         "tableId": "",
+         "townId": "testtown",
+         "icon": 0,
+         "bgColor": 0,
+         "iconColor": 0
+      },
+      {
+         "name": "test2",
+         "id": "testtile2",
+         "biomeId": "grass",
+         "difficulty": 1,
+         "eventId": "",
+         "tableId": "testtable",
+         "townId": "",
+         "icon": 0,
+         "bgColor": 0,
+         "iconColor": 0
+      },
+      {
+         "name": "test3",
+         "id": "testtile3",
+         "biomeId": "grass",
+         "difficulty": 1,
+         "eventId": "testevent",
+         "tableId": "",
+         "townId": "",
+         "icon": 0,
+         "bgColor": 0,
+         "iconColor": 0
+      }
+   ]
+}
