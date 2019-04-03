@@ -332,7 +332,6 @@ public class NewSave {
 		System.out.println(stats[0]);
 		System.out.println((h.getG().getP() == null));
 		h.getG().getP().init(stats);
-		new Save(this.h);
 		return;
 	}
 

@@ -17,6 +17,7 @@ import rpg.guis.MemLoad;
 import rpg.utilities.json.JsonMain;
 import rpg.objects.Item;
 import rpg.objects.Items;
+import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
 import rpg.objects.player.Character;
 import rpg.objects.story.StoryEvents;
@@ -38,6 +39,7 @@ public class Memory {
     private Npcs monsters;
     private StoryEvents storyEvents;
     private StoryLine storyline;
+    private TileSet tileset;
 
 
     //program assets
@@ -90,7 +92,7 @@ public class Memory {
         String path;
         String loading = "not started";
         File file;
-        int size = 9;
+        int size = 10;
         int num = 0;
         String percentstr;
 
@@ -244,6 +246,21 @@ public class Memory {
                 storyline = om.readValue(file, StoryLine.class);
                 mem.setStoryline(storyline);
 
+            //tileset
+                loading = "tileset";
+                path = jm.TypeToPath(loading);
+                file = jm.getFile(path);
+                System.out.println(path);
+
+                num++;
+                percentstr = Integer.toString((100/size)*num) + "%";
+                asset.setText(path);
+                pb.setValue(num*(pb.getMaximum()/size));
+                percent.setText(percentstr);
+                frame.revalidate();
+
+                tileset = om.readValue(file, TileSet.class);
+                mem.setTileSet(tileset);
             //Done
 
             num++;
@@ -271,15 +288,7 @@ public class Memory {
         }
     }
 
-    public void LoadCharacter(String path) {
-        try {
-            File file = jm.getFile(path);
-            character = om.readValue(file, Character.class);
-            mem.setCharacter(character);
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
+    
 
     private void LumpItems(){
 

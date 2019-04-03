@@ -1,6 +1,8 @@
 package rpg.utilities.memory;
 
 import rpg.objects.Items;
+import rpg.objects.map.Map;
+import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
 import rpg.objects.player.Character;
 import rpg.objects.story.StoryEvents;
@@ -15,6 +17,8 @@ public class AbsMem{
         private Npcs monsters;
         private StoryLine storyline;
         private StoryEvents storyevents;
+        private Map map;
+        private TileSet tileset;
 
         //events
 
@@ -93,7 +97,23 @@ public class AbsMem{
             }
 
 			public void setItems(Items items2) {
-			}
+            }
+            
+            public Map getMap(){
+                return this.map;
+            }
+
+            public void setMap(Map map){
+                this.map = map;
+            }
+
+            public void setTileSet(TileSet tileset){
+                this.tileset = tileset;
+            }
+
+            public TileSet getTileSet(){
+                return this.tileset;
+            }
 
     //class definitions
 }
