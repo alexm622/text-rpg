@@ -13,7 +13,7 @@ public class Tile {
     
     private String townId;
 
-    private int icon; //character hex code
+    private int icon; //ascii hex code
 
     private int bgColor; //rgb hex code
     private int iconColor; //rgb hex code
