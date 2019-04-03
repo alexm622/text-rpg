@@ -1,13 +1,13 @@
 package rpg.objects.map;
 
 public class Map {
-    private String[][] tiles;
+    private double[][] tiles;
 
-    public String[][] getTiles(){
+    public double[][] getTiles(){
         return this.tiles;
     }
 
-    public void setTiles(String[][] tiles){
+    public void setTiles(double[][] tiles){
         this.tiles = tiles;
     }
 }

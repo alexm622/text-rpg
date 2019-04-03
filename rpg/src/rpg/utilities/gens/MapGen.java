@@ -3,6 +3,7 @@ package rpg.utilities.gens;
 import java.io.IOException;
 
 import rpg.game.Handler;
+import rpg.objects.map.Map;
 
 public class MapGen {
 
@@ -21,6 +22,8 @@ public class MapGen {
     }
 
     private void ConvertToMap(double[][] map){
-        
+        Map m = new Map();
+        m.setTiles(map);
+        h.getG().getMemory().getMem().setMap(m);
     }
 }
