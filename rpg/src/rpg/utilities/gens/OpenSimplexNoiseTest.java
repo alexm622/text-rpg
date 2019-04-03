@@ -12,9 +12,9 @@ import java.util.Random;
 
 public class OpenSimplexNoiseTest
 {
-	private static final int WIDTH = 512;
-	private static final int HEIGHT = 512;
-	private static final double FEATURE_SIZE = 80;
+	private static final int WIDTH = 1024;
+	private static final int HEIGHT = 1024;
+	private static final double FEATURE_SIZE = 100;
 
 	public double[][] main() throws IOException {
 		Random ran = new Random();
@@ -30,9 +30,9 @@ public class OpenSimplexNoiseTest
 				double value = noise.eval(x / FEATURE_SIZE, y / FEATURE_SIZE, 0.0);
 				//System.out.println(value);
 				if(value < 0) {
-					value = Math.round(value * 50.0) / 50.0;
+					value = Math.round(value * 100.0) / 100.0;
 				}else {
-					value = Math.round(value * 50.0) / 50.0;
+					value = Math.round(value * 100.0) / 100.0;
 				}
 				double divisor = 2.5;
 				double temp;

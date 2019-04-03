@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 
 import rpg.game.Game;
 import rpg.game.Handler;
-import rpg.utilities.SaveFileReader;
+
 import rpg.utilities.json.Save;
 
 import java.awt.BorderLayout;

@@ -23,7 +23,7 @@ import javax.swing.ScrollPaneConstants;
 
 import rpg.game.Game;
 import rpg.game.Handler;
-import rpg.utilities.SaveManager;
+
 import rpg.utilities.json.*;
 
 import java.awt.event.ActionListener;
@@ -41,7 +41,7 @@ public class GraphicMain {
 	private JTextPane output;
 	private static Handler h;
 	private JRadioButton choice_1, choice_2, choice_3, choice_4, choice_5, choice_6, choice_yes, choice_no;
-	private static SaveManager SM;
+
 	private JButton btnMods;
 
 	/**
@@ -61,7 +61,7 @@ public class GraphicMain {
 	}
 
 	public void Init(GraphicMain gm) {
-		SM = new SaveManager();
+
 	}
 
 	/**

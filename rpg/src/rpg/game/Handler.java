@@ -1,12 +1,11 @@
 package rpg.game;
 
-import rpg.utilities.SaveFileReader;
+
 import rpg.utilities.json.JsonMain;
 import rpg.utilities.json.classes.index.Path;
 
 public class Handler {
 	private Game g;
-	private SaveFileReader fm;
 	private JsonMain jm;
 	private Path[] ptdata;
 	private Thread t;
@@ -14,11 +13,9 @@ public class Handler {
 	public Handler(Game g) {
 		this.ptdata = new Path[0];
 		
-		InitFm();
 		InitJson();
 		InitGame(g);
 		
-		fm.Init();
 
      
 	}
@@ -34,10 +31,6 @@ public class Handler {
 		this.jm.Init(this);
 	}
 
-	private void InitFm() {
-		this.fm = new SaveFileReader();
-		this.fm.Init();
-	}
 
 
 
@@ -52,13 +45,7 @@ public class Handler {
 	}
 	
 
-	public SaveFileReader getFm() {
-		return this.fm;
-	}
 
-	public void setFm(SaveFileReader fm) {
-		this.fm = fm;
-	}
 
 	public JsonMain getJm() {
 		return this.jm;
