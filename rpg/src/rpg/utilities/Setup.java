@@ -25,8 +25,8 @@ public class Setup {
     }
 
     private void Create() {
-        new NewSave(h);
         new MapGen(h);
+        new NewSave(h);
     }
 
 }
