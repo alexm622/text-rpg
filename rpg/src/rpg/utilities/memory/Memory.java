@@ -1,8 +1,8 @@
 package rpg.utilities.memory;
 
+import java.awt.event.WindowEvent;
 import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
+
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,7 +19,6 @@ import rpg.objects.Item;
 import rpg.objects.Items;
 import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
-import rpg.objects.player.Character;
 import rpg.objects.story.StoryEvents;
 import rpg.objects.story.StoryLine;
 
@@ -29,9 +28,8 @@ import rpg.objects.story.StoryLine;
 public class Memory {
     // TODO make this manage memory
 
-    // private MemLoader ml;
     //game assets
-    private Character character;
+    
     private Items lightarmor, mediumarmor, heavyarmor;
     private Items items;
     private Items weapon;
@@ -47,7 +45,6 @@ public class Memory {
     private ObjectMapper om;
     private JsonMain jm;
     private MemLoad ml;
-    private LoadIds idloader;
 
     //plugins
 
@@ -67,9 +64,6 @@ public class Memory {
 
         h.getG().getGm().getFrmRpg().setEnabled(false);
 
-        //idloader
-
-        idloader = new LoadIds();
 
         //open memload gui
         ml = new MemLoad();
@@ -99,6 +93,7 @@ public class Memory {
         //init gui assets
 
         JFrame frame = ml.getFrame();
+        
         JProgressBar pb;
         JLabel asset, percent;
         asset = ml.getLoadingAsset();

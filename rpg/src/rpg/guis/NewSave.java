@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 
 import rpg.game.Game;
 import rpg.game.Handler;
-
+import rpg.utilities.Setup;
 import rpg.utilities.json.Save;
 
 import java.awt.BorderLayout;
@@ -115,6 +115,8 @@ public class NewSave {
 				Create(txtEnterCharacterName.getText());
 				// add stat array
 				frmNewSave.dispose();
+				Setup.CharDone(h);
+				
 			}
 		});
 		frmNewSave.getContentPane().add(btnCreate);
@@ -321,7 +323,6 @@ public class NewSave {
 	}
 
 	public void Create(String text) {
-		refresh();
 		String[] stats = { text, Integer.toString(values[0]), Integer.toString(values[1]), Integer.toString(values[2]),
 				Integer.toString(values[3]), Integer.toString(values[4]), Integer.toString(values[5]) };
 		/*
@@ -335,11 +336,6 @@ public class NewSave {
 		return;
 	}
 
-	private void refresh() {
-		// refresh all the values[]
-		for (int i = 0; i < 6; i++) {
-
-		}
-	}
+	
 
 }

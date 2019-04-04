@@ -5,6 +5,7 @@ import java.io.IOException;
 import rpg.game.Handler;
 import rpg.objects.map.Map;
 
+
 public class MapGen {
 
     private Handler h;
@@ -24,6 +25,7 @@ public class MapGen {
     private void ConvertToMap(double[][] map){
         Map m = new Map();
         m.setTiles(map);
-        h.getG().getMemory().getMem().setMap(m);
+        this.h.getG().getMemory().getMem().setMap(m);
+        
     }
 }

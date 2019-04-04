@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import rpg.guis.GraphicMain;
 import rpg.player.Player;
 import rpg.utilities.memory.Memory;
-import rpg.utilities.plugin.PluginLoader;
+//import rpg.utilities.plugin.PluginLoader;
 
 public class Game{
     // handler
@@ -21,8 +21,7 @@ public class Game{
     // frame, outpute pane, radio buttons, and question
     //
     private JFrame frame;
-    private Thread t, pl;
-    private PluginLoader pluginLoader;
+    //private PluginLoader pluginLoader;
     private Player p;
 
     public Game() {
@@ -34,6 +33,7 @@ public class Game{
 
         this.frame = this.gm.getFrmRpg();
         System.out.println("done");
+        GraphicMain.h = h;
         run();
     }
 
@@ -42,7 +42,6 @@ public class Game{
         System.out.println("ran main thread method");
         frame.requestFocus();
         Refresh();
-        // TODO this throws an error because storyitems is null or memory is null
         if(mem.getMem().getStoryItems() != null){
             System.out.println("not null");
         }else{
@@ -79,7 +78,6 @@ public class Game{
 
     private void Refresh(){
         h.Update();
-        gm.Update(this.h);
         p.Update(this.h);
     }
 

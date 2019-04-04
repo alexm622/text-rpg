@@ -20,7 +20,7 @@ public class AbsMem{
         private StoryEvents storyevents;
         private Map map;
         private TileSet tileset;
-        private Tile[][] tiles;
+        private Tile[][] tileMap;
 
         //events
 
@@ -116,14 +116,14 @@ public class AbsMem{
             public TileSet getTileSet(){
                 return this.tileset;
             }
-
-            public Tile[][] getTiles(){
-                return tiles;
+            
+            public Tile[][] getTileMap(){
+                return this.tileMap;
             }
 
-			public void setMapTiles(Tile[][] tiles) {
-                this.tiles = tiles;
-			}
+            public void setTileMap(Tile[][] tileMap){
+                this.tileMap = tileMap;
+            }
 
     //class definitions
 }

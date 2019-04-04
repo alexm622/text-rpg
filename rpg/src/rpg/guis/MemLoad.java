@@ -37,7 +37,6 @@ public class MemLoad {
 	 */
 	public MemLoad() {
 		initialize();
-		frame.setFocusable(false);
 		frame.setVisible(true);
 	}
 
@@ -55,27 +54,27 @@ public class MemLoad {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		this.frame = new JFrame();
 		frame.setBounds(100, 100, 450, 122);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		loadingAsset = new JLabel();
+		this.loadingAsset = new JLabel();
 		loadingAsset.setText("Asset Being Loaded");
 		loadingAsset.setBounds(22, 52, 386, 25);
 		frame.getContentPane().add(loadingAsset);
 		
-		percent = new JLabel();
+		this.percent = new JLabel();
 		percent.setText("percent");
 		percent.setFont(new Font("Tahoma", Font.BOLD, 15));
 		percent.setBounds(236, 11, 101, 30);
 		frame.getContentPane().add(percent);
 		
-		loadProgress = new JProgressBar();
+		this.loadProgress = new JProgressBar();
 		loadProgress.setBounds(10, 52, 414, 25);
 		frame.getContentPane().add(loadProgress);
 		
-		loadingText = new JLabel();
+		this.loadingText = new JLabel();
 		loadingText.setText("Loading:");
 		loadingText.setHorizontalAlignment(SwingConstants.TRAILING);
 		loadingText.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -85,12 +84,11 @@ public class MemLoad {
 
 	public void setAsset(String path){
 		System.out.println("ran the set asset");
-		this.percent.setText("ssds");
 		frame.validate();
 	}
 	
 	public JLabel getLoadingAsset() {
-		return loadingAsset;
+		return this.loadingAsset;
 	}
 
 	public void setLoadingAsset(JLabel loadingAsset) {
@@ -98,7 +96,7 @@ public class MemLoad {
 	}
 
 	public JLabel getPercent() {
-		return percent;
+		return this.percent;
 	}
 
 	public void setPercent(JLabel percent) {
@@ -106,7 +104,7 @@ public class MemLoad {
 	}
 
 	public JProgressBar getLoadProgress() {
-		return loadProgress;
+		return this.loadProgress;
 	}
 
 	public void setLoadProgress(JProgressBar loadProgress) {
@@ -114,7 +112,7 @@ public class MemLoad {
 	}
 
 	public JLabel getLoadingText() {
-		return loadingText;
+		return this.loadingText;
 	}
 
 	public void setLoadingText(JLabel loadingText) {

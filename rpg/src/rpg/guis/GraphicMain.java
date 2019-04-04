@@ -39,7 +39,7 @@ public class GraphicMain {
 	private JTextField name_level;
 	private JTextField hp_gold;
 	private JTextPane output;
-	private static Handler h;
+	public static Handler h;
 	private JRadioButton choice_1, choice_2, choice_3, choice_4, choice_5, choice_6, choice_yes, choice_no;
 
 	private JButton btnMods;
@@ -68,6 +68,7 @@ public class GraphicMain {
 	 * Create the application.
 	 */
 	public GraphicMain() {
+		
 		initialize();
 		frmRpg.setVisible(true);
 	}
@@ -400,8 +401,5 @@ public class GraphicMain {
 		this.choice_no = choice_no;
 	}
 
-	public void Update(Handler h) {
-		this.h = h;
-		
-	}
+
 }

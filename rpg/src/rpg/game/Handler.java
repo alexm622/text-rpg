@@ -9,6 +9,7 @@ public class Handler {
 	private JsonMain jm;
 	private Path[] ptdata;
 	private Thread t;
+	public static Object o = new Object();
 
 	public Handler(Game g) {
 		this.ptdata = new Path[0];
@@ -18,6 +19,10 @@ public class Handler {
 		
 
      
+	}
+
+	public synchronized void sync(boolean b){
+		
 	}
 
 
