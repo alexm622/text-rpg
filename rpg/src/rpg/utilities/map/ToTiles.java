@@ -51,12 +51,11 @@ public class ToTiles extends Thread{
 
                 // TODO this isn't working
 
-                if((x+1)%128 == 0){
+                if((x+1)%32 == 0){
                     percentstr = Integer.toString((100/size)*num) + "%";
-                    asset.setText(num + " / " + size);
+                    asset.setText(Integer.toString(num) + " / " + Integer.toString(size));
                     pb.setValue(num*(pb.getMaximum()/size));
                     percent.setText(percentstr);
-                    
                     frame.revalidate();
                 }
 
