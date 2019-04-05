@@ -21,7 +21,7 @@ public class ToTiles extends Thread{
         h.getG().getGm().getFrmRpg().setEnabled(false);
 
         //open memload gui
-        ml = new MemLoad();
+        this.ml = new MemLoad();
 
         //init gui assets
 
@@ -32,15 +32,20 @@ public class ToTiles extends Thread{
         asset = ml.getLoadingAsset();
         percent = ml.getPercent();
         pb = ml.getLoadProgress();
+        
 
         //vars for calculation
 
         doub = h.getG().getMemory().getMem().getMap().getTiles();
         set = h.getG().getMemory().getMem().getTileSet().getTiles();
         tiles = new Tile[doub.length][doub[0].length];
-        int size = doub.length *  doub[0].length;
-        int num = 0;
+        double size = doub.length *  doub[0].length;
+        double num = 0;
         String percentstr;
+        pb.setMaximum(((Double)size).intValue());
+        String test = Integer.toString(pb.getMaximum());
+        double per = 0.0;
+        
 
 
         //-7.5, -5.0 , -2.5, 0, 2.5, 5.0, 7.5
@@ -49,18 +54,38 @@ public class ToTiles extends Thread{
 
                 num++;
 
-                // TODO this isn't working
+                // TODO this refreshes waay to fast
 
-                if((x+1)%32 == 0){
-                    percentstr = Integer.toString((100/size)*num) + "%";
-                    asset.setText(Integer.toString(num) + " / " + Integer.toString(size));
-                    pb.setValue(num*(pb.getMaximum()/size));
+                if((i+1)%4 == 0 && num%512 == 0){
+                    double temptest = num%512;
+                    per = (num/size);
+                    per = Math.round(per * 100.0);
+                    percentstr = Double.toString(per) + "%";
+
+                    
+
+                    String assettxt = Double.toString(num) + " / " + Double.toString(size);
+                    asset.setText(assettxt);
+
+                    frame.paint(frame.getGraphics());
+                    
+
+                    int pbval = ((Double)(num)).intValue();
+                    pb.setValue(pbval);
+
+                    frame.paint(frame.getGraphics());
+
+                    test = Integer.toString(pb.getValue());
                     percent.setText(percentstr);
-                    frame.revalidate();
+                    
+                    frame.paint(frame.getGraphics());
+                    
+                    
                 }
 
                 String temp = Double.toString(doub[i][x]);
 
+                int testvar = 0;
                 
 
                 
@@ -70,35 +95,43 @@ public class ToTiles extends Thread{
 
                     case "-7.5":
 	                    tiles[i][x] = set[0];
-                        
+                        break;
 
                     case "-5.0":
 	                    tiles[i][x] = set[1];
-                        
+                        break;
 
                     case "-2.5":
 	                    tiles[i][x] = set[2];
-                        
+                        break;
 
-                    case "0":
+                    case "0.0":
 	                    tiles[i][x] = set[3];
-                        
+                        break;
 
                     case "2.5":
-	                    tiles[i][x] = set[4];
-                        
+                        tiles[i][x] = set[4];
+                        break;                        
 
                     case "5.0":
-	                    tiles[i][x] = set[5];
+                        tiles[i][x] = set[5];
+                        break;
                         
 
                     case "7.5":
-	                    tiles[i][x] = set[6];
+                        tiles[i][x] = set[6];
+                        break;
+
+                    default:
+                        Error e = new Error("error on tile " + i + " " + x);
+                        e.printStackTrace();
+                        break;
                         
 
                 }
             }
         }
+        test = Integer.toString(pb.getValue());
         h.getG().getMemory().getMem().setTileMap(tiles);
     }
 }

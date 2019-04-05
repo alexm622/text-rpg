@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 
 public class MemLoad {
@@ -16,6 +19,7 @@ public class MemLoad {
 	private JProgressBar loadProgress;
 	private JLabel loadingText;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -37,14 +41,19 @@ public class MemLoad {
 	 */
 	public MemLoad() {
 		initialize();
+
+		
+		
 		frame.setVisible(true);
+		
+
 	}
 
 	public void Close() {
 		try {
 			Thread.sleep(250);
 		} catch (InterruptedException e) {
-			
+
 			e.printStackTrace();
 		}
 		frame.dispose();
@@ -58,22 +67,22 @@ public class MemLoad {
 		frame.setBounds(100, 100, 450, 122);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		this.loadingAsset = new JLabel();
 		loadingAsset.setText("Asset Being Loaded");
 		loadingAsset.setBounds(22, 52, 386, 25);
 		frame.getContentPane().add(loadingAsset);
-		
+
 		this.percent = new JLabel();
 		percent.setText("percent");
 		percent.setFont(new Font("Tahoma", Font.BOLD, 15));
 		percent.setBounds(236, 11, 101, 30);
 		frame.getContentPane().add(percent);
-		
+
 		this.loadProgress = new JProgressBar();
 		loadProgress.setBounds(10, 52, 414, 25);
 		frame.getContentPane().add(loadProgress);
-		
+
 		this.loadingText = new JLabel();
 		loadingText.setText("Loading:");
 		loadingText.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -82,11 +91,11 @@ public class MemLoad {
 		frame.getContentPane().add(loadingText);
 	}
 
-	public void setAsset(String path){
+	public void setAsset(String path) {
 		System.out.println("ran the set asset");
 		frame.validate();
 	}
-	
+
 	public JLabel getLoadingAsset() {
 		return this.loadingAsset;
 	}
@@ -119,11 +128,15 @@ public class MemLoad {
 		this.loadingText = loadingText;
 	}
 
-	public JFrame getFrame(){
+	public JFrame getFrame() {
 		return this.frame;
 	}
 
-	public void setFrame(JFrame frame){
+	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
+
+	public void setTempBool(boolean bool) {
+	}
+
 }
