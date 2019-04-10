@@ -76,12 +76,14 @@ public class Handler {
 			PrintWriter out = new PrintWriter(new FileWriter(
 				"C:\\Users\\" + (String) System.getProperty("user.name") +
 				 "\\AppData\\Roaming\\AlexRpg\\" + dateFormat.format(date) + ".txt", true));
-		
+
+			dateFormat = new SimpleDateFormat("[yyyy:MM:dd HH:mm:ss] -- ");
 			String fullClassName = Thread.currentThread().getStackTrace()[2].getClassName();
 			String className = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
 			String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
 			int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
-			String temp = className;
+			String temp = dateFormat.format(date);
+			temp += className;
 			temp += "." + methodName + "():";
 			temp += Integer.toString(lineNumber) + ": ";
 			temp += msg;
