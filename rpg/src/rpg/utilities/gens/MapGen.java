@@ -17,7 +17,7 @@ public class MapGen {
             double[][] out = osnt.main();
             ConvertToMap(out);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+           
             rpg.game.Handler.debug(e.toString(), true);
             e.printStackTrace();
         }

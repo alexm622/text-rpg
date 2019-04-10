@@ -45,7 +45,7 @@ public class ToTiles extends Thread{
         double num = 0;
         String percentstr;
         pb.setMaximum(((Double)size).intValue());
-        String test = Integer.toString(pb.getMaximum());
+       
         double per = 0.0;
 
         sw.start();
@@ -58,7 +58,7 @@ public class ToTiles extends Thread{
 
                 num++;
 
-                // TODO this refreshes waay to fast
+               
 
                 
                     
@@ -66,7 +66,7 @@ public class ToTiles extends Thread{
                 if(sw.getTime() > 40 || num == size){
                     sw.reset();
                     sw.start();
-                    double temptest = num%512;
+                    
                     per = (num/size);
                     per = Math.round(per * 100.0);
                     percentstr = Double.toString(per) + "%";
@@ -84,7 +84,7 @@ public class ToTiles extends Thread{
 
                     
 
-                    test = Integer.toString(pb.getValue());
+                 
                     percent.setText(percentstr);
                     
                     frame.paintAll(frame.getGraphics());;
@@ -95,7 +95,7 @@ public class ToTiles extends Thread{
 
                 String temp = Double.toString(doub[i][x]);
 
-                int testvar = 0;
+                
                 
 
                 
@@ -155,7 +155,6 @@ public class ToTiles extends Thread{
         h.getG().getGm().getFrmRpg().setEnabled(true);
         frame.dispose();
         System.gc();
-        test = Integer.toString(pb.getValue());
         h.getG().getMemory().getMem().setTileMap(tiles);
     }
 

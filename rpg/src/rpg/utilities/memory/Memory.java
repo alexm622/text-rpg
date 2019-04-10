@@ -1,6 +1,6 @@
 package rpg.utilities.memory;
 
-import java.awt.event.WindowEvent;
+
 import java.io.File;
 
 
@@ -27,7 +27,7 @@ import rpg.objects.story.StoryLine;
 
 
 public class Memory {
-    // TODO make this manage memory
+    
 
     //game assets
     
@@ -187,7 +187,7 @@ public class Memory {
                 repaint();
 
                 storyEvents = om.readValue(file, StoryEvents.class);
-                //TODO for some reason this is null
+                
                 mem.setStoryEvents(storyEvents);
 
                 Handler.debug("doing");
@@ -296,7 +296,7 @@ public class Memory {
 
     private void lumpItems(){
 
-        // TODO make it so all items are lumped together 
+        // TODO round out the loading methods
 
         this.items = new Items();
         Item[] temp;
@@ -349,7 +349,7 @@ public class Memory {
     }
 
 	public void FinalizePlugins() {
-        // TODO finalize
+        
 	}
 
 	public void LoadPlugins(Items temp) {

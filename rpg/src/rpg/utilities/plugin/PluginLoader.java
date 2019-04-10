@@ -34,7 +34,7 @@ public class PluginLoader implements Runnable {
         for (File file : mods) {
             if ((file.isFile()) && (file.getName().split(".")[file.getName().split(".").length - 1] == "jar")) {
                 try {
-                    ClassLoader authorizedLoader = URLClassLoader.newInstance(new URL[] { file.toURL() });
+                    ClassLoader authorizedLoader = URLClassLoader.newInstance(new URL[] { file.toURI().toURL() });
                     Plugin plugin = (Plugin) authorizedLoader.loadClass(file.getName().split(".")[0] + ".Main")
                             .newInstance();
                     loadPlugin(plugin);

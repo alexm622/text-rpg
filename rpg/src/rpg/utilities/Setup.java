@@ -14,9 +14,9 @@ public class Setup {
     public Setup(Handler h, boolean load) {
         this.h = h;
         if (load) {
-            Load(h);
+            Load(this.h);
         } else if (!load) {
-            Create(h);
+            Create(this.h);
         } else {
             Error e = new Error("load is null");
             Handler.debug(e.toString(), true);

@@ -6,7 +6,7 @@ public class StoryEvent{
     private String eventId;
     private String name;
     private String desc;
-    private String[] monsters; // TODO make a npc class
+    private String[] monsters;
     private int lvl;
     private int xp;
 	private int gp;
