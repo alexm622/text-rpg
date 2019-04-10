@@ -28,7 +28,7 @@ public class PluginLoader implements Runnable {
         }
         mods = modDir.listFiles();
         if(mods.length == 0){
-            System.out.println("mods is empty");
+            rpg.game.Handler.debug("mods is empty");
             return;
         }
         for (File file : mods) {
@@ -40,6 +40,8 @@ public class PluginLoader implements Runnable {
                     loadPlugin(plugin);
                 } catch (InstantiationException | IllegalAccessException | ClassNotFoundException
                         | MalformedURLException e) {
+
+                    rpg.game.Handler.debug(e.toString(), true);
                     e.printStackTrace();
                 }
             }

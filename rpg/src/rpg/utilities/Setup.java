@@ -19,6 +19,7 @@ public class Setup {
             Create(h);
         } else {
             Error e = new Error("load is null");
+            Handler.debug(e.toString(), true);
             e.printStackTrace();
         }
 

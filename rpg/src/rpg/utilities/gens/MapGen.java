@@ -18,6 +18,7 @@ public class MapGen {
             ConvertToMap(out);
         } catch (IOException e) {
             // TODO Auto-generated catch block
+            rpg.game.Handler.debug(e.toString(), true);
             e.printStackTrace();
         }
     }

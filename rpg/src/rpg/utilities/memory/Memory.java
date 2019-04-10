@@ -79,6 +79,7 @@ public class Memory {
             h.getG().getGm().getFrmRpg().setEnabled(true);
         } catch (Error e) {
             Handler.debug("error", true);
+            Handler.debug(e.toString(), true);
             e.printStackTrace();
         }
 
@@ -278,8 +279,10 @@ public class Memory {
 
         } catch (Exception e) {
             if(loading == "weapons") {
+                Handler.debug(e.toString(), true);
                 e.printStackTrace();
             }else{
+                Handler.debug(e.toString(), true);
                 e.printStackTrace();
                 Error r = new Error("failed to load: " + loading);
                 throw r;

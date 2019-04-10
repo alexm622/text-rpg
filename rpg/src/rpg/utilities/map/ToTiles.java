@@ -142,8 +142,9 @@ public class ToTiles extends Thread{
 
                     default:
                         Error e = new Error("error on tile " + i + " " + x);
-                        Handler.debug("tile [" + i +"][" + x + "] is equal to " + tiles[i][x], true);
-                        printerror(temp);
+                        Handler.debug("tile [" + i +"][" + x + "] is equal to " + temp, true);
+                        
+                        Handler.debug(e.toString(), true);
                         e.printStackTrace();
                         break;
                         
@@ -158,8 +159,5 @@ public class ToTiles extends Thread{
         h.getG().getMemory().getMem().setTileMap(tiles);
     }
 
-    private void printerror(String temp){
-        String tmp = temp;
-        Handler.debug("error", true);
-    }
+    
 }

@@ -26,6 +26,7 @@ public class Save {
                     "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\map.sav"),
                     m);
         } catch (IOException e) {
+            Handler.debug(e.toString(), true);
             e.printStackTrace();
         }
         

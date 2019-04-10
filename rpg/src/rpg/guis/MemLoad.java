@@ -30,6 +30,7 @@ public class MemLoad {
 					MemLoad window = new MemLoad();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
+					rpg.game.Handler.debug(e.toString(), true);
 					e.printStackTrace();
 				}
 			}
@@ -53,7 +54,7 @@ public class MemLoad {
 		try {
 			Thread.sleep(250);
 		} catch (InterruptedException e) {
-
+			rpg.game.Handler.debug(e.toString(), true);
 			e.printStackTrace();
 		}
 		frame.dispose();
@@ -92,7 +93,7 @@ public class MemLoad {
 	}
 
 	public void setAsset(String path) {
-		System.out.println("ran the set asset");
+		rpg.game.Handler.debug("ran the set asset method");
 		frame.validate();
 	}
 

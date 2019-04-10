@@ -20,17 +20,16 @@ import com.fasterxml.jackson.core.*;
 
 @SuppressWarnings("unused")
 public class JsonMain {
-	private JsonWriter Jw;
+	
 	private Index index;
 	private Handler h;
 	private ObjectMapper om;
 
 	public void Init(Handler h) {
-		this.Jw = new JsonWriter();
 		this.h = h;
 		this.om = new ObjectMapper();
 		InitIndex();
-		System.out.println(index.getIndex()[0].getClas());
+		Handler.debug("the firsst indexed class is: " + index.getIndex()[0].getClas());
 	}
 
 	private void InitIndex() {
@@ -41,6 +40,7 @@ public class JsonMain {
 			this.index.setIndex(indexh.getIndex());
 			this.h.setPTdata(indexh.getIndex());
 		} catch (Error e) {
+			Handler.debug(e.toString(), true);
 			e.printStackTrace();
 		}
 
@@ -58,6 +58,7 @@ public class JsonMain {
 					path = ptdata[i].getPath();
 					return path;
 				} catch (Exception e) {
+					Handler.debug(e.toString(), true);
 					e.printStackTrace();
 				}
 			}

@@ -31,7 +31,7 @@ public class Load {
                     Map.class);
             h.getG().getMemory().getMem().setMap(m);
         } catch (IOException e) {
-            
+            Handler.debug(e.toString(), true);
             e.printStackTrace();
         }
         

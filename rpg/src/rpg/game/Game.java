@@ -25,29 +25,29 @@ public class Game{
     private Player p;
 
     public Game() {
-        System.out.println("ran");
+        Handler.debug("started properly");
         gm = new GraphicMain();
         h = new Handler(this);
         mem = new Memory(this.h);
         p = new Player(this.h);
 
         this.frame = this.gm.getFrmRpg();
-        System.out.println("done");
+        Handler.debug("properly initiated all vars");
         GraphicMain.h = h;
         run();
     }
 
     public void run() {
         // set the focus to the main screen
-        System.out.println("ran main thread method");
+        Handler.debug("running main thread method");
         frame.requestFocus();
         Refresh();
         if(mem.getMem().getStoryItems() != null){
-            System.out.println("not null");
+            Handler.debug("storyitems are not null");
         }else{
-            System.out.println("null");
+            Handler.debug("storyitems are null", true);
         }
-        System.out.println(h.getJm().TypeToPath("storyline"));
+        Handler.debug(h.getJm().TypeToPath("storyline"));
         long tempNano = System.nanoTime();
         long lastTickTime = tempNano;
         while (true) {
@@ -66,7 +66,8 @@ public class Game{
                 try {
                     Thread.sleep(1000/60);
                 } catch (InterruptedException e) {
-                    
+                    Handler.debug(e.toString(), true);
+                    rpg.game.Handler.debug(e.toString(), true);
                     e.printStackTrace();
                 }
                 

@@ -54,6 +54,7 @@ public class GraphicMain {
 					GraphicMain window = new GraphicMain();
 					window.frmRpg.setVisible(true);
 				} catch (Exception e) {
+					rpg.game.Handler.debug(e.toString(), true);
 					e.printStackTrace();
 				}
 			}

@@ -1,5 +1,6 @@
 package rpg.utilities.memory;
 
+import rpg.game.Handler;
 import rpg.objects.Items;
 
 public class LoadIds {
@@ -8,9 +9,9 @@ public class LoadIds {
         String[] ids = new String[collectiveArmor.getItems().length];
         for(int i = 0; i < collectiveArmor.getItems().length; i++){
             ids[i] = collectiveArmor.getItems()[i].getId();
-            System.out.println("set" + i);
+            Handler.debug("set" + i);
         }
-        System.out.println("returning");
+        Handler.debug("returning");
 		return ids;
 	}
 }
