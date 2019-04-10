@@ -31,10 +31,17 @@ public class PluginLoader implements Runnable {
             rpg.game.Handler.debug("mods is empty");
             return;
         }
+
+        // TODO make this load from a json file as well
+
         for (File file : mods) {
             if ((file.isFile()) && (file.getName().split(".")[file.getName().split(".").length - 1] == "jar")) {
                 try {
-                    ClassLoader authorizedLoader = URLClassLoader.newInstance(new URL[] { file.toURI().toURL() });
+                    URL url = file.toURI().toURL();
+                    String urlstr = url.toString();
+                    urlstr = urlstr.replace("%20", " ");
+                    rpg.game.Handler.debug(urlstr);
+                    ClassLoader authorizedLoader = URLClassLoader.newInstance(new URL[] { new URL(urlstr) });
                     Plugin plugin = (Plugin) authorizedLoader.loadClass(file.getName().split(".")[0] + ".Main")
                             .newInstance();
                     loadPlugin(plugin);
