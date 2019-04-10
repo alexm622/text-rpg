@@ -46,6 +46,8 @@ public class Memory {
     private ObjectMapper om;
     private JsonMain jm;
     private MemLoad ml;
+    private JFrame frame;
+    private StopWatch sw;
 
     //plugins
 
@@ -93,14 +95,14 @@ public class Memory {
 
         //init gui assets
 
-        JFrame frame = ml.getFrame();
+        frame = ml.getFrame();
         
         JProgressBar pb;
         JLabel asset, percent;
         asset = ml.getLoadingAsset();
         percent = ml.getPercent();
         pb = ml.getLoadProgress();
-        StopWatch sw = new StopWatch();
+        sw = new StopWatch();
         sw.start();
 
         try {
@@ -116,7 +118,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 lightarmor = om.readValue(file, Items.class);
 
@@ -130,7 +132,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
                 
 
                 mediumarmor = om.readValue(file, Items.class);
@@ -145,7 +147,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 heavyarmor = om.readValue(file, Items.class);
 
@@ -161,7 +163,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 weapon = om.readValue(file, Items.class);
 
@@ -181,7 +183,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 storyEvents = om.readValue(file, StoryEvents.class);
                 //TODO for some reason this is null
@@ -201,7 +203,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
                 
                 storyItems = om.readValue(file, Items.class);
                 
@@ -223,7 +225,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 monsters = om.readValue(file, Npcs.class);
                 mem.setMonsters(monsters);
@@ -240,7 +242,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 storyline = om.readValue(file, StoryLine.class);
                 mem.setStoryline(storyline);
@@ -256,7 +258,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                sw = repaint(frame, sw);
+                repaint();
 
                 tileset = om.readValue(file, TileSet.class);
                 mem.setTileSet(tileset);
@@ -267,7 +269,7 @@ public class Memory {
             asset.setText("Done");
             pb.setValue(pb.getMaximum());
             percent.setText(percentstr);
-            sw = repaint(frame, sw);
+            repaint();
 
             //make data collective
 
@@ -326,14 +328,13 @@ public class Memory {
 
     }
 
-    private StopWatch repaint(JFrame frame, StopWatch sw){
-        if(sw.getTime() > 40){
-            frame.paintAll(frame.getGraphics());
+    private void repaint(){
+        if(sw.getTime() > 50){
+            frame.repaint();
             sw.reset();
             sw.start();
             
         }
-        return sw;
     }
 
     public AbsMem getMem(){
