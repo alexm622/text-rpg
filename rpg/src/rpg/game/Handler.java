@@ -1,5 +1,11 @@
 package rpg.game;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import rpg.utilities.json.JsonMain;
 import rpg.utilities.json.classes.index.Path;
@@ -14,11 +20,91 @@ public class Handler {
 	public Handler(Game g) {
 		this.ptdata = new Path[0];
 		
+
 		InitJson();
 		InitGame(g);
-		
 
-     
+	}
+
+	public static void debug(String msg, boolean err) {
+		try {
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+			Date date = new Date();
+			PrintWriter out = new PrintWriter(new FileWriter(
+				"C:\\Users\\" + (String) System.getProperty("user.name") +
+				 "\\AppData\\Roaming\\AlexRpg\\" + dateFormat.format(date) + ".txt", true));
+		
+			String fullClassName = Thread.currentThread().getStackTrace()[2].getClassName();
+			String className = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
+			String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+			int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
+			String temp = className;
+			temp += "." + methodName + "():";
+			temp += Integer.toString(lineNumber) + ": ";
+			temp += msg;
+			temp += " \n";
+			String sep = "----------------------------------";
+			if(err){
+				sep = "#############################";
+				
+			}
+			System.out.println();
+			
+			System.out.println(temp);
+
+
+			out.println();
+			out.println();
+			out.println(sep);
+
+			out.println(temp);
+
+			out.println(sep);
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public static void debug(String msg){
+		try {
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+			Date date = new Date();
+			PrintWriter out = new PrintWriter(new FileWriter(
+				"C:\\Users\\" + (String) System.getProperty("user.name") +
+				 "\\AppData\\Roaming\\AlexRpg\\" + dateFormat.format(date) + ".txt", true));
+		
+			String fullClassName = Thread.currentThread().getStackTrace()[2].getClassName();
+			String className = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
+			String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+			int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
+			String temp = className;
+			temp += "." + methodName + "():";
+			temp += Integer.toString(lineNumber) + ": ";
+			temp += msg;
+			temp += " \n";
+			String sep = "----------------------------------";
+
+			System.out.println();
+			
+			System.out.println(temp);
+
+	
+			out.println();
+			out.println();
+			out.println(sep);
+
+			out.println(temp);
+
+			out.println(sep);
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public synchronized void sync(boolean b){
@@ -69,9 +155,9 @@ public class Handler {
 	}
 
 	public void setPTdata(Path[] path) {
-		System.out.println("set ptdata");
+		Handler.debug("set ptdata");
 		this.ptdata = path;
-		System.out.println(this.ptdata[0].getClas());
+		Handler.debug(this.ptdata[0].getClas());
 	}
 
 	public void Update(){

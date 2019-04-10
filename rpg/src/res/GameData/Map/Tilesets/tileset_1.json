@@ -86,6 +86,30 @@
          "icon": 254,
          "bgColor": 24424572,
          "iconColor": 0
+      },
+      {
+         "name": "test8",
+         "id": "testtile8",
+         "biomeId": "grass",
+         "difficulty": 1,
+         "eventId": "",
+         "tableId": "",
+         "townId": "",
+         "icon": 254,
+         "bgColor": 24424572,
+         "iconColor": 0
+      },
+      {
+         "name": "test9",
+         "id": "testtile9",
+         "biomeId": "grass",
+         "difficulty": 1,
+         "eventId": "",
+         "tableId": "",
+         "townId": "",
+         "icon": 254,
+         "bgColor": 24424572,
+         "iconColor": 0
       }
    ]
 }

@@ -8,6 +8,8 @@ import rpg.game.Handler;
 import rpg.guis.MemLoad;
 import rpg.objects.map.Tile;
 
+import org.apache.commons.lang3.time.StopWatch;
+
 public class ToTiles extends Thread{
 
     private double[][] doub;
@@ -32,7 +34,7 @@ public class ToTiles extends Thread{
         asset = ml.getLoadingAsset();
         percent = ml.getPercent();
         pb = ml.getLoadProgress();
-        
+        StopWatch sw = new StopWatch();
 
         //vars for calculation
 
@@ -45,6 +47,8 @@ public class ToTiles extends Thread{
         pb.setMaximum(((Double)size).intValue());
         String test = Integer.toString(pb.getMaximum());
         double per = 0.0;
+
+        sw.start();
         
 
 
@@ -56,7 +60,12 @@ public class ToTiles extends Thread{
 
                 // TODO this refreshes waay to fast
 
-                if((i+1)%4 == 0 && num%512 == 0){
+                
+                    
+               
+                if(sw.getTime() > 40 || num == size){
+                    sw.reset();
+                    sw.start();
                     double temptest = num%512;
                     per = (num/size);
                     per = Math.round(per * 100.0);
@@ -67,21 +76,22 @@ public class ToTiles extends Thread{
                     String assettxt = Double.toString(num) + " / " + Double.toString(size);
                     asset.setText(assettxt);
 
-                    frame.paint(frame.getGraphics());
+                    
                     
 
                     int pbval = ((Double)(num)).intValue();
                     pb.setValue(pbval);
 
-                    frame.paint(frame.getGraphics());
+                    
 
                     test = Integer.toString(pb.getValue());
                     percent.setText(percentstr);
                     
-                    frame.paint(frame.getGraphics());
-                    
-                    
+                    frame.paintAll(frame.getGraphics());;
                 }
+            
+                
+                
 
                 String temp = Double.toString(doub[i][x]);
 
@@ -92,38 +102,48 @@ public class ToTiles extends Thread{
                 
 
                 switch (temp){
-
-                    case "-7.5":
-	                    tiles[i][x] = set[0];
+                    case "-10.0":
+                        tiles[i][x] = set[0];
                         break;
 
-                    case "-5.0":
+                    case "-7.5":
 	                    tiles[i][x] = set[1];
                         break;
 
-                    case "-2.5":
+                    case "-5.0":
 	                    tiles[i][x] = set[2];
                         break;
 
-                    case "0.0":
+                    case "-2.5":
 	                    tiles[i][x] = set[3];
                         break;
 
+                    case "0.0":
+	                    tiles[i][x] = set[4];
+                        break;
+
                     case "2.5":
-                        tiles[i][x] = set[4];
+                        tiles[i][x] = set[5];
                         break;                        
 
                     case "5.0":
-                        tiles[i][x] = set[5];
+                        tiles[i][x] = set[6];
                         break;
                         
 
                     case "7.5":
-                        tiles[i][x] = set[6];
+                        tiles[i][x] = set[7];
                         break;
+
+                    case "10.0":
+                        tiles[i][x] = set[8];
+                        break;
+                    
 
                     default:
                         Error e = new Error("error on tile " + i + " " + x);
+                        Handler.debug("tile [" + i +"][" + x + "] is equal to " + tiles[i][x], true);
+                        printerror(temp);
                         e.printStackTrace();
                         break;
                         
@@ -131,7 +151,15 @@ public class ToTiles extends Thread{
                 }
             }
         }
+        h.getG().getGm().getFrmRpg().setEnabled(true);
+        frame.dispose();
+        System.gc();
         test = Integer.toString(pb.getValue());
         h.getG().getMemory().getMem().setTileMap(tiles);
+    }
+
+    private void printerror(String temp){
+        String tmp = temp;
+        Handler.debug("error", true);
     }
 }

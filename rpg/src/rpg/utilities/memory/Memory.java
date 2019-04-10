@@ -11,6 +11,7 @@ import javax.swing.JProgressBar;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.time.StopWatch;
 
 import rpg.game.Handler;
 import rpg.guis.MemLoad;
@@ -71,17 +72,17 @@ public class Memory {
 
         // load
         try {
-            Load();
+            load();
             ml.Close();
             h.getG().getGm().getFrmRpg().setEnabled(true);
         } catch (Error e) {
-            System.out.println("error");
+            Handler.debug("error", true);
             e.printStackTrace();
         }
 
     }
 
-    private void Load() throws Error {
+    private void load() throws Error {
 
         String path;
         String loading = "not started";
@@ -99,6 +100,8 @@ public class Memory {
         asset = ml.getLoadingAsset();
         percent = ml.getPercent();
         pb = ml.getLoadProgress();
+        StopWatch sw = new StopWatch();
+        sw.start();
 
         try {
             
@@ -113,7 +116,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 lightarmor = om.readValue(file, Items.class);
 
@@ -127,7 +130,8 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
+                
 
                 mediumarmor = om.readValue(file, Items.class);
 
@@ -141,7 +145,7 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 heavyarmor = om.readValue(file, Items.class);
 
@@ -157,11 +161,11 @@ public class Memory {
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 weapon = om.readValue(file, Items.class);
 
-                System.out.println("doing");
+                Handler.debug("doing");
 
                 
             // load events
@@ -170,56 +174,56 @@ public class Memory {
                 loading = "storyevents";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                System.out.println(path);
+                Handler.debug(path);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 storyEvents = om.readValue(file, StoryEvents.class);
                 //TODO for some reason this is null
                 mem.setStoryEvents(storyEvents);
 
-                System.out.println("doing");
+                Handler.debug("doing");
             
 
             //load story items
                 loading = "storyitems";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                System.out.println(path);
+                Handler.debug(path);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
-
+                sw = repaint(frame, sw);
+                
                 storyItems = om.readValue(file, Items.class);
-                //TODO for some reason this is null
+                
 
                 mem.setStoryItems(storyItems);
                 
 
-                System.out.println("doing");
+                Handler.debug("doing");
 
             //monsters
 
                 loading = "monsters";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                System.out.println(path);
+                Handler.debug(path);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 monsters = om.readValue(file, Npcs.class);
                 mem.setMonsters(monsters);
@@ -229,14 +233,14 @@ public class Memory {
                 loading = "storyline";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                System.out.println(path);
+                Handler.debug(path);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 storyline = om.readValue(file, StoryLine.class);
                 mem.setStoryline(storyline);
@@ -245,14 +249,14 @@ public class Memory {
                 loading = "tileset";
                 path = jm.TypeToPath(loading);
                 file = jm.getFile(path);
-                System.out.println(path);
+                Handler.debug(path);
 
                 num++;
                 percentstr = Integer.toString((100/size)*num) + "%";
                 asset.setText(path);
                 pb.setValue(num*(pb.getMaximum()/size));
                 percent.setText(percentstr);
-                frame.revalidate();
+                sw = repaint(frame, sw);
 
                 tileset = om.readValue(file, TileSet.class);
                 mem.setTileSet(tileset);
@@ -263,12 +267,12 @@ public class Memory {
             asset.setText("Done");
             pb.setValue(pb.getMaximum());
             percent.setText(percentstr);
-            frame.revalidate();
+            sw = repaint(frame, sw);
 
             //make data collective
 
             //armor
-            LumpItems();
+            lumpItems();
 
         } catch (Exception e) {
             if(loading == "weapons") {
@@ -285,20 +289,20 @@ public class Memory {
 
     
 
-    private void LumpItems(){
+    private void lumpItems(){
 
         // TODO make it so all items are lumped together 
 
         this.items = new Items();
         Item[] temp;
 
-        System.out.println("lumping");
+        Handler.debug("lumping");
 
-        System.out.println("started lumping");
+        Handler.debug("started lumping");
 
         temp = lightarmor.getItems();
 
-        System.out.println("lightarmor");
+        Handler.debug("lightarmor");
 
         items.setItems(ArrayUtils.addAll(items.getItems(), temp));
 
@@ -320,6 +324,16 @@ public class Memory {
 
         mem.setItems(items);
 
+    }
+
+    private StopWatch repaint(JFrame frame, StopWatch sw){
+        if(sw.getTime() > 40){
+            frame.paintAll(frame.getGraphics());
+            sw.reset();
+            sw.start();
+            
+        }
+        return sw;
     }
 
     public AbsMem getMem(){
