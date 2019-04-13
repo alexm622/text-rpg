@@ -155,6 +155,7 @@ public class ToTiles extends Thread{
         h.getG().getGm().getFrmRpg().setEnabled(true);
         frame.dispose();
         System.gc();
+        Handler.debug("properly converted array of double into map");
         h.getG().getMemory().getMem().setTileMap(tiles);
     }
 
