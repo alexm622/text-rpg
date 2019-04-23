@@ -15,8 +15,8 @@ public class Tile {
 
     private int icon; //ascii hex code
 
-    private int bgColor; //rgb hex code
-    private int iconColor; //rgb hex code
+    private String bgColor; //rgb hex code
+    private String iconColor; //rgb hex code
 
     public String getId(){
         return this.id;
@@ -85,20 +85,20 @@ public class Tile {
     //iconColor
     //bgColor
 
-    public int getBgColor(){
+    public String getBgColor(){
         return this.bgColor;
     }
 
-    public void setBgColor(int bgColor){
+    public void setBgColor(String bgColor){
         this.bgColor = bgColor;
     }
 
-    public int getIconColor(){
+    public String getIconColor(){
         return this.iconColor;
     }
 
-    public void setIconColor(int iconColor){
-        this.iconColor = iconColor;
+    public void setIconColor(String iconColor){
+        this.iconColor =  iconColor;
     }
 
 
