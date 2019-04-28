@@ -62,6 +62,7 @@ public class MapGUI {
 		btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				h.getG().getGm().unfreeze();
 				frame.dispose();
 			}
 		});

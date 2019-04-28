@@ -18,4 +18,14 @@ public class DrawMapCanvas {
     private Handler h;
     private MapAsTiles m;
 
+    public DrawMapCanvas(Handler h, JFrame frame){
+        this.frame = frame;
+        this.h = h;
+        draw();
+    }
+
+    private void draw(){
+
+    }
+
 }
