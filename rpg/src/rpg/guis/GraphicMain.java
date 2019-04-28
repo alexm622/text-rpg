@@ -373,6 +373,7 @@ public class GraphicMain {
 		mapButton.setForeground(new Color(0, 0, 0));
 		mapButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				new MapGUI(h);
 			}
 		});
 		mapButton.setBounds(542, 93, 89, 23);
@@ -539,5 +540,13 @@ public class GraphicMain {
 	 */
 	public void setChoice_no(JRadioButton choice_no) {
 		this.choice_no = choice_no;
+	}
+
+	public void freeze(){
+		this.frmRpg.setEnabled(false);
+	}
+	
+	public void unfreeze(){
+		this.frmRpg.setEnabled(true);
 	}
 }

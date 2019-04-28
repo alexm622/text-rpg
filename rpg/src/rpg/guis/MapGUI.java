@@ -42,7 +42,8 @@ public class MapGUI {
 	 * Create the application.
 	 */
 	public MapGUI(Handler h) {
-		this.h =h;
+		this.h = h;
+		h.getG().getGm().freeze();
 		initialize();
 		frame.setVisible(true);
 	}
