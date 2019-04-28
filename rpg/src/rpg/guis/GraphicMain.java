@@ -43,9 +43,12 @@ import java.awt.FlowLayout;
 import javax.swing.DebugGraphics;
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.SystemColor;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
+import java.awt.Window.Type;
+import java.awt.Dialog.ModalExclusionType;
 
 @SuppressWarnings("unused")
 public class GraphicMain {
@@ -92,7 +95,6 @@ public class GraphicMain {
 	public GraphicMain() {
 		
 		initialize();
-		frmRpg.setVisible(true);
 		frmRpg.repaint();
 	}
 
@@ -101,6 +103,8 @@ public class GraphicMain {
 	 */
 	private void initialize() {
 		frmRpg = new JFrame();
+		frmRpg.setUndecorated(true);
+		frmRpg.setType(Type.UTILITY);
 		frmRpg.getContentPane().setBackground(new Color(210, 180, 140));
 		frmRpg.setBackground(new Color(210, 180, 140));
 		frmRpg.getContentPane().setEnabled(false);
@@ -201,7 +205,7 @@ public class GraphicMain {
 		hpgold = new JPanel();
 		hpgold.setBackground(SystemColor.inactiveCaption);
 		hpgold.setDoubleBuffered(false);
-		hpgold.setBorder(new MatteBorder(2, 1, 2, 2, (Color) new Color(0, 0, 0)));
+		hpgold.setBorder(new MatteBorder(2, 1, 2, 1, (Color) new Color(0, 0, 0)));
 		menuBar.add(hpgold);
 				hpgold.setLayout(new BorderLayout(0, 0));
 		
@@ -212,6 +216,18 @@ public class GraphicMain {
 				hp_gold.setHorizontalAlignment(SwingConstants.CENTER);
 				hpgold.add(hp_gold, BorderLayout.CENTER);
 				hp_gold.setText("test2");
+				
+				JMenuItem mntmX = new JMenuItem(" X ");
+				mntmX.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						exit();
+					}
+				});
+				mntmX.setBorder(new MatteBorder(2, 1, 2, 2, (Color) new Color(0, 0, 0)));
+				mntmX.setBorderPainted(true);
+				mntmX.setBackground(new Color(219, 112, 147));
+				mntmX.setOpaque(true);
+				menuBar.add(mntmX);
 		
 				output = new JTextPane();
 				output.setBorder(null);
@@ -361,6 +377,11 @@ public class GraphicMain {
 		});
 		mapButton.setBounds(542, 93, 89, 23);
 		choicePanel.add(mapButton);
+		
+	}
+	
+	private void exit() {
+		frmRpg.dispose();
 	}
 
 	public static Handler get_Handler() {
