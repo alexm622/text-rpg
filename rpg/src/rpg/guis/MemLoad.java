@@ -9,6 +9,7 @@ import java.awt.Font;
 
 
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class MemLoad {
 
@@ -64,7 +65,10 @@ public class MemLoad {
 	 */
 	private void initialize() {
 		this.frame = new JFrame();
-		frame.setBounds(100, 100, 450, 122);
+		frame.getContentPane().setBackground(new Color(222, 184, 135));
+		frame.setUndecorated(true);
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 450, 104);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -76,10 +80,13 @@ public class MemLoad {
 		this.percent = new JLabel();
 		percent.setText("percent");
 		percent.setFont(new Font("Tahoma", Font.BOLD, 15));
-		percent.setBounds(236, 11, 101, 30);
+		percent.setBounds(243, 11, 101, 30);
 		frame.getContentPane().add(percent);
 
 		this.loadProgress = new JProgressBar();
+		loadProgress.setOpaque(true);
+		loadProgress.setBackground(new Color(245, 222, 179));
+		loadProgress.setForeground(new Color(255, 215, 0));
 		loadProgress.setBounds(10, 52, 414, 25);
 		frame.getContentPane().add(loadProgress);
 
@@ -87,7 +94,7 @@ public class MemLoad {
 		loadingText.setText("Loading:");
 		loadingText.setHorizontalAlignment(SwingConstants.TRAILING);
 		loadingText.setFont(new Font("Tahoma", Font.BOLD, 15));
-		loadingText.setBounds(140, 11, 94, 30);
+		loadingText.setBounds(147, 11, 94, 30);
 		frame.getContentPane().add(loadingText);
 	}
 

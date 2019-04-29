@@ -116,7 +116,7 @@ public class GraphicMain {
 				
 				menuPanel = new JPanel();
 				menuPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-				menuPanel.setBounds(-1, 0, 659, 27);
+				menuPanel.setBounds(10, 0, 637, 27);
 				frmRpg.getContentPane().add(menuPanel);
 				menuPanel.setLayout(null);
 		

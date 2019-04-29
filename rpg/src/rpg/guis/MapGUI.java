@@ -13,6 +13,13 @@ import rpg.game.Handler;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
+import java.awt.Color;
+import javax.swing.border.MatteBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class MapGUI {
 
@@ -53,6 +60,8 @@ public class MapGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(210, 180, 140));
+		frame.setUndecorated(true);
 		frame.setResizable(false);
 		frame.setTitle("Map");
 		frame.setSize(600,400);
@@ -60,22 +69,31 @@ public class MapGUI {
 		frame.getContentPane().setLayout(null);
 		
 		btnClose = new JButton("Close");
+		btnClose.setBackground(new Color(219, 112, 147));
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				h.getG().getGm().unfreeze();
 				frame.dispose();
 			}
 		});
-		btnClose.setBounds(495, 337, 89, 23);
+		btnClose.setBounds(495, 366, 89, 23);
 		frame.getContentPane().add(btnClose);
 		
 		panel = new JPanel();
-		panel.setBounds(10, 11, 574, 315);
+		panel.setBackground(new Color(205, 133, 63));
+		panel.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+		panel.setBounds(10, 40, 574, 315);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		canvas = new Canvas();
 		panel.add(canvas);
+		
+		JLabel lblNewLabel = new JLabel("Map");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(250, 11, 99, 23);
+		frame.getContentPane().add(lblNewLabel);
 	}
 	
 	public JFrame getFrame() {

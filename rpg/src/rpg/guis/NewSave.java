@@ -22,13 +22,16 @@ import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+import java.awt.Component;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
 
 @SuppressWarnings("unused")
 public class NewSave {
 
 	private JFrame frmNewSave;
 	private JTextField txtEnterCharacterName;
-	private JPanel panel;
+	private JPanel statData;
 	private Handler h;
 
 	private static JLabel lblStrength = new JLabel("Strength: 1");
@@ -61,23 +64,33 @@ public class NewSave {
 
 	private int[] values = { 1, 1, 1, 1, 1, 1 };
 	private int[] lastvalues = { 1, 1, 1, 1, 1, 1 };
+	private final JPanel ptsLeftLbl = new JPanel();
+	private final JPanel statLbls = new JPanel();
+	private final JPanel strBttns = new JPanel();
+	private final JPanel charBttns = new JPanel();
+	private final JPanel wisBttns = new JPanel();
+	private final JPanel intBttns = new JPanel();
+	private final JPanel dexBttns = new JPanel();
+	private final JPanel constBttns = new JPanel();
+	private final JPanel bttns = new JPanel();
+	private final JPanel mainPanel = new JPanel();
 
 	/**
 	 * Launch the application.
 	 */
-	public void main(Handler handler) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					
-					
+					new NewSave(null);
 				} catch (Exception e) {
 					rpg.game.Handler.debug(e.toString(), true);
 					e.printStackTrace();
 				}
 			}
 		});
-		h = handler;
+		
 	}
 
 	/**
@@ -94,21 +107,282 @@ public class NewSave {
 	 */
 	private void initialize() {
 		frmNewSave = new JFrame();
+		frmNewSave.getContentPane().setBackground(new Color(222, 184, 135));
+		frmNewSave.setBackground(new Color(222, 184, 135));
+		frmNewSave.setUndecorated(true);
 		frmNewSave.setTitle("New Save");
-		frmNewSave.setBounds(100, 100, 452, 424);
+		frmNewSave.setBounds(100, 100, 465, 419);
 		frmNewSave.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNewSave.getContentPane().setLayout(null);
+		mainPanel.setBounds(14, 19, 436, 386);
+		
+		frmNewSave.getContentPane().add(mainPanel);
+		mainPanel.setLayout(null);
 
 		txtEnterCharacterName = new JTextField();
-		txtEnterCharacterName.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtEnterCharacterName.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+		txtEnterCharacterName.setBackground(new Color(255, 218, 185));
 		txtEnterCharacterName.setBounds(0, 0, 436, 51);
+		mainPanel.add(txtEnterCharacterName);
+		txtEnterCharacterName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtEnterCharacterName.setText("Enter Character Name");
-		frmNewSave.getContentPane().add(txtEnterCharacterName);
 		txtEnterCharacterName.setColumns(10);
 
 		JButton btnCreate = new JButton("CREATE!");
-		btnCreate.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		btnCreate.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+		btnCreate.setBackground(new Color(244, 164, 96));
 		btnCreate.setBounds(0, 335, 436, 51);
+		mainPanel.add(btnCreate);
+		btnCreate.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		
+				statData = new JPanel();
+				statData.setBackground(new Color(210, 180, 140));
+				statData.setBounds(0, 50, 436, 286);
+				mainPanel.add(statData);
+				statData.setLayout(null);
+				ptsLeftLbl.setOpaque(false);
+				ptsLeftLbl.setBounds(261, 11, 124, 41);
+				
+				statData.add(ptsLeftLbl);
+				ptsLeftLbl.setLayout(null);
+				lblPtsLeft.setBounds(0, 0, 124, 41);
+				ptsLeftLbl.add(lblPtsLeft);
+				
+						lblPtsLeft.setFont(new Font("Tahoma", Font.PLAIN, 17));
+						statLbls.setOpaque(false);
+						statLbls.setBounds(64, 63, 321, 169);
+						
+						statData.add(statLbls);
+						statLbls.setLayout(null);
+						lblStrength.setBounds(0, 0, 115, 34);
+						statLbls.add(lblStrength);
+						lblStrength.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						lblCharisma.setBounds(0, 48, 115, 34);
+						statLbls.add(lblCharisma);
+						lblCharisma.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						lblWisdom.setBounds(0, 98, 115, 34);
+						statLbls.add(lblWisdom);
+						lblWisdom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						lblIntellegence.setBounds(0, 135, 115, 34);
+						statLbls.add(lblIntellegence);
+						lblIntellegence.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						lblDexterity.setBounds(206, 0, 115, 34);
+						statLbls.add(lblDexterity);
+						lblDexterity.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						lblConstitution.setBounds(206, 45, 115, 34);
+						statLbls.add(lblConstitution);
+						lblConstitution.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						bttns.setOpaque(false);
+						bttns.setBounds(10, 71, 414, 161);
+						
+						statData.add(bttns);
+						bttns.setLayout(null);
+						strBttns.setOpaque(false);
+						strBttns.setBounds(0, 0, 199, 26);
+						bttns.add(strBttns);
+						strBttns.setLayout(null);
+						bttn1plus.setBackground(new Color(205, 133, 63));
+						bttn1plus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn1plus.setBounds(158, 1, 41, 23);
+						strBttns.add(bttn1plus);
+						bttn1minus.setBackground(new Color(205, 133, 63));
+						bttn1minus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn1minus.setBounds(0, 1, 41, 23);
+						strBttns.add(bttn1minus);
+						charBttns.setOpaque(false);
+						charBttns.setBounds(0, 45, 199, 26);
+						bttns.add(charBttns);
+						charBttns.setLayout(null);
+						bttn2plus.setBackground(new Color(205, 133, 63));
+						bttn2plus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn2plus.setBounds(158, 1, 41, 23);
+						charBttns.add(bttn2plus);
+						bttn2minus.setBackground(new Color(205, 133, 63));
+						bttn2minus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn2minus.setBounds(0, 1, 41, 23);
+						charBttns.add(bttn2minus);
+						wisBttns.setOpaque(false);
+						wisBttns.setBounds(0, 93, 199, 26);
+						bttns.add(wisBttns);
+						wisBttns.setLayout(null);
+						bttn3plus.setBackground(new Color(205, 133, 63));
+						bttn3plus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn3plus.setBounds(158, 1, 41, 23);
+						wisBttns.add(bttn3plus);
+						bttn3minus.setBackground(new Color(205, 133, 63));
+						bttn3minus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn3minus.setBounds(0, 1, 41, 23);
+						wisBttns.add(bttn3minus);
+						intBttns.setOpaque(false);
+						intBttns.setBounds(0, 135, 199, 26);
+						bttns.add(intBttns);
+						intBttns.setLayout(null);
+						bttn4plus.setBackground(new Color(205, 133, 63));
+						bttn4plus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn4plus.setBounds(158, 1, 41, 23);
+						intBttns.add(bttn4plus);
+						bttn4minus.setBackground(new Color(205, 133, 63));
+						bttn4minus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn4minus.setBounds(0, 1, 41, 23);
+						intBttns.add(bttn4minus);
+						dexBttns.setOpaque(false);
+						dexBttns.setBounds(215, 0, 199, 26);
+						bttns.add(dexBttns);
+						dexBttns.setLayout(null);
+						bttn5plus.setBackground(new Color(205, 133, 63));
+						bttn5plus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn5plus.setBounds(158, 1, 41, 23);
+						dexBttns.add(bttn5plus);
+						bttn5minus.setBackground(new Color(205, 133, 63));
+						bttn5minus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn5minus.setAlignmentY(Component.TOP_ALIGNMENT);
+						bttn5minus.setBounds(0, 1, 41, 23);
+						dexBttns.add(bttn5minus);
+						constBttns.setOpaque(false);
+						constBttns.setBounds(215, 45, 199, 26);
+						bttns.add(constBttns);
+						constBttns.setLayout(null);
+						bttn6plus.setBackground(new Color(205, 133, 63));
+						bttn6plus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn6plus.setBounds(158, 1, 41, 23);
+						constBttns.add(bttn6plus);
+						bttn6minus.setBackground(new Color(205, 133, 63));
+						bttn6minus.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+						bttn6minus.setAlignmentY(0.0f);
+						bttn6minus.setBounds(0, 1, 41, 23);
+						constBttns.add(bttn6minus);
+						
+								bttn6minus.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent e) {
+										try {
+											set(5, false);
+										} catch (Exception x) {
+											Handler.debug(x.toString(), true);
+											x.printStackTrace();
+										}
+									}
+								});
+								
+										bttn6plus.addActionListener(new ActionListener() {
+											public void actionPerformed(ActionEvent e) {
+												try {
+													set(5, true);
+												} catch (Exception x) {
+													rpg.game.Handler.debug(x.toString(), true);
+													x.printStackTrace();
+												}
+											}
+										});
+										
+												bttn5minus.addActionListener(new ActionListener() {
+													public void actionPerformed(ActionEvent e) {
+														try {
+															set(4, false);
+														} catch (Exception x) {
+															Handler.debug(x.toString(), true);
+															x.printStackTrace();
+														}
+													}
+												});
+												
+														bttn5plus.addActionListener(new ActionListener() {
+															public void actionPerformed(ActionEvent e) {
+																try {
+																	set(4, true);
+																} catch (Exception x) {
+																	rpg.game.Handler.debug(x.toString(), true);
+																	x.printStackTrace();
+																}
+															}
+														});
+														
+																bttn4minus.addActionListener(new ActionListener() {
+																	public void actionPerformed(ActionEvent e) {
+																		try {
+																			set(3, false);
+																		} catch (Exception x) {
+																			Handler.debug(x.toString(), true);
+																			x.printStackTrace();
+																		}
+																	}
+																});
+																
+																		bttn4plus.addActionListener(new ActionListener() {
+																			public void actionPerformed(ActionEvent e) {
+																				try {
+																					set(3, true);
+																				} catch (Exception x) {
+																					rpg.game.Handler.debug(x.toString(), true);
+																					x.printStackTrace();
+																				}
+																			}
+																		});
+																		
+																				bttn3minus.addActionListener(new ActionListener() {
+																					public void actionPerformed(ActionEvent e) {
+																						try {
+																							set(2, false);
+																						} catch (Exception x) {
+																							Handler.debug(x.toString(), true);
+																							x.printStackTrace();
+																						}
+																					}
+																				});
+																				
+																						bttn3plus.addActionListener(new ActionListener() {
+																							public void actionPerformed(ActionEvent e) {
+																								try {
+																									set(2, true);
+																								} catch (Exception x) {
+																									rpg.game.Handler.debug(x.toString(), true);
+																									x.printStackTrace();
+																								}
+																							}
+																						});
+																						
+																								bttn2minus.addActionListener(new ActionListener() {
+																									public void actionPerformed(ActionEvent e) {
+																										try {
+																											set(1, false);
+																										} catch (Exception x) {
+																											rpg.game.Handler.debug(x.toString(), true);
+																											x.printStackTrace();
+																										}
+																									}
+																								});
+																								
+																										bttn2plus.addActionListener(new ActionListener() {
+																											public void actionPerformed(ActionEvent e) {
+																												try {
+																													set(1, true);
+																												} catch (Exception x) {
+																													rpg.game.Handler.debug(x.toString(), true);
+																													x.printStackTrace();
+																												}
+																											}
+																										});
+																										
+																												bttn1minus.addActionListener(new ActionListener() {
+																													public void actionPerformed(ActionEvent arg0) {
+																														try {
+																															set(0, false);
+																														} catch (Exception x) {
+																															rpg.game.Handler.debug(x.toString(), true);
+																															x.printStackTrace();
+																														}
+																													}
+																												});
+																												
+																														bttn1plus.addActionListener(new ActionListener() {
+																															public void actionPerformed(ActionEvent e) {
+																																try {
+																																	set(0, true);
+																																} catch (Exception x) {
+																																	rpg.game.Handler.debug(x.toString(), true);
+																																	x.printStackTrace();
+																																}
+																															}
+																														});
 		// create a new save
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -120,196 +394,6 @@ public class NewSave {
 				
 			}
 		});
-		frmNewSave.getContentPane().add(btnCreate);
-
-		panel = new JPanel();
-		panel.setBounds(0, 50, 436, 282);
-		frmNewSave.getContentPane().add(panel);
-		panel.setLayout(null);
-
-		lblPtsLeft.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblPtsLeft.setBounds(261, 11, 124, 41);
-		panel.add(lblPtsLeft);
-
-		lblStrength.setBounds(64, 63, 115, 34);
-		lblStrength.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(lblStrength);
-
-		lblCharisma.setBounds(64, 111, 115, 34);
-		lblCharisma.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(lblCharisma);
-
-		lblWisdom.setBounds(64, 161, 115, 34);
-		lblWisdom.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(lblWisdom);
-
-		lblIntellegence.setBounds(64, 198, 115, 34);
-		lblIntellegence.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(lblIntellegence);
-
-		lblDexterity.setBounds(270, 63, 115, 34);
-		lblDexterity.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(lblDexterity);
-
-		lblConstitution.setBounds(270, 108, 115, 34);
-		lblConstitution.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(lblConstitution);
-
-		bttn1plus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(0, true);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn1plus.setBounds(168, 71, 41, 23);
-		panel.add(bttn1plus);
-
-		bttn2plus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(1, true);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn2plus.setBounds(168, 116, 41, 23);
-		panel.add(bttn2plus);
-
-		bttn3plus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(2, true);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn3plus.setBounds(168, 164, 41, 23);
-		panel.add(bttn3plus);
-
-		bttn4plus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(3, true);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn4plus.setBounds(168, 206, 41, 23);
-		panel.add(bttn4plus);
-
-		bttn5plus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(4, true);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn5plus.setBounds(383, 71, 41, 23);
-		panel.add(bttn5plus);
-
-		bttn6plus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(5, true);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn6plus.setBounds(383, 116, 41, 23);
-		panel.add(bttn6plus);
-
-		bttn1minus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					set(0, false);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn1minus.setBounds(10, 74, 41, 23);
-		panel.add(bttn1minus);
-
-		bttn2minus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(1, false);
-				} catch (Exception x) {
-					rpg.game.Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn2minus.setBounds(10, 119, 41, 23);
-		panel.add(bttn2minus);
-
-		bttn3minus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(2, false);
-				} catch (Exception x) {
-					Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn3minus.setBounds(10, 167, 41, 23);
-		panel.add(bttn3minus);
-
-		bttn4minus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(3, false);
-				} catch (Exception x) {
-					Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn4minus.setBounds(10, 209, 41, 23);
-		panel.add(bttn4minus);
-
-		bttn5minus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(4, false);
-				} catch (Exception x) {
-					Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn5minus.setBounds(225, 74, 41, 23);
-		panel.add(bttn5minus);
-
-		bttn6minus.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					set(5, false);
-				} catch (Exception x) {
-					Handler.debug(x.toString(), true);
-					x.printStackTrace();
-				}
-			}
-		});
-		bttn6minus.setBounds(225, 119, 41, 23);
-		panel.add(bttn6minus);
 
 	}
 
@@ -352,7 +436,4 @@ public class NewSave {
 		h.getG().getP().init(stats);
 		return;
 	}
-
-	
-
 }
