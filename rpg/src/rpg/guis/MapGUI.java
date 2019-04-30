@@ -20,12 +20,15 @@ import javax.swing.JMenuBar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Label;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class MapGUI {
 
 	private JFrame frame;
 	private JButton btnClose;
-	private Canvas canvas;
 	private JPanel panel;
 	private Handler h;
 
@@ -84,10 +87,71 @@ public class MapGUI {
 		panel.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
 		panel.setBounds(10, 40, 574, 315);
 		frame.getContentPane().add(panel);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		panel.setLayout(new GridLayout(0, 4, 0, 0));
 		
-		canvas = new Canvas();
-		panel.add(canvas);
+		Label label_8 = new Label("");
+		label_8.setAlignment(Label.CENTER);
+		panel.add(label_8);
+		
+		Label label_9 = new Label("");
+		label_9.setAlignment(Label.CENTER);
+		panel.add(label_9);
+		
+		Label label_10 = new Label("");
+		label_10.setAlignment(Label.CENTER);
+		panel.add(label_10);
+		
+		Label label_11 = new Label("");
+		label_11.setAlignment(Label.CENTER);
+		panel.add(label_11);
+		
+		Label label_12 = new Label("");
+		label_12.setAlignment(Label.CENTER);
+		panel.add(label_12);
+		
+		Label label_13 = new Label("");
+		label_13.setAlignment(Label.CENTER);
+		panel.add(label_13);
+		
+		Label label_14 = new Label("");
+		label_14.setAlignment(Label.CENTER);
+		panel.add(label_14);
+		
+		Label label_15 = new Label("");
+		label_15.setAlignment(Label.CENTER);
+		panel.add(label_15);
+		
+		Label label_4 = new Label("");
+		label_4.setAlignment(Label.CENTER);
+		panel.add(label_4);
+		
+		Label label_5 = new Label("");
+		label_5.setAlignment(Label.CENTER);
+		panel.add(label_5);
+		
+		Label label_6 = new Label("");
+		label_6.setAlignment(Label.CENTER);
+		panel.add(label_6);
+		
+		Label label_7 = new Label("");
+		label_7.setAlignment(Label.CENTER);
+		panel.add(label_7);
+		
+		Label label_3 = new Label("");
+		label_3.setAlignment(Label.CENTER);
+		panel.add(label_3);
+		
+		Label label_2 = new Label("");
+		label_2.setAlignment(Label.CENTER);
+		panel.add(label_2);
+		
+		Label label_1 = new Label("");
+		label_1.setAlignment(Label.CENTER);
+		panel.add(label_1);
+		
+		Label label = new Label("");
+		label.setAlignment(Label.CENTER);
+		panel.add(label);
 		
 		JLabel lblNewLabel = new JLabel("Map");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
