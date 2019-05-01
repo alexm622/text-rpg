@@ -433,7 +433,7 @@ public class NewSave {
 		}else{
 			rpg.game.Handler.debug("player is not null");
 		}
-		h.getG().getP().init(stats);
+		h.getG().getP().init(stats, new int[]{0,0});
 		return;
 	}
 }

@@ -15,7 +15,7 @@ public class Player {
 		
 	}
 
-	public void init(String[] stats) {
+	public void init(String[] stats, int[] pos) {
 		this.c = new Character();
 		c.setName(stats[0]);
 		c.setStren(Integer.parseInt(stats[1]));
@@ -24,6 +24,7 @@ public class Player {
 		c.setIntel(Integer.parseInt(stats[4]));
 		c.setDex(Integer.parseInt(stats[5]));
 		c.setConsti(Integer.parseInt(stats[6]));
+		c.setPos(pos);
 		h.getG().getMemory().getMem().setCharacter(this.c);
 	}
 

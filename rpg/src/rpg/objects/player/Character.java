@@ -11,6 +11,7 @@ public class Character{
     private Inventory inv;
     private Item boots, pants, chest, helmet;
 	private Item equipped;
+	private int[] pos;
 	
 	public int getHp(){
 		return this.hp;
@@ -228,6 +229,14 @@ public class Character{
 	 */
 	public void setEquipped(Item equipped) {
 		this.equipped = equipped;
+	}
+
+	public void setPos(int[] pos){
+		this.pos = pos;
+	}
+
+	public int[] getPos(){
+		return this.pos;
 	}
     
 

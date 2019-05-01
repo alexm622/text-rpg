@@ -23,6 +23,7 @@ import javax.swing.ScrollPaneConstants;
 
 import rpg.game.Game;
 import rpg.game.Handler;
+import rpg.guis.draw.DrawMap;
 import rpg.utilities.Setup;
 import rpg.utilities.json.*;
 
@@ -373,7 +374,7 @@ public class GraphicMain {
 		mapButton.setForeground(new Color(0, 0, 0));
 		mapButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new MapGUI(h);
+				new DrawMap(h);
 			}
 		});
 		mapButton.setBounds(542, 93, 89, 23);

@@ -3,7 +3,7 @@ package rpg.guis;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.Canvas;
+
 
 import java.awt.GridLayout;
 import javax.swing.JPanel;
@@ -13,17 +13,14 @@ import rpg.game.Handler;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
+
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
-import javax.swing.JMenuBar;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import java.awt.Label;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+
 
 public class MapGUI {
 
@@ -31,6 +28,24 @@ public class MapGUI {
 	private JButton btnClose;
 	private JPanel panel;
 	private Handler h;
+	private JLabel[][] labels;
+	
+	private JLabel lbl1;
+	private JLabel lbl2;
+	private JLabel lbl3;
+	private JLabel lbl4;
+	private JLabel lbl5;
+	private JLabel lbl6;
+	private JLabel lbl7;
+	private JLabel lbl8;
+	private JLabel lbl9;
+	private JLabel lbl10;
+	private JLabel lbl11;
+	private JLabel lbl12;
+	private JLabel lbl13;
+	private JLabel lbl14;
+	private JLabel lbl15;
+	private JLabel lbl16;
 
 	/**
 	 * Launch the application.
@@ -55,6 +70,12 @@ public class MapGUI {
 		this.h = h;
 		h.getG().getGm().freeze();
 		initialize();
+		labels = new JLabel[][]{ 
+				{lbl1, lbl2, lbl3, lbl4},
+				{lbl5, lbl6, lbl7, lbl8},
+				{lbl9, lbl10, lbl11, lbl12},
+				{lbl13, lbl14, lbl15, lbl16}
+				};
 		frame.setVisible(true);
 	}
 
@@ -89,75 +110,91 @@ public class MapGUI {
 		frame.getContentPane().add(panel);
 		panel.setLayout(new GridLayout(0, 4, 0, 0));
 		
-		Label label_8 = new Label("");
-		label_8.setAlignment(Label.CENTER);
-		panel.add(label_8);
+		lbl1 = new JLabel("");
+		lbl1.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl1.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl1);
 		
-		Label label_9 = new Label("");
-		label_9.setAlignment(Label.CENTER);
-		panel.add(label_9);
+		lbl2 = new JLabel("");
+		lbl2.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl2.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl2);
 		
-		Label label_10 = new Label("");
-		label_10.setAlignment(Label.CENTER);
-		panel.add(label_10);
+		lbl3 = new JLabel("");
+		lbl3.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl3.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl3);
 		
-		Label label_11 = new Label("");
-		label_11.setAlignment(Label.CENTER);
-		panel.add(label_11);
+		lbl4 = new JLabel("");
+		lbl4.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl4.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl4);
 		
-		Label label_12 = new Label("");
-		label_12.setAlignment(Label.CENTER);
-		panel.add(label_12);
+		lbl5 = new JLabel("");
+		lbl5.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl5.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl5);
 		
-		Label label_13 = new Label("");
-		label_13.setAlignment(Label.CENTER);
-		panel.add(label_13);
+		lbl6 = new JLabel("");
+		lbl6.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl6.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl6);
 		
-		Label label_14 = new Label("");
-		label_14.setAlignment(Label.CENTER);
-		panel.add(label_14);
+		lbl7 = new JLabel("");
+		lbl7.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl7.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl7);
 		
-		Label label_15 = new Label("");
-		label_15.setAlignment(Label.CENTER);
-		panel.add(label_15);
+		lbl8 = new JLabel("");
+		lbl8.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl8.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl8);
 		
-		Label label_4 = new Label("");
-		label_4.setAlignment(Label.CENTER);
-		panel.add(label_4);
+		lbl9 = new JLabel("");
+		lbl9.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl9.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl9);
 		
-		Label label_5 = new Label("");
-		label_5.setAlignment(Label.CENTER);
-		panel.add(label_5);
+		lbl10 = new JLabel("");
+		lbl10.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl10.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl10);
 		
-		Label label_6 = new Label("");
-		label_6.setAlignment(Label.CENTER);
-		panel.add(label_6);
+		lbl11 = new JLabel("");
+		lbl11.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl11.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl11);
 		
-		Label label_7 = new Label("");
-		label_7.setAlignment(Label.CENTER);
-		panel.add(label_7);
+		lbl12 = new JLabel("");
+		lbl12.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl12.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl12);
 		
-		Label label_3 = new Label("");
-		label_3.setAlignment(Label.CENTER);
-		panel.add(label_3);
+		lbl13 = new JLabel("");
+		lbl13.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl13.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl13);
 		
-		Label label_2 = new Label("");
-		label_2.setAlignment(Label.CENTER);
-		panel.add(label_2);
+		lbl14 = new JLabel("");
+		lbl14.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl14.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl14);
 		
-		Label label_1 = new Label("");
-		label_1.setAlignment(Label.CENTER);
-		panel.add(label_1);
+		lbl15 = new JLabel("");
+		lbl15.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl15.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl15);
 		
-		Label label = new Label("");
-		label.setAlignment(Label.CENTER);
-		panel.add(label);
+		lbl16 = new JLabel("");
+		lbl16.setFont(new Font("Arial", Font.BOLD, 18));
+		lbl16.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl16);
 		
-		JLabel lblNewLabel = new JLabel("Map");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(250, 11, 99, 23);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblMap = new JLabel("Map");
+		lblMap.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMap.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMap.setBounds(250, 11, 99, 23);
+		frame.getContentPane().add(lblMap);
 	}
 	
 	public JFrame getFrame() {
@@ -168,11 +205,13 @@ public class MapGUI {
 		this.frame = frame;
 	}
 	
-	public Canvas getCanvas() {
-		return this.canvas;
+	public JLabel[][] getLabels(){
+		return this.labels;
 	}
 	
-	public void setCanvas(Canvas canvas) {
-		this.canvas = canvas;
+	public void setLabels(JLabel[][] labels) {
+		this.labels = labels;
 	}
+	
+	
 }
