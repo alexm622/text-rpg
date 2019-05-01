@@ -1,6 +1,5 @@
 package rpg.guis.draw;
 
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -9,6 +8,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import rpg.game.Handler;
 import rpg.guis.MapGUI;
 import rpg.objects.map.MapAsTiles;
+import rpg.objects.map.Tile;
 
 public class DrawMap {
 
@@ -40,6 +40,23 @@ public class DrawMap {
         int width, height;
         width = m.getMap()[0].length;
         height = m.getMap().length;
+        int[] center = new int[]{(width - width%2)/2 + width%2, (height - height%2)/2 + height%2};
+
+        int[] relPos = {pos[0] + center[0], pos[1] + center[1]};
+        relPos[0] -= 1;
+        relPos[1] -= 1;
+
+        Tile[][] draw;
+        draw = new Tile[3][3];
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; i < 4; i++){
+                draw[i][j] = m.getMap()[relPos[0] - (i-2)][j + relPos[1]];
+            }
+        }
+
+
+
+
 
     }
 

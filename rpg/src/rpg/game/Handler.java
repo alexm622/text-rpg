@@ -9,6 +9,7 @@ import java.util.Date;
 
 import rpg.utilities.json.JsonMain;
 import rpg.utilities.json.classes.index.Path;
+import rpg.utilities.memory.AbsMem;
 
 public class Handler {
 	private Game g;
@@ -24,6 +25,10 @@ public class Handler {
 		InitJson();
 		InitGame(g);
 
+	}
+
+	public AbsMem getMem(){
+		return g.getMemory().getMem();
 	}
 
 	public static void debug(String msg, boolean err) {
