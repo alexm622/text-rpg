@@ -58,8 +58,7 @@ public class Game{
                 if((i+1)%4 == 0){
                     
                     double f = 1000000000 / ((tempNano - lastTickTime)); // miliseconds between last 60 tick pt.
-                    gm.getHp_gold().setText(Double.toString(f));
-                    gm.getFrmRpg().revalidate();
+                    
                 }
                 
                 lastTickTime = tempNano;

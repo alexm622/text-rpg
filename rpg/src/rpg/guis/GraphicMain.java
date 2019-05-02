@@ -96,6 +96,7 @@ public class GraphicMain {
 	public GraphicMain() {
 		
 		initialize();
+		frmRpg.setVisible(true);
 		frmRpg.repaint();
 	}
 
