@@ -107,14 +107,15 @@ public class NewSave {
 	 */
 	private void initialize() {
 		frmNewSave = new JFrame();
+		frmNewSave.setResizable(false);
 		frmNewSave.getContentPane().setBackground(new Color(222, 184, 135));
 		frmNewSave.setBackground(new Color(222, 184, 135));
 		
 		frmNewSave.setTitle("New Save");
-		frmNewSave.setBounds(100, 100, 465, 419);
-		frmNewSave.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmNewSave.setBounds(100, 100, 495, 440);
+		frmNewSave.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmNewSave.getContentPane().setLayout(null);
-		mainPanel.setBounds(14, 19, 436, 386);
+		mainPanel.setBounds(26, 19, 436, 386);
 		
 		frmNewSave.getContentPane().add(mainPanel);
 		mainPanel.setLayout(null);

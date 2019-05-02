@@ -16,65 +16,68 @@ public class DrawMap {
 
     //private vars
 
-    private JFrame frame;
-    private Handler h;
-    private MapAsTiles m;
-    private MapGUI mg;
-    private JLabel[][] labels;
-    private StopWatch sw;
+    private static Handler h;
+    private static MapAsTiles m;
+    private static MapGUI mg;
+    private static JLabel[][] labels;
+    private static int[] pos, center, relPos;
+    private static int width, height;
+    private static Tile[][] draw;
 
 
-    public DrawMap(Handler h){
+    public DrawMap(Handler ha){
         
         
-        this.h = h;
+        h = ha;
         mg = new MapGUI(h);
-        sw = new StopWatch();
         
-        this.frame = mg.getFrame();
-        this.labels = mg.getLabels();
-        this.m = new MapAsTiles();
+       
+        labels = mg.getLabels();
+        m = new MapAsTiles();
         m.setMap(h.getG().getMemory().getMem().getTileMap());
         
-        draw();
+        //record width and height
+        
+        width = m.getMap()[0].length;
+        height = m.getMap().length;
+        
+        //calculate center
+        
+        center = new int[]{(width - width%2)/2 + width%2, (height - height%2)/2 + height%2};
+        
+        //draw var
+        
+        draw = new Tile[labels.length][labels[0].length];
+        
+        drawMap();
     }
 
-    private void draw(){
+    private static void drawMap(){
 
-        //get the height and width of the map
-        int width, height;
-        int[] pos;
+        
 
         pos = h.getMem().getCharacter().getPos();
 
-        width = m.getMap()[0].length;
-        height = m.getMap().length;
+        
 
-        //calculate center
-        int[] center = new int[]{(width - width%2)/2 + width%2, (height - height%2)/2 + height%2};
+        
 
-        //find the array entry of the center tile in the map as tiles
+        //find relative position
 
-        int[] relPos = new int[]{pos[0] + center[0], pos[1] + center[1]};
+        relPos = new int[]{pos[0] + center[0], pos[1] + center[1]};
         relPos[0] -= 1;
         relPos[1] -= 1;
 
-        Tile[][] draw = new Tile[][]{
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null}
-        };
+        
 
         //get the seen array of tiles
 
-        JLabel lbl;
 
         int i, j;
 
-        for(i = 0; i < 4; i++){
-            for(j = 0; j < 4; j++){
-                draw[i][j] = m.getMap()[relPos[0] - (i-2)][j + relPos[1]];
+        for(i = 0; i < labels.length; i++){
+            for(j = 0; j < labels[0].length; j++){
+                draw[i][j] = m.getMap()[relPos[0] - (i-labels.length/2)][j + relPos[1]];
                 
                 Handler.debug("draw[" + i + "][" + j + "] is " + (draw[i][j] != null ? "not null" : "null"), draw[i][j] == null);
 
@@ -88,17 +91,28 @@ public class DrawMap {
                 labels[i][j].setOpaque(true);
 
                 labels[i][j].setText(java.lang.Character.toString((char) draw[i][j].getIcon()));
+
+                labels[i][j].setForeground(new Color(Integer.decode(draw[i][j].getIconColor())));
+
+                labels[i][j].setFont(labels[i][j].getFont().deriveFont(labels[i][j].getFont().getStyle(), labels[i][j].getFont().getSize() + 6));
                 
             }
         }
         
+        labels[(draw.length - draw.length%2)/2 + draw.length%2 - 1][(draw[0].length - draw[0].length%2)/2 + draw[0].length%2 - 1].setText("P");
+        labels[(draw.length - draw.length%2)/2 + draw.length%2 - 1][(draw[0].length - draw[0].length%2)/2 + draw[0].length%2 - 1].setBackground(new Color(0,0,0));
+        labels[(draw.length - draw.length%2)/2 + draw.length%2 - 1][(draw[0].length - draw[0].length%2)/2 + draw[0].length%2 - 1].setForeground(new Color(255,255,0));
 
-        mg.drawMap(labels);
+        //mg.drawMap(labels);
 
 
 
 
 
+    }
+    
+    public static void repaint() {
+    	drawMap();
     }
 
 }

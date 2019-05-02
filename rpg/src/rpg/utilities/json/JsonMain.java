@@ -29,7 +29,7 @@ public class JsonMain {
 		this.h = h;
 		this.om = new ObjectMapper();
 		InitIndex();
-		Handler.debug("the firsst indexed class is: " + index.getIndex()[0].getClas());
+		Handler.debug("the first indexed class is: " + index.getIndex()[0].getClas());
 	}
 
 	private void InitIndex() {

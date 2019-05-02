@@ -10,10 +10,14 @@ import java.awt.Font;
 
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import javax.swing.JSplitPane;
+import javax.swing.JSeparator;
+import javax.swing.JPanel;
+import java.awt.Dimension;
 
 public class MemLoad {
 
-	private JFrame frame;
+	private JFrame frmLoading;
 	private JLabel loadingAsset;
 	private JLabel percent;
 	private JProgressBar loadProgress;
@@ -28,7 +32,7 @@ public class MemLoad {
 			public void run() {
 				try {
 					MemLoad window = new MemLoad();
-					window.frame.setVisible(true);
+					window.frmLoading.setVisible(true);
 				} catch (Exception e) {
 					rpg.game.Handler.debug(e.toString(), true);
 					e.printStackTrace();
@@ -45,7 +49,7 @@ public class MemLoad {
 
 		
 		
-		frame.setVisible(true);
+		frmLoading.setVisible(true);
 		
 
 	}
@@ -57,50 +61,58 @@ public class MemLoad {
 			rpg.game.Handler.debug(e.toString(), true);
 			e.printStackTrace();
 		}
-		frame.dispose();
+		frmLoading.dispose();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		this.frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(222, 184, 135));
+		this.frmLoading = new JFrame();
+		frmLoading.setTitle("Loading");
+		frmLoading.getContentPane().setBackground(new Color(222, 184, 135));
 		
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 450, 104);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmLoading.setResizable(false);
+		frmLoading.setBounds(100, 100, 450, 114);
+		frmLoading.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLoading.getContentPane().setLayout(null);
+		
+		JPanel loadBar = new JPanel();
+		loadBar.setBounds(15, 52, 414, 25);
+		frmLoading.getContentPane().add(loadBar);
+		loadBar.setLayout(null);
 
 		this.loadingAsset = new JLabel();
+		loadingAsset.setBounds(12, 0, 386, 25);
+		loadBar.add(loadingAsset);
 		loadingAsset.setText("Asset Being Loaded");
-		loadingAsset.setBounds(22, 52, 386, 25);
-		frame.getContentPane().add(loadingAsset);
-
-		this.percent = new JLabel();
-		percent.setText("percent");
-		percent.setFont(new Font("Tahoma", Font.BOLD, 15));
-		percent.setBounds(243, 11, 101, 30);
-		frame.getContentPane().add(percent);
 
 		this.loadProgress = new JProgressBar();
+		loadProgress.setBounds(0, 0, 414, 25);
+		loadBar.add(loadProgress);
 		loadProgress.setOpaque(true);
 		loadProgress.setBackground(new Color(245, 222, 179));
 		loadProgress.setForeground(new Color(255, 215, 0));
-		loadProgress.setBounds(10, 52, 414, 25);
-		frame.getContentPane().add(loadProgress);
-
-		this.loadingText = new JLabel();
-		loadingText.setText("Loading:");
-		loadingText.setHorizontalAlignment(SwingConstants.TRAILING);
-		loadingText.setFont(new Font("Tahoma", Font.BOLD, 15));
-		loadingText.setBounds(147, 11, 94, 30);
-		frame.getContentPane().add(loadingText);
+				
+				JPanel loadText = new JPanel();
+				loadText.setOpaque(false);
+				loadText.setBounds(97, 11, 250, 25);
+				frmLoading.getContentPane().add(loadText);
+								
+										this.loadingText = new JLabel();
+										loadText.add(loadingText);
+										loadingText.setText("Loading:");
+										loadingText.setFont(new Font("Tahoma", Font.BOLD, 15));
+						
+								this.percent = new JLabel();
+								loadText.add(percent);
+								percent.setText("percent");
+								percent.setFont(new Font("Tahoma", Font.BOLD, 15));
 	}
 
 	public void setAsset(String path) {
 		rpg.game.Handler.debug("ran the set asset method");
-		frame.validate();
+		frmLoading.validate();
 	}
 
 	public JLabel getLoadingAsset() {
@@ -136,14 +148,13 @@ public class MemLoad {
 	}
 
 	public JFrame getFrame() {
-		return this.frame;
+		return this.frmLoading;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmLoading = frame;
 	}
 
 	public void setTempBool(boolean bool) {
 	}
-
 }

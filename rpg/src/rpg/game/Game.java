@@ -43,13 +43,21 @@ public class Game{
     private boolean firstLaunch(){
         File file = new File(System.getenv("APPDATA") + "//AlexRpg//");
         if(file.list() == null){
+
+            Handler.debug("first launch");
+
             return true;
         }
         for(String name : file.list()){
-            if(name  == "save.sav"){
+            Handler.debug(name);
+            if(name.equals(new String("save.sav"))){
+                Handler.debug("this is not the first launch");
                 return false;
             }
         }
+
+        Handler.debug("first launch plus something happened that should not have happened", true);
+
         return true;
     }
 

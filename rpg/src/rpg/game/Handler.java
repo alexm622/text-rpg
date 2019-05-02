@@ -1,5 +1,6 @@
 package rpg.game;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +18,9 @@ public class Handler {
 	private Path[] ptdata;
 	private Thread t;
 	public static Object o = new Object();
-
+	
+	
+	
 	public Handler(Game g) {
 		this.ptdata = new Path[0];
 		
@@ -36,8 +39,7 @@ public class Handler {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 			Date date = new Date();
 			PrintWriter out = new PrintWriter(new FileWriter(
-				"C:\\Users\\" + (String) System.getProperty("user.name") +
-				 "\\AppData\\Roaming\\AlexRpg\\" + dateFormat.format(date) + ".txt", true));
+				System.getenv("APPDATA") + "\\AlexRpg\\logs\\" + dateFormat.format(date) + ".txt", true));
 		
 			String fullClassName = Thread.currentThread().getStackTrace()[2].getClassName();
 			String className = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
@@ -67,8 +69,10 @@ public class Handler {
 			out.println(sep);
 			out.close();
 		} catch (IOException e) {
-			rpg.game.Handler.debug(e.toString(), true);
-			e.printStackTrace();
+			File f = new File(System.getenv("APPDATA") + "\\AlexRpg\\logs\\");
+			f.mkdirs();
+			rpg.game.Handler.debug("attempting to create logs folder to fix issue");
+			
 		}
 		
 		
@@ -79,8 +83,7 @@ public class Handler {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 			Date date = new Date();
 			PrintWriter out = new PrintWriter(new FileWriter(
-				"C:\\Users\\" + (String) System.getProperty("user.name") +
-				 "\\AppData\\Roaming\\AlexRpg\\" + dateFormat.format(date) + ".txt", true));
+				System.getenv("APPDATA") + "\\AlexRpg\\logs\\" + dateFormat.format(date) + ".txt", true));
 
 			dateFormat = new SimpleDateFormat("[yyyy:MM:dd HH:mm:ss] -- ");
 			String fullClassName = Thread.currentThread().getStackTrace()[2].getClassName();
@@ -109,8 +112,9 @@ public class Handler {
 			out.println(sep);
 			out.close();
 		} catch (IOException e) {
-			rpg.game.Handler.debug(e.toString(), true);
-			e.printStackTrace();
+			File f = new File(System.getenv("APPDATA") + "\\AlexRpg\\logs\\");
+			f.mkdirs();
+			rpg.game.Handler.debug("attempting to create logs folder to fix issue");
 		}
 	}
 

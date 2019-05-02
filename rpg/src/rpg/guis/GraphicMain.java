@@ -112,13 +112,13 @@ public class GraphicMain {
 		frmRpg.getContentPane().setEnabled(false);
 		frmRpg.setTitle("Rpg");
 		frmRpg.setResizable(false);
-		frmRpg.setBounds(100, 100, 663, 463);
+		frmRpg.setBounds(100, 100, 663, 471);
 		frmRpg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRpg.getContentPane().setLayout(null);
 				
 				menuPanel = new JPanel();
 				menuPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-				menuPanel.setBounds(10, 0, 637, 27);
+				menuPanel.setBounds(0, 0, 657, 27);
 				frmRpg.getContentPane().add(menuPanel);
 				menuPanel.setLayout(null);
 		
@@ -256,6 +256,7 @@ public class GraphicMain {
 		choicePanel.setLayout(null);
 
 		choice_1 = new JRadioButton("New radio button");
+		choice_1.setVisible(false);
 		choice_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		choice_1.setForeground(Color.BLACK);
 		choice_1.setBackground(new Color(184, 134, 11));
