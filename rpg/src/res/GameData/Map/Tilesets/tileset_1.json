@@ -12,8 +12,8 @@
             "tableId":"",
             "townId":"testtown",
             "icon":77,
-            "bgColor":"0x18f548",
-            "iconColor":"0x000000"
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
         },
         {
             "name":"test2",
@@ -24,8 +24,8 @@
             "tableId":"testtable",
             "townId":"",
             "icon":126,
-            "bgColor":"0x18f548",
-            "iconColor":"0x000000"
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
         },
         {
             "name":"test3",
@@ -36,8 +36,8 @@
             "tableId":"",
             "townId":"",
             "icon":95,
-            "bgColor":"0x18f548",
-            "iconColor":"0x000000"
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
         },
         {
             "name":"test4",
@@ -48,8 +48,8 @@
             "tableId":"",
             "townId":"",
             "icon":167,
-            "bgColor":"0x18f548",
-            "iconColor":"0x000000"
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
         },
         {
             "name":"test5",
@@ -60,8 +60,8 @@
             "tableId":"",
             "townId":"",
             "icon":230,
-            "bgColor":"0x18f548",
-            "iconColor":"0x000000"
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
         },
         {
             "name":"test6",
@@ -72,7 +72,7 @@
             "tableId":"",
             "townId":"",
             "icon":275,
-            "bgColor":"0x18f548",
+            "bgColor":"#18f548",
             "iconColor":"000000"
         },
         {
@@ -84,4 +84,4 @@
             "tableId":"",
             "townId":"",
             "icon":254,
-            "bgColor":"0x18f548","iconColor":"0x000000"},{"name":"test8","id":"testtile8","biomeId":"grass","difficulty":1,"eventId":"","tableId":"","townId":"","icon":254,"bgColor":"0x18f548","iconColor":"0x000000"},{"name":"test9","id":"testtile9","biomeId":"grass","difficulty":1,"eventId":"","tableId":"","townId":"","icon":164,"bgColor":"0x18f548","iconColor":"0x000000"}]}
+            "bgColor":"#18f548","iconColor":"#000000"},{"name":"test8","id":"testtile8","biomeId":"grass","difficulty":1,"eventId":"","tableId":"","townId":"","icon":254,"bgColor":"#18f548","iconColor":"#000000"},{"name":"test9","id":"testtile9","biomeId":"grass","difficulty":1,"eventId":"","tableId":"","townId":"","icon":164,"bgColor":"#18f548","iconColor":"#000000"}]}

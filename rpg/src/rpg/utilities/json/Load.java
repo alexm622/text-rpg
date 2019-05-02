@@ -20,14 +20,14 @@ public class Load {
         m = new Map();
         try {
             c = om.readValue(new File(
-                    "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\save.sav"),
+                    System.getenv("APPDATA") + "\\AlexRpg\\save.sav"),
                     Character.class);
             h.getG().getMemory().getMem().setCharacter(c);
             h.getG().getGm().getName_level().setText(c.getName() + " | " + Integer.toString(c.getLvl()));
             h.getG().getGm().getHp_gold().setText("hp: " + Integer.toString(c.getHp()) + " | gp: " + Integer.toString(c.getGp()));
             
             m = om.readValue(new File(
-                    "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\map.sav"),
+                    System.getenv("APPDATA") + "\\AlexRpg\\map.sav"),
                     Map.class);
             h.getG().getMemory().getMem().setMap(m);
             

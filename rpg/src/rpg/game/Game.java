@@ -1,9 +1,12 @@
 package rpg.game;
 
+import java.io.File;
+
 import javax.swing.JFrame;
 
 import rpg.guis.GraphicMain;
 import rpg.player.Player;
+import rpg.utilities.Setup;
 import rpg.utilities.memory.Memory;
 //import rpg.utilities.plugin.PluginLoader;
 
@@ -37,10 +40,24 @@ public class Game{
         run();
     }
 
+    private boolean firstLaunch(){
+        File file = new File(System.getenv("APPDATA") + "//AlexRpg//");
+        if(file.list() == null){
+            return true;
+        }
+        for(String name : file.list()){
+            if(name  == "save.sav"){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void run() {
         // set the focus to the main screen
         Handler.debug("running main thread method");
         frame.requestFocus();
+        
         Refresh();
         if(mem.getMem().getStoryItems() != null){
             Handler.debug("storyitems are not null");
@@ -50,6 +67,9 @@ public class Game{
         Handler.debug(h.getJm().TypeToPath("storyline"));
         long tempNano = System.nanoTime();
         long lastTickTime = tempNano;
+        if(!firstLaunch()){
+            new Setup(this.h, true);
+        }
         while (true) {
             for (int i = 0; i < 60; i++) {
 

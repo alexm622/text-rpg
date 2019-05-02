@@ -109,7 +109,7 @@ public class NewSave {
 		frmNewSave = new JFrame();
 		frmNewSave.getContentPane().setBackground(new Color(222, 184, 135));
 		frmNewSave.setBackground(new Color(222, 184, 135));
-		frmNewSave.setUndecorated(true);
+		
 		frmNewSave.setTitle("New Save");
 		frmNewSave.setBounds(100, 100, 465, 419);
 		frmNewSave.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

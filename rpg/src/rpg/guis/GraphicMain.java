@@ -105,8 +105,8 @@ public class GraphicMain {
 	 */
 	private void initialize() {
 		frmRpg = new JFrame();
-		frmRpg.setUndecorated(true);
-		frmRpg.setType(Type.UTILITY);
+		
+		
 		frmRpg.getContentPane().setBackground(new Color(210, 180, 140));
 		frmRpg.setBackground(new Color(210, 180, 140));
 		frmRpg.getContentPane().setEnabled(false);
@@ -369,7 +369,7 @@ public class GraphicMain {
 		stats_button.setBounds(542, 67, 89, 23);
 		choicePanel.add(stats_button);
 		
-		JButton mapButton = new JButton("Map");
+		JButton mapButton = new JButton("Map (WIP)");
 		mapButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		mapButton.setBackground(new Color(60, 179, 113));
 		mapButton.setForeground(new Color(0, 0, 0));

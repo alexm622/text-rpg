@@ -51,8 +51,7 @@ public class OpenSimplexNoiseTest
 			}
 		}
 		ImageIO.write(image, "png", new File(
-			"C:\\Users\\" + (String) System.getProperty("user.name") +
-			"\\AppData\\Roaming\\AlexRpg\\" + "map.png"));
+			System.getenv("APPDATA") + "\\AlexRpg\\" + "map.png"));
 		return out;
 	}
 }

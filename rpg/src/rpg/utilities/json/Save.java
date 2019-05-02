@@ -20,10 +20,10 @@ public class Save {
         this.m = h.getG().getMemory().getMem().getMap();
         try {
             om.writeValue(new File(
-                    "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\save.sav"),
+                    System.getenv("APPDATA") + "\\AlexRpg\\save.sav"),
                     c);
             om.writeValue(new File(
-                    "C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\map.sav"),
+                    System.getenv("APPDATA") + "\\AlexRpg\\map.sav"),
                     m);
         } catch (IOException e) {
             Handler.debug(e.toString(), true);

@@ -70,16 +70,30 @@ public class DrawMap {
 
         JLabel lbl;
 
-        for(int i = 0; i < 4; i++){
-            for(int j = 0; i < 4; i++){
+        int i, j;
+
+        for(i = 0; i < 4; i++){
+            for(j = 0; j < 4; j++){
                 draw[i][j] = m.getMap()[relPos[0] - (i-2)][j + relPos[1]];
-                lbl = labels[i][j];
-                lbl.setBackground(new Color(Integer.decode(draw[i][j].getBgColor())));
-                lbl.setText(java.lang.Character.toString((char) draw[i][j].getIcon()));
-                labels[i][j] = lbl;
+                
+                Handler.debug("draw[" + i + "][" + j + "] is " + (draw[i][j] != null ? "not null" : "null"), draw[i][j] == null);
+
+                labels[i][j].setBackground(new Color(Integer.decode(draw[i][j].getBgColor())));
+
+
+                Handler.debug("the background color is: " + draw[i][j].getBgColor());
+
+                Handler.debug(labels[i][j].getBackground().toString());
+
+                labels[i][j].setOpaque(true);
+
+                labels[i][j].setText(java.lang.Character.toString((char) draw[i][j].getIcon()));
+                
             }
         }
-        frame.repaint();
+        
+
+        mg.drawMap(labels);
 
 
 

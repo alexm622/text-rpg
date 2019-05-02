@@ -21,7 +21,7 @@ public class PluginLoader implements Runnable {
 
     public void run() {
         modDir = new File(
-                ("C:\\Users\\" + (String) System.getProperty("user.name") + "\\AppData\\Roaming\\AlexRpg\\mods\\"));
+                (System.getenv("APPDATA") + "\\AlexRpg\\mods\\"));
         if(!modDir.exists()){
             modDir.mkdirs();
             return;

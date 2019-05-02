@@ -68,7 +68,7 @@ public class MapGUI {
 	 */
 	public MapGUI(Handler h) {
 		this.h = h;
-		h.getG().getGm().freeze();
+		h.getG().getGm().getFrmRpg().setEnabled(false);
 		initialize();
 		labels = new JLabel[][]{ 
 				{lbl1, lbl2, lbl3, lbl4},
@@ -76,6 +76,7 @@ public class MapGUI {
 				{lbl9, lbl10, lbl11, lbl12},
 				{lbl13, lbl14, lbl15, lbl16}
 				};
+		frame.requestFocus();
 		frame.setVisible(true);
 	}
 
@@ -83,9 +84,9 @@ public class MapGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		this.frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(210, 180, 140));
-		frame.setUndecorated(true);
+		
 		frame.setResizable(false);
 		frame.setTitle("Map");
 		frame.setSize(600,400);
@@ -96,7 +97,8 @@ public class MapGUI {
 		btnClose.setBackground(new Color(219, 112, 147));
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				h.getG().getGm().unfreeze();
+				h.getG().getGm().getFrmRpg().setEnabled(true);
+				h.getG().getGm().getFrmRpg().requestFocus();
 				frame.dispose();
 			}
 		});
@@ -211,6 +213,30 @@ public class MapGUI {
 	
 	public void setLabels(JLabel[][] labels) {
 		this.labels = labels;
+	}
+
+	public void drawMap(JLabel[][] labels){
+		this.lbl1 = labels[0][0];
+		this.lbl2 = labels[0][1];
+		this.lbl3 = labels[0][2];
+		this.lbl4 = labels[0][3];
+
+		this.lbl5 = labels[1][0];
+		this.lbl6 = labels[1][1];
+		this.lbl7 = labels[1][2];
+		this.lbl8 = labels[1][3];
+
+		this.lbl9  = labels[2][0];
+		this.lbl10 = labels[2][1];
+		this.lbl11 = labels[2][2];
+		this.lbl12 = labels[2][3];
+
+		this.lbl13 = labels[3][0];
+		this.lbl14 = labels[3][1];
+		this.lbl15 = labels[3][2];
+		this.lbl16  = labels[3][3];
+
+		this.frame.repaint();
 	}
 	
 	

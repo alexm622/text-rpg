@@ -66,7 +66,7 @@ public class MemLoad {
 	private void initialize() {
 		this.frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(222, 184, 135));
-		frame.setUndecorated(true);
+		
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 450, 104);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
