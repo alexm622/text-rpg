@@ -48,36 +48,36 @@ public class Player {
 
 		switch(dir) {
 
-			case UP:
-				if(!(c.getPos()[1] + center[1] < height + 1)) {
-					return false;
-				}
-				c.setPos(new int[] {c.getPos()[0], c.getPos()[1] + 1});
-				return true;
-				
-				
-				
-			case DOWN:
-				if(!(c.getPos()[1] + center[1] >= 1)) {
-					return false;
-				}
-				c.setPos(new int[] {c.getPos()[0], c.getPos()[1]-1});
-				return true;
-				
-
 			case LEFT:
-				if(!(c.getPos()[0] + center[0] >= 1)) {
+				if(!(c.getPos()[1] + center[1] < height + 1)) {
 					return false;
 				}
 				c.setPos(new int[] {c.getPos()[0] - 1, c.getPos()[1]});
 				return true;
 				
-								
+				
+				
 			case RIGHT:
-				if(!(c.getPos()[1] + center[1] < width + 1)) {
+				if(!(c.getPos()[1] + center[1] >= 1)) {
 					return false;
 				}
 				c.setPos(new int[] {c.getPos()[0] + 1, c.getPos()[1]});
+				return true;
+				
+
+			case UP:
+				if(!(c.getPos()[0] + center[0] >= 1)) {
+					return false;
+				}
+				c.setPos(new int[] {c.getPos()[0], c.getPos()[1] + 1});
+				return true;
+				
+								
+			case DOWN:
+				if(!(c.getPos()[1] + center[1] < width + 1)) {
+					return false;
+				}
+				c.setPos(new int[] {c.getPos()[0], c.getPos()[1] - 1});
 				return true;
 				
 				

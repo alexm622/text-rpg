@@ -47,7 +47,7 @@ public class DrawMap {
         
         //draw var
         
-        draw = new Tile[labels.length][labels[0].length];
+        draw = new Tile[labels.length  ][labels[0].length ];
         
         drawMap();
     }
@@ -58,15 +58,19 @@ public class DrawMap {
 
         pos = h.getMem().getCharacter().getPos();
 
+        mg.getPoslbl().setText("( X:" + pos[0] + " ) ( Y:" + pos[1] + " )");
+
         
 
         
 
         //find relative position
 
-        relPos = new int[]{pos[0] + center[0], pos[1] + center[1]};
-        relPos[0] -= 1;
-        relPos[1] -= 1;
+        relPos = new int[]{pos[0] + center[0], center[1] - pos[1] };
+
+        Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
+
+        
 
         
 
@@ -75,18 +79,23 @@ public class DrawMap {
 
         int i, j;
 
-        for(i = 0; i < labels.length; i++){
-            for(j = 0; j < labels[0].length; j++){
-                draw[i][j] = m.getMap()[relPos[0] - (i-labels.length/2)][j + relPos[1]];
+        int drawPos[] = new int[]{0 - (labels[0].length - labels[0].length%2)/2 ,0 - (labels.length - labels.length%2)/2 };
+
+        for(j = 0; j < labels.length; j++){ //y
+            for(i = 0; i < labels[0].length; i++){ //x
+
+                //this determines what tile to edit
+
+                draw[i][j] = m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]];
                 
-                Handler.debug("draw[" + i + "][" + j + "] is " + (draw[i][j] != null ? "not null" : "null"), draw[i][j] == null);
+                
 
                 labels[i][j].setBackground(new Color(Integer.decode(draw[i][j].getBgColor())));
 
 
-                Handler.debug("the background color is: " + draw[i][j].getBgColor());
+                
 
-                Handler.debug(labels[i][j].getBackground().toString());
+                
 
                 labels[i][j].setOpaque(true);
 
@@ -94,9 +103,13 @@ public class DrawMap {
 
                 labels[i][j].setForeground(new Color(Integer.decode(draw[i][j].getIconColor())));
 
-                labels[i][j].setFont(labels[i][j].getFont().deriveFont(labels[i][j].getFont().getStyle(), labels[i][j].getFont().getSize() + 6));
                 
+
+                labels[i][j].setFont(labels[i][j].getFont().deriveFont(labels[i][j].getFont().getStyle(), 18+6));
+                drawPos[0] += 1;
             }
+            drawPos[0] = 0 - (labels[0].length - labels[0].length%2)/2;
+            drawPos[1] += 1;
         }
         
         labels[(draw.length - draw.length%2)/2 + draw.length%2 - 1][(draw[0].length - draw[0].length%2)/2 + draw[0].length%2 - 1].setText("P");

@@ -26,6 +26,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.SystemColor;
+import java.awt.Label;
 
 
 public class MapGUI {
@@ -48,6 +49,7 @@ public class MapGUI {
 				   lbl73, lbl74, lbl75, lbl76, lbl77, lbl78, lbl79, lbl80, lbl81;
 	
 	private JLabel[][] labels;
+	private Label poslbl;
 
 	/**
 	 * Launch the application.
@@ -600,6 +602,10 @@ public class MapGUI {
 		bttnActions.setBackground(SystemColor.info);
 		bttnActions.setFont(new Font("Arial", Font.BOLD, 25));
 		panel_1.add(bttnActions, BorderLayout.CENTER);
+		
+		poslbl = new Label("New label");
+		poslbl.setBounds(442, 380, 106, 37);
+		frame.getContentPane().add(poslbl);
 	}
 	
 	public JFrame getFrame() {
@@ -618,4 +624,11 @@ public class MapGUI {
 		this.labels = labels;
 	}
 
+	public Label getPoslbl(){
+		return poslbl;
+	}
+
+	public void setPoslbl(Label poslbl){
+		this.poslbl = poslbl;
+	}
 }
