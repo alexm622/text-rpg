@@ -27,6 +27,9 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.SystemColor;
 import java.awt.Label;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 
 public class MapGUI {
@@ -50,6 +53,13 @@ public class MapGUI {
 	
 	private JLabel[][] labels;
 	private Label poslbl;
+	private JPanel panelBttm;
+	private JButton op3;
+	private JButton op4;
+	private JButton backbttn;
+	private JPanel pnlActions;
+	private JButton op1;
+	private JButton op2;
 
 	/**
 	 * Launch the application.
@@ -100,18 +110,6 @@ public class MapGUI {
 		frame.setSize(600,525);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		btnClose = new JButton("Close");
-		btnClose.setBackground(new Color(219, 112, 147));
-		btnClose.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				h.getG().getGm().getFrmRpg().setEnabled(true);
-				h.getG().getGm().getFrmRpg().requestFocus();
-				frame.dispose();
-			}
-		});
-		btnClose.setBounds(490, 453, 89, 23);
-		frame.getContentPane().add(btnClose);
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(205, 133, 63));
@@ -525,16 +523,21 @@ public class MapGUI {
 		lbl81.setFont(new Font("Arial", Font.BOLD, 18));
 		panel.add(lbl81);
 		
-		JLabel lblMap = new JLabel("Map");
-		lblMap.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMap.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMap.setBounds(242, 11, 99, 23);
-		frame.getContentPane().add(lblMap);
+		panelBttm = new JPanel();
+		panelBttm.setBackground(new Color(222, 184, 135));
+		panelBttm.setBounds(103, 366, 403, 107);
+		frame.getContentPane().add(panelBttm);
+		panelBttm.setLayout(null);
+		
+		btnClose = new JButton("Close");
+		btnClose.setBounds(314, 84, 89, 23);
+		panelBttm.add(btnClose);
+		btnClose.setBackground(new Color(219, 112, 147));
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 0, 231, 107);
+		panelBttm.add(panel_1);
 		panel_1.setOpaque(false);
-		panel_1.setBounds(176, 369, 231, 107);
-		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JButton bttnLeft = new JButton("\u2190");
@@ -596,6 +599,8 @@ public class MapGUI {
 		JButton bttnActions = new JButton("Actions");
 		bttnActions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panelBttm.setVisible(false);
+				pnlActions.setVisible(true);
 			}
 		});
 		bttnActions.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -604,8 +609,49 @@ public class MapGUI {
 		panel_1.add(bttnActions, BorderLayout.CENTER);
 		
 		poslbl = new Label("New label");
-		poslbl.setBounds(442, 380, 106, 37);
-		frame.getContentPane().add(poslbl);
+		poslbl.setBounds(266, 11, 106, 37);
+		panelBttm.add(poslbl);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				h.getG().getGm().getFrmRpg().setEnabled(true);
+				h.getG().getGm().getFrmRpg().requestFocus();
+				frame.dispose();
+			}
+		});
+		
+		pnlActions = new JPanel();
+		pnlActions.setVisible(false);
+		pnlActions.setBackground(new Color(222, 184, 135));
+		pnlActions.setBounds(5, 366, 574, 107);
+		frame.getContentPane().add(pnlActions);
+		pnlActions.setLayout(new GridLayout(5, 3, 0, 1));
+		
+		op1 = new JButton("op1");
+		pnlActions.add(op1);
+		
+		op2 = new JButton("op2");
+		pnlActions.add(op2);
+		
+		op3 = new JButton("op3");
+		pnlActions.add(op3);
+		
+		op4 = new JButton("op4");
+		pnlActions.add(op4);
+		
+		backbttn = new JButton("back");
+		backbttn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				pnlActions.setVisible(false);
+				panelBttm.setVisible(true);
+			}
+		});
+		pnlActions.add(backbttn);
+		
+		JLabel lblMap = new JLabel("Map");
+		lblMap.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMap.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMap.setBounds(242, 11, 99, 23);
+		frame.getContentPane().add(lblMap);
 	}
 	
 	public JFrame getFrame() {
