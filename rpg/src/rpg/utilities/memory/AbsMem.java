@@ -19,8 +19,8 @@ public class AbsMem{
         private StoryLine storyline;
         private StoryEvents storyevents;
         private Map map;
-        private TileSet tileset;
         private Tile[][] tileMap;
+        private Tile[] tiles;
 
         //events
 
@@ -109,13 +109,7 @@ public class AbsMem{
                 this.map = map;
             }
 
-            public void setTileSet(TileSet tileset){
-                this.tileset = tileset;
-            }
 
-            public TileSet getTileSet(){
-                return this.tileset;
-            }
             
             public Tile[][] getTileMap(){
                 return this.tileMap;
@@ -123,6 +117,14 @@ public class AbsMem{
 
             public void setTileMap(Tile[][] tileMap){
                 this.tileMap = tileMap;
+            }
+
+            public void setTiles(Tile[] tiles){
+                this.tiles = tiles;
+            }
+
+            public Tile[] getTiles(){
+                return this.tiles;
             }
 
     //class definitions

@@ -10,6 +10,7 @@ import java.util.Date;
 
 import rpg.utilities.json.JsonMain;
 import rpg.utilities.json.classes.index.Path;
+import rpg.utilities.map.Biome;
 import rpg.utilities.memory.AbsMem;
 
 public class Handler {
@@ -18,6 +19,7 @@ public class Handler {
 	private Path[] ptdata;
 	private Thread t;
 	public static Object o = new Object();
+	public static final int NUMBIOMES = Biome.values().length;
 	
 	
 	

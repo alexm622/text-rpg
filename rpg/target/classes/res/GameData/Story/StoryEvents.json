@@ -3,6 +3,7 @@
             {
                 "eventId":"testevent1",
                 "name":"testevent1",
+                "biomeId":"plains",
                 "desc":"a test event",
                 "monsters":[
                     "testmonster"
@@ -15,6 +16,7 @@
             {
                 "eventId":"testevent2",
                 "name":"testevent2",
+                "biomeId":"plains",
                 "desc":"a test event",
                 "monsters":[
                     "testmonster"
@@ -27,6 +29,7 @@
             {
                 "eventId":"testevent3",
                 "name":"testevent3",
+                "biomeId":"plains",
                 "desc":"a test event",
                 "monsters":[
                     "testmonster"

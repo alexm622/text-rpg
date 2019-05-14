@@ -3,10 +3,13 @@ package rpg.objects.story;
 import rpg.objects.Items;
 
 public class StoryEvent{
-    private String eventId;
+	private String eventId;
+	private String biomeId;
     private String name;
     private String desc;
-    private String[] monsters;
+	private String[] monsters;
+	private int maxNum;
+	private int minNum;
     private int lvl;
     private int xp;
 	private int gp;
@@ -37,6 +40,14 @@ public class StoryEvent{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getBiomeId(){
+		return this.biomeId;
+	}
+
+	public void setBiomeId(String biomeId){
+		this.biomeId = biomeId;
+	}
 	/**
 	 * @return the desc
 	 */
@@ -61,6 +72,23 @@ public class StoryEvent{
 	public void setMonsters(String[] monsters) {
 		this.monsters = monsters;
 	}
+
+	public int getMaxNum(){
+		return this.maxNum;
+	}
+
+	public int getMinNum(){
+		return this.minNum;
+	}
+
+	public void setMaxNum(int maxNum){
+		this.maxNum = maxNum;
+	}
+
+	public void setMinNum(int minNum){
+		this.minNum = minNum;
+	}
+
 	/**
 	 * @return the lvl
 	 */
