@@ -7,16 +7,39 @@ import rpg.objects.items.Weapon;
 public class Item implements Armor, Weapon{
 	//everything
 	
+	
+
 	private String itemname;
 	private String id;
 	private int itembuy;
 	private int itemsell;
 	private int rarity;
 	private boolean purchasable;
+	private boolean sellable;
 	private Modifier[] modifiers;
+
+	//armor
+
+	private int armorclass;
+	private int armortype;
+	private int maxdex;
+
+	//weapon
+
+	private String weapontype;
+    private String weaponskill;
+    private Action damage;
 	
 	//everything
 	
+	public boolean getSellable(){
+		return this.sellable;
+	}
+
+	public void setSellable(boolean sellable){
+		this.sellable = sellable;
+	}
+
 	public String getId(){
 		return this.id;
 	}
@@ -73,40 +96,12 @@ public class Item implements Armor, Weapon{
 		this.modifiers = modifiers;
 	}
 	
-	//armor
-	private int armorclass;
-	private int armortype;
-	private int maxdex;
+	
     
-    //armor
-	public int getArmorclass() {
-		return this.armorclass;
-	}
-
-	public void setArmorclass(int armorclass) {
-		this.armorclass = armorclass;
-	}
-
-	public int getArmortype() {
-		return this.armortype;
-	}
-
-	public void setArmortype(int armortype) {
-		this.armortype = armortype;
-	}
-
-	public int getMaxdex() {
-		return this.maxdex;
-	}
-
-	public void setMaxdex(int maxdex) {
-		this.maxdex = maxdex;
-	}
+    
 	
 	//weapon
-	private String weapontype;
-    private String weaponskill;
-    private Action damage;
+	
     
     public String getWeapontype() {
         return weapontype;
@@ -136,6 +131,39 @@ public class Item implements Armor, Weapon{
 
 	public static class Modifier extends rpg.objects.items.modifier.Modifier {
 
+	}
+
+	//armor
+	
+
+	@Override
+	public int getArmorclass() {
+		return this.armorclass;
+	}
+
+	@Override
+	public void setArmorclass(int armorclass) {
+		this.armorclass = armorclass;
+	}
+
+	@Override
+	public int getArmortype() {
+		return armortype;
+	}
+
+	@Override
+	public void setArmortype(int armortype) {
+		this.armortype = armortype;
+	}
+
+	@Override
+	public int getMaxdex() {
+		return maxdex;
+	}
+
+	@Override
+	public void setMaxdex(int maxdex) {
+		this.maxdex = maxdex;
 	}
 
 }

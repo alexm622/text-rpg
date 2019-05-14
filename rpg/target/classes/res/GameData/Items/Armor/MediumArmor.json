@@ -9,8 +9,8 @@
 		"modifiers": [
 			{"id": 0, "lvl":1}
 			],
-		"armorclass":"2",
-		"armortype":"3",
-		"maxdex":"4"		
+		"armorclass":2,
+		"armortype":3,
+		"maxdex":4		
 	}]		
 }

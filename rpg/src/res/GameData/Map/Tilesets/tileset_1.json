@@ -57,7 +57,7 @@
             "biomeId":"plains",
             "difficulty":1,
             "eventId":"",
-            "tableId":"",
+            "tableId":"testtable",
             "townId":"",
             "icon":230,
             "bgColor":"#18f548",
@@ -84,4 +84,31 @@
             "tableId":"",
             "townId":"",
             "icon":254,
-            "bgColor":"#18f548","iconColor":"#000000"},{"name":"test8","id":"testtile8","biomeId":"plains","difficulty":1,"eventId":"","tableId":"","townId":"","icon":254,"bgColor":"#18f548","iconColor":"#000000"},{"name":"test9","id":"testtile9","biomeId":"plains","difficulty":1,"eventId":"","tableId":"","townId":"","icon":164,"bgColor":"#18f548","iconColor":"#000000"}]}
+            "bgColor":"#18f548","iconColor":"#000000"
+        },
+        {
+            "name":"test8",
+            "id":"testtile8",
+            "biomeId":"plains",
+            "difficulty":1,
+            "eventId":"",
+            "tableId":"",
+            "townId":"",
+            "icon":254,
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
+        },
+        {
+            "name":"test9",
+            "id":"testtile9",
+            "biomeId":"plains",
+            "difficulty":1,
+            "eventId":"",
+            "tableId":"",
+            "townId":"",
+            "icon":164,
+            "bgColor":"#18f548",
+            "iconColor":"#000000"
+        }
+    ]
+}

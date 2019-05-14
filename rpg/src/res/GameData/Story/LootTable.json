@@ -1,0 +1,8 @@
+{
+    "id":"testtable",
+    "name":"testtable",
+    "drops":[
+        {"id":"testweapon", "weight":20, "name":null},
+        {"id":"heavyarmortest", "weight":10, "name":null}
+    ]
+}
