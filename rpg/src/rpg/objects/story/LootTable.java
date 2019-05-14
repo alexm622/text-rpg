@@ -16,7 +16,7 @@ public class LootTable {
         private int weight;
         private Modifier[] modifiers;
         private String lore;
-        private boolean canSell;
+        private boolean purchasable;
 
 
     }
