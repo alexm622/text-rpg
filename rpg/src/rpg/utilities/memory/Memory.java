@@ -20,6 +20,7 @@ import rpg.objects.Items;
 import rpg.objects.map.Tile;
 import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
+import rpg.objects.story.LootTable;
 import rpg.objects.story.StoryEvents;
 import rpg.objects.story.StoryLine;
 
@@ -35,6 +36,7 @@ public class Memory {
     private StoryEvents storyEvents;
     private StoryLine storyline;
     private Tile[] tiles;
+    private LootTable lt;
 
     // program assets
     private AbsMem mem;
@@ -245,6 +247,28 @@ public class Memory {
             Handler.debug(path);
 
             loadTiles(file);
+
+
+            //loottable
+
+            loading = "loottable";
+            path = jm.TypeToPath(loading);
+            file = jm.getFile(path);
+            Handler.debug(path);
+
+            num++;
+            percentstr = Integer.toString((100 / size) * num) + "%";
+            asset.setText(path);
+            pb.setValue(num * (pb.getMaximum() / size));
+            percent.setText(percentstr);
+            repaint();
+
+            lt = om.readValue(file, LootTable.class);
+
+            mem.setLootTable(lt);
+
+            Handler.debug("doing");
+
 
             // Done
 

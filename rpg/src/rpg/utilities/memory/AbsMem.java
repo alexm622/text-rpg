@@ -6,6 +6,7 @@ import rpg.objects.map.Tile;
 import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
 import rpg.objects.player.Character;
+import rpg.objects.story.LootTable;
 import rpg.objects.story.StoryEvents;
 import rpg.objects.story.StoryLine;
 
@@ -21,6 +22,7 @@ public class AbsMem{
         private Map map;
         private Tile[][] tileMap;
         private Tile[] tiles;
+        private LootTable loottable;
 
         //events
 
@@ -125,6 +127,14 @@ public class AbsMem{
 
             public Tile[] getTiles(){
                 return this.tiles;
+            }
+
+            public void setLootTable(LootTable lt){
+                this.loottable = lt;
+            }
+
+            public LootTable getLootTable(){
+                return this.loottable;
             }
 
     //class definitions

@@ -7,5 +7,6 @@
    {"type":"storyevents", "clas":"rpg.objects.story.StoryEvents", "path":"res/GameData/Story/StoryEvents.json"},
    {"type":"storyitems", "clas":"rpg.objects.story.StoryItems", "path":"res/GameData/Story/StoryItems.json"},
    {"type":"monsters", "clas":"rpg.objects.npc.monster.Monsters", "path":"res/GameData/NPC/Monsters/Monster.json"},
-   {"type":"tileset", "clas":"rpg.objects.map.TileSet", "path":"res/GameData/Map/Tilesets/"}
+   {"type":"tileset", "clas":"rpg.objects.map.TileSet", "path":"res/GameData/Map/Tilesets/"},
+   {"type":"loottable", "clas":"rpg.objects.story.LootTable", "path":"res/GameData/Story/LootTable.json"}
 ]

@@ -14,8 +14,8 @@ public class Item implements Armor, Weapon{
 	private int itembuy;
 	private int itemsell;
 	private int rarity;
-	private boolean purchasable;
-	private boolean sellable;
+	private boolean purchasable = true;
+	private boolean sellable = true;
 	private Modifier[] modifiers;
 
 	//armor
@@ -37,6 +37,7 @@ public class Item implements Armor, Weapon{
 	}
 
 	public void setSellable(boolean sellable){
+		
 		this.sellable = sellable;
 	}
 
