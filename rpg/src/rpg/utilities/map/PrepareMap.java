@@ -70,7 +70,7 @@ public class PrepareMap {
                     if(m.getTileids()[j][i] == ids[k]){
                         map[j][i] = h.getMem().getTiles()[k];
                         k = ids.length;
-                    }else {
+                    }else if((m.getTileids()[j][i] == ids[k]) && (k == ids.length - 1)){
                         Handler.debug("something went wrong", true);
 
                     }
