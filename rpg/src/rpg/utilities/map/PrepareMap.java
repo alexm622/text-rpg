@@ -56,6 +56,8 @@ public class PrepareMap {
 
         clear = m.getCleared();
 
+        Handler.debug("is tiles null: " + (h.getMem().getTiles()[0] == null));
+
 
 
 
@@ -69,8 +71,9 @@ public class PrepareMap {
                 for(int k = 0; k < ids.length; k++){
                     if(m.getTileids()[j][i] == ids[k]){
                         map[j][i] = h.getMem().getTiles()[k];
+                        Handler.debug("is tile null: " + (h.getMem().getTiles()[k] == null));
                         k = ids.length;
-                    }else if((m.getTileids()[j][i] == ids[k]) && (k == ids.length - 1)){
+                    }else if(k == (ids.length - 1)){
                         Handler.debug("something went wrong", true);
 
                     }

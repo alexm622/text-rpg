@@ -91,13 +91,13 @@ public class DrawMap {
                 
                 Handler.debug("map size: " + m.getMap().length);
 
-                Handler.debug(m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]] == null);
+                Handler.debug("is map null:" + (m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]] == null));
 
                 Handler.debug("j is: " + j);
                 Handler.debug("i is:" + i);
 
-                Handler.debug("labels is null:" + labels[i][j] == null);
-                Handler.debug("draw is null:" + draw[i][j] == null);
+                Handler.debug("labels is null:" + (labels[i][j] == null));
+                Handler.debug("draw is null:" + (draw[i][j] == null));
                 Handler.debug("drawpos x:" + drawPos[0]);
                 Handler.debug("drawpos y:" + drawPos[1]);
                 Handler.debug("relpos x:" + relPos[0]);
