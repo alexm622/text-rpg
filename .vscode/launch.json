@@ -1,11 +1,13 @@
 {
     "configurations": [
+
         {
             "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "rpg.Main",
-            "projectName": "rpg"
+            "projectName": "rpg",
+            "vmArgs": "-Xmx1G"
         }
     ]
 }

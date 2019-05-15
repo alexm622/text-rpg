@@ -2,6 +2,7 @@ package rpg.utilities.memory;
 
 import rpg.objects.Items;
 import rpg.objects.map.Map;
+import rpg.objects.map.MapAsTiles;
 import rpg.objects.map.Tile;
 import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
@@ -23,6 +24,7 @@ public class AbsMem{
         private Tile[][] tileMap;
         private Tile[] tiles;
         private LootTable loottable;
+        private MapAsTiles mt;
 
         //events
 
@@ -135,6 +137,14 @@ public class AbsMem{
 
             public LootTable getLootTable(){
                 return this.loottable;
+            }
+
+            public MapAsTiles getMapTiles(){
+                return this.mt;
+            }
+
+            public void setMapTiles(MapAsTiles mt){
+                this.mt = mt;
             }
 
     //class definitions

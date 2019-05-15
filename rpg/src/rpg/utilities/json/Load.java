@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
 import rpg.objects.map.Map;
+import rpg.objects.map.MapAsTiles;
 import rpg.objects.player.Character;
 
 public class Load {
@@ -29,7 +30,7 @@ public class Load {
             m = om.readValue(new File(
                     System.getenv("APPDATA") + "\\AlexRpg\\map.sav"),
                     Map.class);
-            h.getG().getMemory().getMem().setMap(m);
+            h.getMem().setMap(m);
             
         } catch (IOException e) {
             Handler.debug(e.toString(), true);

@@ -5,4 +5,5 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
+    "java.saveActions.organizeImports": true,
 }

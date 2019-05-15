@@ -17,6 +17,10 @@ public class Player {
 		
 	}
 
+	public void update(Handler h){
+		this.h = h;
+	}
+
 	public void init(String[] stats, int[] pos) {
 		this.c = new Character();
 		c.setName(stats[0]);
@@ -32,16 +36,14 @@ public class Player {
 
 
 
-	public void Update(Handler h) {
-		this.h = h;
-	}
+	
 	
 	
 	
 	public boolean move(Direction dir) {
 		int width, height;
-		width = h.getMem().getMap().getTiles().length;
-		height = h.getMem().getMap().getTiles()[0].length;
+		width = h.getMem().getMap().getTileids().length;
+		height = h.getMem().getMap().getTileids()[0].length;
 		int[] center = new int[] {(width - width%2)/2 + width%2, (height - height%2)/2 + height%2 };
 
 		this.c = h.getMem().getCharacter();

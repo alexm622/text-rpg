@@ -27,7 +27,6 @@ public class Setup {
 
     private void Load(Handler h) {
         new rpg.utilities.json.Load(h);
-        new ToTiles(h);
     }
 
     private void Create(Handler h) {
@@ -36,7 +35,8 @@ public class Setup {
 
     public static void CharDone(Handler h){
         new MapGen(h);
-        new ToTiles(h);
+        
+        
     }
 
 }

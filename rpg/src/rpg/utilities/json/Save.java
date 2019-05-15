@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
 import rpg.objects.map.Map;
+import rpg.objects.map.MapAsTiles;
 import rpg.objects.player.Character;
 
 public class Save {

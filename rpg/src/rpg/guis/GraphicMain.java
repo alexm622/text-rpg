@@ -26,6 +26,7 @@ import rpg.game.Handler;
 import rpg.guis.draw.DrawMap;
 import rpg.utilities.Setup;
 import rpg.utilities.json.*;
+import rpg.utilities.map.PrepareMap;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -376,7 +377,15 @@ public class GraphicMain {
 		mapButton.setForeground(new Color(0, 0, 0));
 		mapButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new DrawMap(h);
+				Handler.debug((h.getMem().getMapTiles() == null));
+				if(h.getMem().getMapTiles() == null){
+					Handler.debug(h.getMem().getTiles() == null);
+					new PrepareMap(h);
+					new DrawMap(h);
+				}else{
+					new DrawMap(h);
+				}
+				
 			}
 		});
 		mapButton.setBounds(542, 93, 89, 23);
@@ -384,6 +393,8 @@ public class GraphicMain {
 		
 	}
 	
+	
+
 	private void exit() {
 		frmRpg.dispose();
 	}

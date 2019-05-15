@@ -33,8 +33,9 @@ public class DrawMap {
         
        
         labels = mg.getLabels();
-        m = new MapAsTiles();
-        m.setMap(h.getG().getMemory().getMem().getTileMap());
+        m = h.getMem().getMapTiles();
+        Handler.debug(h.getMem().getMapTiles() == null);
+        
         
         //record width and height
         
@@ -47,7 +48,7 @@ public class DrawMap {
         
         //draw var
         
-        draw = new Tile[labels.length  ][labels[0].length ];
+        draw = new Tile[labels.length][labels[0].length];
         
         drawMap();
     }
@@ -88,8 +89,22 @@ public class DrawMap {
 
                 draw[i][j] = m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]];
                 
-                
+                Handler.debug("map size: " + m.getMap().length);
 
+                Handler.debug(m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]] == null);
+
+                Handler.debug("j is: " + j);
+                Handler.debug("i is:" + i);
+
+                Handler.debug("labels is null:" + labels[i][j] == null);
+                Handler.debug("draw is null:" + draw[i][j] == null);
+                Handler.debug("drawpos x:" + drawPos[0]);
+                Handler.debug("drawpos y:" + drawPos[1]);
+                Handler.debug("relpos x:" + relPos[0]);
+                Handler.debug("relpos y:" + relPos[1]);
+                Handler.debug("lbl y len:" + labels.length);
+                Handler.debug("lbl x len:" +  labels[0].length);
+                
                 labels[i][j].setBackground(new Color(Integer.decode(draw[i][j].getBgColor())));
 
 

@@ -106,7 +106,7 @@ public class Game{
 
     private void Refresh(){
         h.Update();
-        p.Update(this.h);
+        p.update(this.h);
     }
 
     /**

@@ -36,7 +36,7 @@ public class Handler {
 		return g.getMemory().getMem();
 	}
 
-	public static void debug(String msg, boolean err) {
+	public static void debug(Object msg, boolean err) {
 		try {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 			Date date = new Date();
@@ -80,7 +80,7 @@ public class Handler {
 		
 	}
 
-	public static void debug(String msg){
+	public static void debug(Object msg){
 		try {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 			Date date = new Date();

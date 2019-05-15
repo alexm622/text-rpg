@@ -6,6 +6,7 @@ import javax.swing.JProgressBar;
 
 import rpg.game.Handler;
 import rpg.guis.MemLoad;
+import rpg.objects.map.MapAsTiles;
 import rpg.objects.map.Tile;
 
 import org.apache.commons.lang3.time.StopWatch;
@@ -16,8 +17,9 @@ public class ToTiles extends Thread{
     private Tile[][] tiles;
     private Tile[] set;
     private MemLoad ml;
+    private MapAsTiles m;
 
-    public ToTiles(Handler h){
+    public ToTiles(Handler h, double[][] d){
         //lock out the main gui
 
         h.getG().getGm().getFrmRpg().setEnabled(false);
@@ -38,7 +40,7 @@ public class ToTiles extends Thread{
 
         //vars for calculation
 
-        doub = h.getG().getMemory().getMem().getMap().getTiles();
+        doub = d;
         set = h.getG().getMemory().getMem().getTiles();
         tiles = new Tile[doub.length][doub[0].length];
         double size = doub.length *  doub[0].length;
@@ -156,7 +158,10 @@ public class ToTiles extends Thread{
         frame.dispose();
         System.gc();
         Handler.debug("properly converted array of double into map");
-        h.getG().getMemory().getMem().setTileMap(tiles);
+        h.getMem().setTileMap(tiles);
+        m = new MapAsTiles();
+        m.setMap(tiles);
+        h.getMem().setMapTiles(m);
     }
 
     

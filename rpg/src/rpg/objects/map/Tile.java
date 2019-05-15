@@ -18,6 +18,8 @@ public class Tile {
     private String bgColor; //rgb hex code
     private String iconColor; //rgb hex code
 
+    private boolean cleared = false;
+
     public String getId(){
         return this.id;
     }
@@ -99,6 +101,14 @@ public class Tile {
 
     public void setIconColor(String iconColor){
         this.iconColor =  iconColor;
+    }
+
+    public void setCleared(boolean cleared){
+        this.cleared = cleared;
+    }
+
+    public boolean getCleared(){
+        return this.cleared;
     }
 
 
