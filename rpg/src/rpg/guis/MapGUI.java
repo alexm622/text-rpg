@@ -626,16 +626,33 @@ public class MapGUI {
 		frame.getContentPane().add(pnlActions);
 		pnlActions.setLayout(new GridLayout(5, 3, 0, 1));
 		
-		op1 = new JButton("op1");
+		op1 = new JButton("clear");
+		op1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				clear();
+			}
+		});
 		pnlActions.add(op1);
 		
 		op2 = new JButton("op2");
+		op2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		pnlActions.add(op2);
 		
 		op3 = new JButton("op3");
+		op3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		pnlActions.add(op3);
 		
 		op4 = new JButton("op4");
+		op4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		pnlActions.add(op4);
 		
 		backbttn = new JButton("back");
@@ -676,5 +693,16 @@ public class MapGUI {
 
 	public void setPoslbl(Label poslbl){
 		this.poslbl = poslbl;
+	}
+
+	private void clear(){
+		boolean[][] cleared = this.h.getMem().getMap().getCleared();
+		int[] relPos = DrawMap.relPos;
+
+		cleared[relPos[0]][relPos[1]] = !cleared[relPos[0]][relPos[1]];
+
+		h.getMem().getMap().setCleared(cleared);
+
+		DrawMap.update();
 	}
 }

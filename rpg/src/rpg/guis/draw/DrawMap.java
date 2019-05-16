@@ -20,9 +20,10 @@ public class DrawMap {
     private static MapAsTiles m;
     private static MapGUI mg;
     private static JLabel[][] labels;
-    private static int[] pos, center, relPos;
+    private static int[] pos, center;
     private static int width, height;
     private static Tile[][] draw;
+    public static int[] relPos;
 
 
     public DrawMap(Handler ha){
@@ -59,7 +60,7 @@ public class DrawMap {
 
         pos = h.getMem().getCharacter().getPos();
 
-        mg.getPoslbl().setText("( X:" + pos[0] + " ) ( Y:" + pos[1] + " )");
+        
 
         
 
@@ -70,8 +71,9 @@ public class DrawMap {
         relPos = new int[]{pos[0] + center[0], center[1] - pos[1] };
 
         //Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
-
         
+
+        update();
 
         
 
@@ -127,6 +129,11 @@ public class DrawMap {
     
     public static void repaint() {
     	drawMap();
+    }
+
+    public static void update(){
+        mg.getPoslbl().setText("( X:" + pos[0] + " ) ( Y:" + pos[1] + " ) ");
+        mg.getPoslbl().setText(mg.getPoslbl().getText() + m.getCleared()[relPos[0]][relPos[1]]);
     }
 
 }
