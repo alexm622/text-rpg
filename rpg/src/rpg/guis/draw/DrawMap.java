@@ -69,7 +69,7 @@ public class DrawMap {
 
         relPos = new int[]{pos[0] + center[0], center[1] - pos[1] };
 
-        Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
+        //Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
 
         
 
@@ -89,21 +89,7 @@ public class DrawMap {
 
                 draw[i][j] = m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]];
                 
-                Handler.debug("map size: " + m.getMap().length);
-
-                Handler.debug("is map null:" + (m.getMap()[relPos[0] + drawPos[1]][relPos[1] + drawPos[0]] == null));
-
-                Handler.debug("j is: " + j);
-                Handler.debug("i is:" + i);
-
-                Handler.debug("labels is null:" + (labels[i][j] == null));
-                Handler.debug("draw is null:" + (draw[i][j] == null));
-                Handler.debug("drawpos x:" + drawPos[0]);
-                Handler.debug("drawpos y:" + drawPos[1]);
-                Handler.debug("relpos x:" + relPos[0]);
-                Handler.debug("relpos y:" + relPos[1]);
-                Handler.debug("lbl y len:" + labels.length);
-                Handler.debug("lbl x len:" +  labels[0].length);
+               
                 
                 labels[i][j].setBackground(new Color(Integer.decode(draw[i][j].getBgColor())));
 
