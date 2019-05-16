@@ -5,11 +5,12 @@ import rpg.objects.Items;
 public class StoryEvent{
 	private String eventId;
 	private String biomeId;
+	private String tileid;
     private String name;
     private String desc;
 	private String[] monsters;
-	private int maxNum;
-	private int minNum;
+	private int max;
+	private int min;
     private int lvl;
     private int xp;
 	private int gp;
@@ -73,20 +74,20 @@ public class StoryEvent{
 		this.monsters = monsters;
 	}
 
-	public int getMaxNum(){
-		return this.maxNum;
+	public int getMax(){
+		return this.max;
 	}
 
-	public int getMinNum(){
-		return this.minNum;
+	public int getMin(){
+		return this.min;
 	}
 
-	public void setMaxNum(int maxNum){
-		this.maxNum = maxNum;
+	public void setMax(int max){
+		this.max = max;
 	}
 
-	public void setMinNum(int minNum){
-		this.minNum = minNum;
+	public void setMinNum(int min){
+		this.min = min;
 	}
 
 	/**
@@ -132,5 +133,13 @@ public class StoryEvent{
 	
 	public Items getLoot() {
 		return this.loot;
+	}
+
+	public String getTileid(){
+		return this.tileid;
+	}
+
+	public void setTileid(String tileid){
+		this.tileid = tileid;
 	}
 }

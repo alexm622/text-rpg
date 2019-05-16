@@ -3,8 +3,11 @@
             {
                 "eventId":"testevent1",
                 "name":"testevent1",
-                "biomeId":"plains",
                 "desc":"a test event",
+                "max":200,
+                "min":10,
+                "biomeId":"grassland",
+                "tileid":null,
                 "monsters":[
                     "testmonster"
                 ],
@@ -16,8 +19,11 @@
             {
                 "eventId":"testevent2",
                 "name":"testevent2",
-                "biomeId":"plains",
                 "desc":"a test event",
+                "max":2,
+                "min":1,
+                "biomeId":"desert",
+                "tileid":null,
                 "monsters":[
                     "testmonster"
                 ],
@@ -29,8 +35,11 @@
             {
                 "eventId":"testevent3",
                 "name":"testevent3",
-                "biomeId":"plains",
                 "desc":"a test event",
+                "max":null,
+                "min":4,
+                "biomeId":"beach",
+                "tileid":null,
                 "monsters":[
                     "testmonster"
                 ],
