@@ -2,21 +2,23 @@ package rpg.utilities.map;
 
 import java.util.Random;
 
-import org.apache.commons.lang3.ArrayUtils;
 
 import rpg.game.Handler;
 import rpg.objects.map.Tile;
 
 public class ChooseTiles {
 
-    private Handler h;
+    private static Handler h;
 
     public ChooseTiles(Handler h){
-        this.h = h;
+        ChooseTiles.h = h;
     }
 
-    public Tile select(int id){
+    public static Tile select(double id){
+        //possible tiles
         Tile[] tiles;
+
+        //length
         int len = 0;
 
         Tile[] temp = h.getMem().getTiles();
@@ -43,10 +45,13 @@ public class ChooseTiles {
         return randomTile(tiles, id);
     }
 
-    private Tile randomTile(Tile[] tiles, int id){
+    private static Tile randomTile(Tile[] tiles, double id){
 
         Random r = new Random();
+        
         int temp = r.nextInt(tiles.length);
+
+
 
         return tiles[temp];
     }

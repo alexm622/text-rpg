@@ -17,10 +17,10 @@ public class DrawMap {
     //private vars
 
     private static Handler h;
-    private static MapAsTiles m;
-    private static MapGUI mg;
+    public static MapAsTiles m;
+    public static MapGUI mg;
     private static JLabel[][] labels;
-    private static int[] pos, center;
+    public static int[] pos, center;
     private static int width, height;
     private static Tile[][] draw;
     public static int[] relPos;
@@ -132,8 +132,8 @@ public class DrawMap {
     }
 
     public static void update(){
-        mg.getPoslbl().setText("( X:" + pos[0] + " ) ( Y:" + pos[1] + " ) ");
-        mg.getPoslbl().setText(mg.getPoslbl().getText() + m.getCleared()[relPos[0]][relPos[1]]);
+        DrawMap.mg.getPoslbl().setText("( X:" + DrawMap.pos[0] + " ) ( Y:" + DrawMap.pos[1] + " ) ");
+        DrawMap.mg.getPoslbl().setText(DrawMap.mg.getPoslbl().getText() + DrawMap.m.getCleared()[DrawMap.relPos[0]][DrawMap.relPos[1]]);
     }
 
 }

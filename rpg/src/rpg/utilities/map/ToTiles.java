@@ -30,7 +30,8 @@ public class ToTiles extends Thread{
         //init gui assets
 
         JFrame frame = ml.getFrame();
-        frame.setTitle("loading map");
+        frame.setTitle("Generating map");
+        ml.getLoadingText().setText("Generating map");
         JProgressBar pb;
         JLabel asset, percent;
         asset = ml.getLoadingAsset();
@@ -50,6 +51,8 @@ public class ToTiles extends Thread{
        
         double per = 0.0;
 
+        new ChooseTiles(h);
+
         sw.start();
         
 
@@ -65,7 +68,7 @@ public class ToTiles extends Thread{
                 
                     
                
-                if(sw.getTime() > 40 || num == size){
+                if(sw.getTime() > 60 || num == size){
                     sw.reset();
                     sw.start();
                     
@@ -105,40 +108,40 @@ public class ToTiles extends Thread{
 
                 switch (temp){
                     case "-10.0":
-                        tiles[i][x] = set[0];
+                        tiles[i][x] = ChooseTiles.select(-10.0);
                         break;
 
                     case "-7.5":
-	                    tiles[i][x] = set[1];
+	                    tiles[i][x] = ChooseTiles.select(-7.5);
                         break;
 
                     case "-5.0":
-	                    tiles[i][x] = set[2];
+	                    tiles[i][x] = ChooseTiles.select(-5.0);
                         break;
 
                     case "-2.5":
-	                    tiles[i][x] = set[3];
+	                    tiles[i][x] = ChooseTiles.select(-2.5);
                         break;
 
                     case "0.0":
-	                    tiles[i][x] = set[4];
+	                    tiles[i][x] = ChooseTiles.select(0.0);
                         break;
 
                     case "2.5":
-                        tiles[i][x] = set[5];
+                        tiles[i][x] = ChooseTiles.select(2.5);
                         break;                        
 
                     case "5.0":
-                        tiles[i][x] = set[6];
+                        tiles[i][x] = ChooseTiles.select(5.0);
                         break;
                         
 
                     case "7.5":
-                        tiles[i][x] = set[7];
+                        tiles[i][x] = ChooseTiles.select(7.5);
                         break;
 
                     case "10.0":
-                        tiles[i][x] = set[8];
+                        tiles[i][x] = ChooseTiles.select(10.0);
                         break;
                     
 
