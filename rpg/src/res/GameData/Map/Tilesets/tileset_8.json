@@ -8,7 +8,7 @@
             "id":"testtile71",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"testtown",
             "icon":77,
@@ -20,7 +20,7 @@
             "id":"testtile72",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"testtable",
             "townId":"",
             "icon":126,
@@ -32,7 +32,7 @@
             "id":"testtile73",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"testevent",
+            
             "tableId":"",
             "townId":"",
             "icon":95,
@@ -44,7 +44,7 @@
             "id":"testtile74",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":167,
@@ -56,7 +56,7 @@
             "id":"testtile75",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"testtable",
             "townId":"",
             "icon":254,
@@ -68,7 +68,7 @@
             "id":"testtile76",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":178,
@@ -80,7 +80,7 @@
             "id":"testtile77",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":177,
@@ -92,7 +92,7 @@
             "id":"testtile78",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":176,
@@ -104,7 +104,7 @@
             "id":"testtile79",
             "biomeId":"beach",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":159,

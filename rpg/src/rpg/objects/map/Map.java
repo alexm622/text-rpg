@@ -5,6 +5,7 @@ public class Map {
     private boolean[][] cleared;
     private int height;
     private int width;
+    
 
     public String[][] getTileids(){
         return this.tileids;

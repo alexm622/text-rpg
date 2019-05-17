@@ -83,11 +83,7 @@ public class Game{
 
                 Refresh();
                 tempNano = System.nanoTime();
-                if((i+1)%4 == 0){
-                    
-                    double f = 1000000000 / ((tempNano - lastTickTime)); // miliseconds between last 60 tick pt.
-                    
-                }
+                
                 
                 lastTickTime = tempNano;
                 try {

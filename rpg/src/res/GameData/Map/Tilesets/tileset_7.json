@@ -8,7 +8,7 @@
             "id":"testtile61",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"testtown",
             "icon":77,
@@ -20,7 +20,7 @@
             "id":"testtile62",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"testtable",
             "townId":"",
             "icon":126,
@@ -32,7 +32,7 @@
             "id":"testtile63",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"testevent",
+            
             "tableId":"",
             "townId":"",
             "icon":95,
@@ -44,7 +44,7 @@
             "id":"testtile64",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":167,
@@ -56,7 +56,7 @@
             "id":"testtile65",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"testtable",
             "townId":"",
             "icon":254,
@@ -68,7 +68,7 @@
             "id":"testtile66",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":178,
@@ -80,7 +80,7 @@
             "id":"testtile67",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":177,
@@ -92,7 +92,7 @@
             "id":"testtile68",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":176,
@@ -104,7 +104,7 @@
             "id":"testtile69",
             "biomeId":"forest",
             "difficulty":1,
-            "eventId":"",
+            
             "tableId":"",
             "townId":"",
             "icon":159,

@@ -1,5 +1,7 @@
 package rpg.objects.map;
 
+import rpg.objects.TileEvent;
+
 public class Tile {
     private String id;
     private String name;
@@ -9,7 +11,7 @@ public class Tile {
 
     private String tableId;
 
-    private String eventId;
+    private TileEvent[] events;
     
     private String townId;
 
@@ -60,12 +62,12 @@ public class Tile {
         this.tableId = tableId;
     }
 
-    public String getEventId(){
-        return this.eventId;
+    public TileEvent[] getEvents(){
+        return this.events;
     }
 
-    public void setEventId(String eventId){
-        this.eventId = eventId;
+    public void setEvents(TileEvent[] eventId){
+        this.events = eventId;
     }
     
     public String getTownId(){
