@@ -14,6 +14,7 @@ public class GenEvents {
     private EventMap em;
     private Handler h;
     private StoryEvent[] events;
+    private TileEvent[] te;
     private int[][] count; // max, min, count
     
 
@@ -27,7 +28,7 @@ public class GenEvents {
 
         count = new int[len][3];
     
-        int min = 0, max = 0;
+        int min = 0, max = 0; // min and max num of event X
 
         for(int i = 0; i < len; i++){
             count[i][0] = events[i].getMax();
@@ -38,18 +39,39 @@ public class GenEvents {
 
         Random r = new Random();
 
+        int num = 0;
+
         for(int i = 0; i < len; i++){
             min = count[i][1];
             max =  count[i][0];
             int temp = count[i][0] - count[i][1];
 
             count[i][2] = r.nextInt(temp) + min;
+            num += count[i][2];
 
         }
 
-        int num = 0;
+        //generate
+
+        int width, height;
+        width = h.getMem().getMap().getWidth();
+        height = h.getMem().getMap().getHeight();
+
+        int[] pos = new int[]{0,0};
+        int boundx =  width + (width-width%2)/2;
+        int boundy =  height + (height-height%2)/2;
+
+      
 
         for(int i = 0; i < len; i++){
+            int temp1, temp2;
+            temp1 = r.nextInt(width);
+            temp2 = r.nextInt(height);
+
+            if(h.getMem().getTileMap()[temp1][temp2].getBiomeId().equals(events[i].getBiomeId())){
+                // TODO set te [x] to this event
+            }
+            
             
         }
     }
