@@ -15,7 +15,6 @@ public class ToTiles extends Thread{
 
     private double[][] doub;
     private Tile[][] tiles;
-    private Tile[] set;
     private MemLoad ml;
     private MapAsTiles m;
 
@@ -42,7 +41,6 @@ public class ToTiles extends Thread{
         //vars for calculation
 
         doub = d;
-        set = h.getG().getMemory().getMem().getTiles();
         tiles = new Tile[doub.length][doub[0].length];
         double size = doub.length *  doub[0].length;
         double num = 0;

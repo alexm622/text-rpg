@@ -20,7 +20,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
 
-import org.apache.commons.lang3.time.StopWatch;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -28,10 +27,6 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.SystemColor;
 import java.awt.Label;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-
 
 public class MapGUI {
 
@@ -39,7 +34,7 @@ public class MapGUI {
 	private JButton btnClose;
 	private JPanel panel;
 	private Handler h;
-	private StopWatch sw;
+
 	
 	
 	private JLabel lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9,

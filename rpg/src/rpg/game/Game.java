@@ -74,7 +74,7 @@ public class Game{
         }
         Handler.debug(h.getJm().TypeToPath("storyline"));
         long tempNano = System.nanoTime();
-        long lastTickTime = tempNano;
+
         if(!firstLaunch()){
             new Setup(this.h, true);
         }
@@ -85,7 +85,7 @@ public class Game{
                 tempNano = System.nanoTime();
                 
                 
-                lastTickTime = tempNano;
+
                 try {
                     Thread.sleep(1000/60);
                 } catch (InterruptedException e) {

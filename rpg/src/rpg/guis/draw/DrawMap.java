@@ -2,10 +2,7 @@ package rpg.guis.draw;
 
 import java.awt.Color;
 
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import org.apache.commons.lang3.time.StopWatch;
 
 import rpg.game.Handler;
 import rpg.guis.MapGUI;

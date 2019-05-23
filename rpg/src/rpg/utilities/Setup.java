@@ -3,7 +3,6 @@ package rpg.utilities;
 import rpg.game.Handler;
 import rpg.guis.NewSave;
 import rpg.utilities.gens.MapGen;
-import rpg.utilities.map.ToTiles;
 
 public class Setup {
 

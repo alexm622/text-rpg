@@ -4,7 +4,6 @@ import rpg.objects.Items;
 import rpg.objects.map.Map;
 import rpg.objects.map.MapAsTiles;
 import rpg.objects.map.Tile;
-import rpg.objects.map.TileSet;
 import rpg.objects.npc.Npcs;
 import rpg.objects.player.Character;
 import rpg.objects.story.LootTable;

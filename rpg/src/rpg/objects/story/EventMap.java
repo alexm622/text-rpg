@@ -1,6 +1,5 @@
 package rpg.objects.story;
 
-import rpg.game.Handler;
 import rpg.objects.TileEvent;
 
 

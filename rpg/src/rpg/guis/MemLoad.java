@@ -8,12 +8,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 
-import javax.swing.SwingConstants;
+
 import java.awt.Color;
-import javax.swing.JSplitPane;
-import javax.swing.JSeparator;
 import javax.swing.JPanel;
-import java.awt.Dimension;
+
 
 public class MemLoad {
 
