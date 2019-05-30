@@ -2,8 +2,7 @@
 
 **create**
 
-- heavyarmor.json
-- mediumarmor.json
+
 - monsters.json
 - story.json
 - the main game
@@ -22,3 +21,5 @@
 - transfer the save file format to the json format
 - work on modloader menu
 - make a mod api
+
+https://programming.guide/java/create-a-custom-event.html 
