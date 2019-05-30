@@ -8,10 +8,8 @@ import rpg.objects.map.Tile;
 
 public class ChooseTiles {
 
-    private static Handler h;
 
-    public ChooseTiles(Handler h){
-        ChooseTiles.h = h;
+    public ChooseTiles(){
     }
 
     public static Tile select(double id){
@@ -21,7 +19,7 @@ public class ChooseTiles {
         //length
         int len = 0;
 
-        Tile[] temp = h.getMem().getTiles();
+        Tile[] temp = Handler.memory.getTiles();
         for(int i = 0; i < temp.length; i++){
             if(Biome.valueOf(temp[i].getBiomeId().toUpperCase()).getId() == id){
                 len++;

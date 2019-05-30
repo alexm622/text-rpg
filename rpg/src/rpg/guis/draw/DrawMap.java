@@ -13,7 +13,7 @@ public class DrawMap {
 
     //private vars
 
-    private static Handler h;
+
     public static MapAsTiles m;
     public static MapGUI mg;
     private static JLabel[][] labels;
@@ -23,16 +23,16 @@ public class DrawMap {
     public static int[] relPos;
 
 
-    public DrawMap(Handler ha){
+    public DrawMap(){
         
         
-        h = ha;
-        mg = new MapGUI(h);
+
+        mg = new MapGUI();
         
        
         labels = mg.getLabels();
-        m = h.getMem().getMapTiles();
-        Handler.debug(h.getMem().getMapTiles() == null);
+        m = Handler.memory.getMapTiles();
+        Handler.debug(Handler.memory.getMapTiles() == null);
         
         
         //record width and height
@@ -49,13 +49,14 @@ public class DrawMap {
         draw = new Tile[labels.length][labels[0].length];
         
         drawMap();
+        update();
     }
 
     private static void drawMap(){
 
         
 
-        pos = h.getMem().getCharacter().getPos();
+        pos = Handler.memory.getCharacter().getPos();
 
         
 
@@ -67,12 +68,12 @@ public class DrawMap {
 
         relPos = new int[]{pos[0] + center[0], center[1] - pos[1] };
 
-        //Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
+        Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
+        
+
         
 
         update();
-
-        
 
         //get the seen array of tiles
 
@@ -130,7 +131,12 @@ public class DrawMap {
 
     public static void update(){
         DrawMap.mg.getPoslbl().setText("( X:" + DrawMap.pos[0] + " ) ( Y:" + DrawMap.pos[1] + " ) ");
-        DrawMap.mg.getPoslbl().setText(DrawMap.mg.getPoslbl().getText() + DrawMap.m.getCleared()[DrawMap.relPos[0]][DrawMap.relPos[1]]);
+        Handler.debug((DrawMap.m.getCleared() == null));
+        DrawMap.mg.getPoslbl().setText(
+            DrawMap.mg.getPoslbl().getText()
+             + DrawMap.m.getCleared()
+             [DrawMap.relPos[0]]
+             [DrawMap.relPos[1]]);
     }
 
 }

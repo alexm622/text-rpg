@@ -12,17 +12,16 @@ public class GenEvents {
     
     private Map m;
     private EventMap em;
-    private Handler h;
+
     private StoryEvent[] events;
     private TileEvent[] te;
     private int[][] count; // max, min, count
     
 
-    public GenEvents(Handler h){
+    public GenEvents(){
 
-        this.h = h;
 
-        events = h.getMem().getStoryEvents().getEvents();
+        events = Handler.memory.getStoryEvents().getEvents();
 
         int len = events.length;
 
@@ -54,8 +53,8 @@ public class GenEvents {
         //generate
 
         int width, height;
-        width = h.getMem().getMap().getWidth();
-        height = h.getMem().getMap().getHeight();
+        width = Handler.memory.getMap().getWidth();
+        height = Handler.memory.getMap().getHeight();
 
         int[] pos = new int[]{0,0};
         int boundx =  width + (width-width%2)/2;
@@ -68,7 +67,7 @@ public class GenEvents {
             temp1 = r.nextInt(width);
             temp2 = r.nextInt(height);
 
-            if(h.getMem().getTileMap()[temp1][temp2].getBiomeId().equals(events[i].getBiomeId())){
+            if(Handler.memory.getTileMap()[temp1][temp2].getBiomeId().equals(events[i].getBiomeId())){
                 // TODO set te [x] to this event
             }
             

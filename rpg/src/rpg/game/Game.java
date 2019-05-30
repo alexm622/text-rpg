@@ -12,7 +12,6 @@ import rpg.utilities.memory.Memory;
 
 public class Game{
     // handler
-    private Handler h;
 
     // graphics window
     private GraphicMain gm;
@@ -30,13 +29,13 @@ public class Game{
     public Game() {
         Handler.debug("started properly");
         gm = new GraphicMain();
-        h = new Handler(this);
-        mem = new Memory(this.h);
-        p = new Player(this.h);
+        new Handler(this);
+        mem = new Memory();
+        p = new Player();
 
         this.frame = this.gm.getFrmRpg();
         Handler.debug("properly initiated all vars");
-        GraphicMain.h = h;
+        
         run();
     }
 
@@ -66,23 +65,23 @@ public class Game{
         Handler.debug("running main thread method");
         frame.requestFocus();
         
-        Refresh();
+        
         if(mem.getMem().getStoryItems() != null){
             Handler.debug("storyitems are not null");
         }else{
             Handler.debug("storyitems are null", true);
         }
-        Handler.debug(h.getJm().TypeToPath("storyline"));
-        long tempNano = System.nanoTime();
+        Handler.debug(Handler.jm.TypeToPath("storyline"));
+        
 
         if(!firstLaunch()){
-            new Setup(this.h, true);
+            new Setup(true);
         }
         while (true) {
             for (int i = 0; i < 60; i++) {
 
-                Refresh();
-                tempNano = System.nanoTime();
+               
+                
                 
                 
 
@@ -90,7 +89,7 @@ public class Game{
                     Thread.sleep(1000/60);
                 } catch (InterruptedException e) {
                     Handler.debug(e.toString(), true);
-                    rpg.game.Handler.debug(e.toString(), true);
+                    Handler.debug(e.toString(), true);
                     e.printStackTrace();
                 }
                 
@@ -100,24 +99,17 @@ public class Game{
         
     }
 
-    private void Refresh(){
-        h.Update();
-        p.update(this.h);
-    }
+    
 
     /**
      * @return the h
      */
-    public Handler getH() {
-        return h;
-    }
+    
 
     /**
      * @param h the h to set
      */
-    public void setH(Handler h) {
-        this.h = h;
-    }
+    
 
     /**
      * @return the gm

@@ -33,7 +33,6 @@ public class MapGUI {
 	private JFrame frame;
 	private JButton btnClose;
 	private JPanel panel;
-	private Handler h;
 
 	
 	
@@ -64,7 +63,7 @@ public class MapGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MapGUI window = new MapGUI(null);
+					MapGUI window = new MapGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -76,9 +75,8 @@ public class MapGUI {
 	/**
 	 * Create the application.
 	 */
-	public MapGUI(Handler h) {
-		this.h = h;
-		h.getG().getGm().getFrmRpg().setEnabled(false);
+	public MapGUI() {
+		Handler.g.getGm().getFrmRpg().setEnabled(false);
 		initialize();
 		labels = new JLabel[][]{ 
 			{ lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9},
@@ -108,8 +106,8 @@ public class MapGUI {
 		frame.addWindowListener( new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e){
-				h.getG().getGm().getFrmRpg().setEnabled(true);
-				h.getG().getGm().getFrmRpg().requestFocus();
+				Handler.g.getGm().getFrmRpg().setEnabled(true);
+				Handler.g.getGm().getFrmRpg().requestFocus();
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -546,7 +544,7 @@ public class MapGUI {
 		JButton bttnLeft = new JButton("\u2190");
 		bttnLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(h.getG().getP().move(Direction.LEFT)){
+				if(Handler.g.getP().move(Direction.LEFT)){
 					DrawMap.repaint();
 				}
 				frame.repaint();
@@ -560,7 +558,7 @@ public class MapGUI {
 		JButton bttnUp = new JButton("\u2191");
 		bttnUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(h.getG().getP().move(Direction.UP)){
+				if(Handler.g.getP().move(Direction.UP)){
 					DrawMap.repaint();
 				}
 				frame.repaint();
@@ -574,7 +572,7 @@ public class MapGUI {
 		JButton bttnDown = new JButton("\u2193");
 		bttnDown.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(h.getG().getP().move(Direction.DOWN)){
+				if(Handler.g.getP().move(Direction.DOWN)){
 					DrawMap.repaint();
 				}
 				frame.repaint();
@@ -588,7 +586,7 @@ public class MapGUI {
 		JButton bttnRight = new JButton("\u2192");
 		bttnRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(h.getG().getP().move(Direction.RIGHT)){
+				if(Handler.g.getP().move(Direction.RIGHT)){
 					DrawMap.repaint();
 				}
 				frame.repaint();
@@ -616,8 +614,8 @@ public class MapGUI {
 		panelBttm.add(poslbl);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				h.getG().getGm().getFrmRpg().setEnabled(true);
-				h.getG().getGm().getFrmRpg().requestFocus();
+				Handler.g.getGm().getFrmRpg().setEnabled(true);
+				Handler.g.getGm().getFrmRpg().requestFocus();
 				frame.dispose();
 			}
 		});
@@ -699,12 +697,12 @@ public class MapGUI {
 	}
 
 	private void clear(){
-		boolean[][] cleared = this.h.getMem().getMap().getCleared();
+		boolean[][] cleared = Handler.memory.getMap().getCleared();
 		int[] relPos = DrawMap.relPos;
 
 		cleared[relPos[0]][relPos[1]] = !cleared[relPos[0]][relPos[1]];
 
-		h.getMem().getMap().setCleared(cleared);
+		Handler.memory.getMap().setCleared(cleared);
 
 		DrawMap.update();
 	}

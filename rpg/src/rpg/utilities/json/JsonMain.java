@@ -22,11 +22,9 @@ import com.fasterxml.jackson.core.*;
 public class JsonMain {
 	
 	private Index index;
-	private Handler h;
 	private ObjectMapper om;
 
-	public void Init(Handler h) {
-		this.h = h;
+	public void Init() {
 		this.om = new ObjectMapper();
 		InitIndex();
 		Handler.debug("the first indexed class is: " + index.getIndex()[0].getClas());
@@ -34,11 +32,11 @@ public class JsonMain {
 
 	private void InitIndex() {
 		IndexHandler indexh = new IndexHandler();
-		indexh.init(this.h);
+		indexh.init();
 		this.index = new Index();
 		try {
 			this.index.setIndex(indexh.getIndex());
-			this.h.setPTdata(indexh.getIndex());
+			Handler.ptdata = indexh.getIndex();
 		} catch (Error e) {
 			Handler.debug(e.toString(), true);
 			e.printStackTrace();
@@ -79,7 +77,5 @@ public class JsonMain {
 		
 	}
 
-	public void Update(Handler h) {
-		this.h = h;
-	}
+	
 }

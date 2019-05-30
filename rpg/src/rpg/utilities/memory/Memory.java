@@ -48,13 +48,13 @@ public class Memory {
 
     // plugins
 
-    public Memory(Handler h) {
+    public Memory() {
         // initiate AbsMem
         mem = new AbsMem();
 
         // init jsonmain
 
-        jm = h.getJm();
+        jm = Handler.jm;
 
         // get objectmapper
 
@@ -62,7 +62,7 @@ public class Memory {
 
         // lock out the main gui
 
-        h.getG().getGm().getFrmRpg().setEnabled(false);
+        Handler.g.getGm().getFrmRpg().setEnabled(false);
 
         // open memload gui
         ml = new MemLoad();
@@ -72,7 +72,8 @@ public class Memory {
         try {
             load();
             ml.Close();
-            h.getG().getGm().getFrmRpg().setEnabled(true);
+            Handler.memory = mem;
+            Handler.g.getGm().getFrmRpg().setEnabled(true);
         } catch (Error e) {
             Handler.debug("error", true);
             Handler.debug(e.toString(), true);

@@ -14,22 +14,22 @@ public class Load {
     private Character c;
     private Map m;
 
-    public Load(Handler h) {
-        this.om = h.getJm().getOm();
+    public Load() {
+        this.om = Handler.jm.getOm();
         c = new Character();
         m = new Map();
         try {
             c = om.readValue(new File(
                     System.getenv("APPDATA") + "\\AlexRpg\\save.sav"),
                     Character.class);
-            h.getG().getMemory().getMem().setCharacter(c);
-            h.getG().getGm().getName_level().setText(c.getName() + " | " + Integer.toString(c.getLvl()));
-            h.getG().getGm().getHp_gold().setText("hp: " + Integer.toString(c.getHp()) + " | gp: " + Integer.toString(c.getGp()));
+            Handler.memory.setCharacter(c);
+            Handler.g.getGm().getName_level().setText(c.getName() + " | " + Integer.toString(c.getLvl()));
+            Handler.g.getGm().getHp_gold().setText("hp: " + Integer.toString(c.getHp()) + " | gp: " + Integer.toString(c.getGp()));
             
             m = om.readValue(new File(
                     System.getenv("APPDATA") + "\\AlexRpg\\map.sav"),
                     Map.class);
-            h.getMem().setMap(m);
+            Handler.memory.setMap(m);
             
         } catch (IOException e) {
             Handler.debug(e.toString(), true);

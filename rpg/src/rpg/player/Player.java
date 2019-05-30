@@ -9,17 +9,15 @@ public class Player {
 
 	//{ name, "Strength: ", "Charisma: ", "Wisdom: ", "Intelligence: ", "Dexterity: ", "Constitution: " };
 
-	private Handler h;
+
 	private Character c;
 
-	public Player(Handler h){
-		this.h = h;
+	public Player(){
+
 		
 	}
 
-	public void update(Handler h){
-		this.h = h;
-	}
+	
 
 	public void init(String[] stats, int[] pos) {
 		this.c = new Character();
@@ -31,7 +29,7 @@ public class Player {
 		c.setDex(Integer.parseInt(stats[5]));
 		c.setConsti(Integer.parseInt(stats[6]));
 		c.setPos(pos);
-		h.getG().getMemory().getMem().setCharacter(this.c);
+		Handler.memory.setCharacter(this.c);
 	}
 
 
@@ -42,11 +40,11 @@ public class Player {
 	
 	public boolean move(Direction dir) {
 		int width, height;
-		width = h.getMem().getMap().getTileids().length;
-		height = h.getMem().getMap().getTileids()[0].length;
+		width = Handler.memory.getMap().getTileids().length;
+		height = Handler.memory.getMap().getTileids()[0].length;
 		int[] center = new int[] {(width - width%2)/2 + width%2, (height - height%2)/2 + height%2 };
 
-		this.c = h.getMem().getCharacter();
+		this.c = Handler.memory.getCharacter();
 
 		switch(dir) {
 

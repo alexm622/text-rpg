@@ -62,7 +62,6 @@ public class GraphicMain {
 	private JLabel name_level;
 	private JLabel hp_gold;
 	private JTextPane output;
-	public static Handler h;
 	private JRadioButton choice_1, choice_2, choice_3, choice_4, choice_5, choice_6, choice_yes, choice_no;
 
 	private JMenuItem btnMods;
@@ -143,7 +142,7 @@ public class GraphicMain {
 										mntmSave.addActionListener(new ActionListener() {
 											public void actionPerformed(ActionEvent arg0) {
 												// save the player data
-												new Save(h);
+												new Save();
 											}
 										});
 										
@@ -155,7 +154,7 @@ public class GraphicMain {
 												mntmOpen.setBackground(SystemColor.inactiveCaption);
 												mntmOpen.addActionListener(new ActionListener() {
 													public void actionPerformed(ActionEvent arg0) {
-														new Setup(h, true);
+														new Setup(true);
 													}
 												});
 												
@@ -170,7 +169,7 @@ public class GraphicMain {
 														mntmNew.setBackground(SystemColor.inactiveCaption);
 														mntmNew.addActionListener(new ActionListener() {
 															public void actionPerformed(ActionEvent arg0) {
-																new Setup(h, false);
+																new Setup(false);
 															}
 														});
 												menuBar.add(mntmOpen);
@@ -377,14 +376,11 @@ public class GraphicMain {
 		mapButton.setForeground(new Color(0, 0, 0));
 		mapButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Handler.debug((h.getMem().getMapTiles() == null));
-				if(h.getMem().getMapTiles() == null){
-					Handler.debug(h.getMem().getTiles() == null);
-					new PrepareMap(h);
-					new DrawMap(h);
-				}else{
-					new DrawMap(h);
-				}
+				Handler.debug((Handler.memory.getMapTiles() == null));
+				
+				new PrepareMap();
+				new DrawMap();
+				
 				
 			}
 		});
@@ -399,9 +395,7 @@ public class GraphicMain {
 		frmRpg.dispose();
 	}
 
-	public static Handler get_Handler() {
-		return h;
-	}
+
 
 	public JLabel getName_level() {
 		return name_level;

@@ -12,22 +12,28 @@ import java.util.Random;
 
 public class OpenSimplexNoiseTest
 {
-	private static final int WIDTH = 1024;
-	private static final int HEIGHT = 1024;
-	private static final double FEATURE_SIZE = 100;
+	
+	private int height, width;
+	private double feature_size;
+
+	public OpenSimplexNoiseTest(int width, int height, double feature_size){
+		this.height = height;
+		this.width = width;
+		this.feature_size = feature_size;
+	}
 
 	public double[][] main() throws IOException {
 		Random ran = new Random();
 		long seed = ran.nextLong();
-		double[][] out = new double[HEIGHT][WIDTH];
+		double[][] out = new double[height][width];
 
 		OpenSimplexNoise noise = new OpenSimplexNoise(seed);
-		BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-		for (int y = 0; y < HEIGHT; y++)
+		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		for (int y = 0; y < height; y++)
 		{
-			for (int x = 0; x < WIDTH; x++)
+			for (int x = 0; x < width; x++)
 			{
-				double value = noise.eval(x / FEATURE_SIZE, y / FEATURE_SIZE, 0.0);
+				double value = noise.eval(x / feature_size, y / feature_size, 0.0);
 				//System.out.println(value);
 				if(value < 0) {
 					value = Math.round(value * 100.0) / 100.0;

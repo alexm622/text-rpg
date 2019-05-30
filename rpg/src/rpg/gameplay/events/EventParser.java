@@ -13,16 +13,14 @@ public class EventParser {
     private StoryEvents events;
     private StoryEvent event;
     private Npcs npcs;
-    private Handler h;
 
-    public EventParser(TileEvent te, Handler h){
-        this.h = h;
+    public EventParser(TileEvent te){
         this.te = te;
 
 
         String temp = te.getId();
         boolean found = false;
-        events = h.getMem().getStoryEvents();
+        events = Handler.memory.getStoryEvents();
         int i = 0;
 
         for(StoryEvent e : events.getEvents()){

@@ -28,7 +28,7 @@ public class PluginLoader implements Runnable {
         }
         mods = modDir.listFiles();
         if(mods.length == 0){
-            rpg.game.Handler.debug("mods is empty");
+            Handler.debug("mods is empty");
             return;
         }
 
@@ -40,7 +40,7 @@ public class PluginLoader implements Runnable {
                     URL url = file.toURI().toURL();
                     String urlstr = url.toString();
                     urlstr = urlstr.replace("%20", " ");
-                    rpg.game.Handler.debug(urlstr);
+                    Handler.debug(urlstr);
                     ClassLoader authorizedLoader = URLClassLoader.newInstance(new URL[] { new URL(urlstr) });
                     Plugin plugin = (Plugin) authorizedLoader.loadClass(file.getName().split(".")[0] + ".Main")
                             .newInstance();
@@ -48,7 +48,7 @@ public class PluginLoader implements Runnable {
                 } catch (InstantiationException | IllegalAccessException | ClassNotFoundException
                         | MalformedURLException e) {
 
-                    rpg.game.Handler.debug(e.toString(), true);
+                    Handler.debug(e.toString(), true);
                     e.printStackTrace();
                 }
             }
@@ -70,9 +70,7 @@ public class PluginLoader implements Runnable {
 
     
 
-    public PluginLoader(Handler h, Memory m) {
-
-        this.m = m;
+    public PluginLoader() {
 
     }
 }

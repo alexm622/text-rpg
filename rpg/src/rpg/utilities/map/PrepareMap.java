@@ -7,7 +7,7 @@ import rpg.objects.map.Tile;
 
 public class PrepareMap {
 
-    private Handler h;
+
     private Tile[] tiles;
     private Tile[][] map;
     private Map m;
@@ -16,10 +16,10 @@ public class PrepareMap {
     private int height, width;
     private boolean[][] clear;
 
-    public PrepareMap(Handler h){
-        this.h = h;
-        tiles = h.getMem().getTiles();
-        m = h.getMem().getMap();
+    public PrepareMap(){
+
+        tiles = Handler.memory.getTiles();
+        m = Handler.memory.getMap();
         prepare();
         begin();
         finish();
@@ -56,7 +56,7 @@ public class PrepareMap {
 
         clear = m.getCleared();
 
-        Handler.debug("is tiles null: " + (h.getMem().getTiles()[0] == null));
+        Handler.debug("is tiles null: " + (Handler.memory.getTiles()[0] == null));
 
 
 
@@ -70,8 +70,8 @@ public class PrepareMap {
             for(int j = 0; j < width; j++){ //x
                 for(int k = 0; k < ids.length; k++){
                     if(m.getTileids()[j][i].equals(ids[k])){
-                        map[j][i] = h.getMem().getTiles()[k];
-                        //Handler.debug("is tile null: " + (h.getMem().getTiles()[k] == null));
+                        map[j][i] = Handler.memory.getTiles()[k];
+                        //Handler.debug("is tile null: " + (Handler.memory.getTiles()[k] == null));
                         
                         k = ids.length;
                     }else if(k == (ids.length - 1)){
@@ -90,6 +90,6 @@ public class PrepareMap {
     private void finish(){
         
         Handler.debug(mt == null);
-        h.getMem().setMapTiles(mt);
+        Handler.memory.setMapTiles(mt);
     }
 }

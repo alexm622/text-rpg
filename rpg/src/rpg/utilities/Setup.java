@@ -6,16 +6,15 @@ import rpg.utilities.gens.MapGen;
 
 public class Setup {
 
-    private Handler h;
     public final static Object o = new Object();
 
 
-    public Setup(Handler h, boolean load) {
-        this.h = h;
+    public Setup(boolean load) {
+        
         if (load) {
-            Load(this.h);
+            Load();
         } else if (!load) {
-            Create(this.h);
+            Create();
         } else {
             Error e = new Error("load is null");
             Handler.debug(e.toString(), true);
@@ -24,16 +23,16 @@ public class Setup {
 
     }
 
-    private void Load(Handler h) {
-        new rpg.utilities.json.Load(h);
+    private void Load() {
+        new rpg.utilities.json.Load();
     }
 
-    private void Create(Handler h) {
-        new NewSave(h);
+    private void Create() {
+        new NewSave();
     }  
 
-    public static void CharDone(Handler h){
-        new MapGen(h);
+    public static void CharDone(){
+        new MapGen();
         
         
     }

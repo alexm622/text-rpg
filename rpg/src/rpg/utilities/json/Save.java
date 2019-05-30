@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import rpg.game.Handler;
 import rpg.objects.map.Map;
-import rpg.objects.map.MapAsTiles;
 import rpg.objects.player.Character;
 
 public class Save {
@@ -15,10 +14,10 @@ public class Save {
     private Character c;
     private Map m;
 
-    public Save(Handler h) {
-        this.om = h.getJm().getOm();
-        this.c = h.getG().getMemory().getMem().getCharacter();
-        this.m = h.getG().getMemory().getMem().getMap();
+    public Save() {
+        this.om = Handler.jm.getOm();
+        this.c = Handler.memory.getCharacter();
+        this.m = Handler.memory.getMap();
         try {
             om.writeValue(new File(
                     System.getenv("APPDATA") + "\\AlexRpg\\save.sav"),

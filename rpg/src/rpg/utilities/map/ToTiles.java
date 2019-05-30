@@ -18,10 +18,10 @@ public class ToTiles extends Thread{
     private MemLoad ml;
     private MapAsTiles m;
 
-    public ToTiles(Handler h, double[][] d){
+    public ToTiles(double[][] d){
         //lock out the main gui
 
-        h.getG().getGm().getFrmRpg().setEnabled(false);
+        Handler.g.getGm().getFrmRpg().setEnabled(false);
 
         //open memload gui
         this.ml = new MemLoad();
@@ -49,7 +49,7 @@ public class ToTiles extends Thread{
        
         double per = 0.0;
 
-        new ChooseTiles(h);
+        new ChooseTiles();
 
         sw.start();
         
@@ -155,14 +155,14 @@ public class ToTiles extends Thread{
                 }
             }
         }
-        h.getG().getGm().getFrmRpg().setEnabled(true);
+        Handler.g.getGm().getFrmRpg().setEnabled(true);
         frame.dispose();
         System.gc();
         Handler.debug("properly converted array of double into map");
-        h.getMem().setTileMap(tiles);
+        Handler.memory.setTileMap(tiles);
         m = new MapAsTiles();
         m.setMap(tiles);
-        h.getMem().setMapTiles(m);
+        Handler.memory.setMapTiles(m);
     }
 
     

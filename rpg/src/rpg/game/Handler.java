@@ -13,22 +13,29 @@ import rpg.utilities.json.classes.index.Path;
 import rpg.utilities.map.Biome;
 import rpg.utilities.memory.AbsMem;
 
+
 public class Handler {
-	private Game g;
-	private JsonMain jm;
-	private Path[] ptdata;
-	private Thread t;
+
+	public static Game g;
+	public static JsonMain jm;
+	public static Path[] ptdata;
+	public static AbsMem memory;
+	
+	public static Thread t;
 	public static Object o = new Object();
 	public static final int NUMBIOMES = Biome.values().length;
 	
 	
 	
 	public Handler(Game g) {
-		this.ptdata = new Path[0];
+		ptdata = new Path[0];
 		
 
 		InitJson();
-		InitGame(g);
+		Handler.g = g;
+		
+		
+		
 
 	}
 
@@ -126,13 +133,11 @@ public class Handler {
 
 
 
-	private void InitGame(Game g) {
-		this.g = g;
-	}
+	
 
 	private void InitJson() {
-		this.jm = new JsonMain();
-		this.jm.Init(this);
+		jm = new JsonMain();
+		jm.Init();
 	}
 
 
@@ -141,41 +146,38 @@ public class Handler {
 	//getters and setters
 
 	public Thread getT(){
-		return this.t;
+		return t;
 	}
 
-	public void setT(Thread t){
-		this.t = t;
+	public void setT(Thread t1){
+		t = t1;
 	}
 	
 
 
 
 	public JsonMain getJm() {
-		return this.jm;
+		return jm;
 	}
 
-	public void setJm(JsonMain jm) {
-		this.jm = jm;
+	public void setJm(JsonMain jm1) {
+		jm = jm1;
 	}
 
 	public Game getG() {
-		return this.g;
+		return g;
 	}
 
 	public Path[] getPTdata() {
-		return this.ptdata;
+		return ptdata;
 	}
 
 	public void setPTdata(Path[] path) {
 		Handler.debug("set ptdata");
-		this.ptdata = path;
-		Handler.debug(this.ptdata[0].getClas());
+		ptdata = path;
+		Handler.debug(ptdata[0].getClas());
 	}
 
-	public void Update(){
-		jm.Update(this);
-		
-	}
+	
 
 }

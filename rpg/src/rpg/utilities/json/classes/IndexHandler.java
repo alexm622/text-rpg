@@ -14,7 +14,7 @@ public class IndexHandler {
 
 	private Path[] index;
 
-	public void init(Handler h) {
+	public void init() {
 		URL dir_url = ClassLoader.getSystemResource("res/Index.json");
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -23,12 +23,12 @@ public class IndexHandler {
 				index = mapper.readValue(file, Path[].class);
 			} catch (IOException e) {
 				
-				System.out.println("error reading contents");
+				Handler.debug("error reading contents", true);
 				e.printStackTrace();
 			}
 		} catch (URISyntaxException e1) {
 
-			System.out.println("error with uri");
+			Handler.debug("error with uri", true);
 			e1.printStackTrace();
 		}
 	}

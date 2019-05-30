@@ -32,7 +32,6 @@ public class NewSave {
 	private JFrame frmNewSave;
 	private JTextField txtEnterCharacterName;
 	private JPanel statData;
-	private Handler h;
 
 	private static JLabel lblStrength = new JLabel("Strength: 1");
 	private static JLabel lblCharisma = new JLabel("Charisma: 1");
@@ -83,9 +82,9 @@ public class NewSave {
 			public void run() {
 				try {
 					
-					new NewSave(null);
+					new NewSave();
 				} catch (Exception e) {
-					rpg.game.Handler.debug(e.toString(), true);
+					Handler.debug(e.toString(), true);
 					e.printStackTrace();
 				}
 			}
@@ -96,8 +95,7 @@ public class NewSave {
 	/**
 	 * Create the application.
 	 */
-	public NewSave(Handler h) {
-		this.h = h;
+	public NewSave() {
 		initialize();
 		frmNewSave.setVisible(true);
 	}
@@ -269,7 +267,7 @@ public class NewSave {
 												try {
 													set(5, true);
 												} catch (Exception x) {
-													rpg.game.Handler.debug(x.toString(), true);
+													Handler.debug(x.toString(), true);
 													x.printStackTrace();
 												}
 											}
@@ -291,7 +289,7 @@ public class NewSave {
 																try {
 																	set(4, true);
 																} catch (Exception x) {
-																	rpg.game.Handler.debug(x.toString(), true);
+																	Handler.debug(x.toString(), true);
 																	x.printStackTrace();
 																}
 															}
@@ -313,7 +311,7 @@ public class NewSave {
 																				try {
 																					set(3, true);
 																				} catch (Exception x) {
-																					rpg.game.Handler.debug(x.toString(), true);
+																					Handler.debug(x.toString(), true);
 																					x.printStackTrace();
 																				}
 																			}
@@ -335,7 +333,7 @@ public class NewSave {
 																								try {
 																									set(2, true);
 																								} catch (Exception x) {
-																									rpg.game.Handler.debug(x.toString(), true);
+																									Handler.debug(x.toString(), true);
 																									x.printStackTrace();
 																								}
 																							}
@@ -346,7 +344,7 @@ public class NewSave {
 																										try {
 																											set(1, false);
 																										} catch (Exception x) {
-																											rpg.game.Handler.debug(x.toString(), true);
+																											Handler.debug(x.toString(), true);
 																											x.printStackTrace();
 																										}
 																									}
@@ -357,7 +355,7 @@ public class NewSave {
 																												try {
 																													set(1, true);
 																												} catch (Exception x) {
-																													rpg.game.Handler.debug(x.toString(), true);
+																													Handler.debug(x.toString(), true);
 																													x.printStackTrace();
 																												}
 																											}
@@ -368,7 +366,7 @@ public class NewSave {
 																														try {
 																															set(0, false);
 																														} catch (Exception x) {
-																															rpg.game.Handler.debug(x.toString(), true);
+																															Handler.debug(x.toString(), true);
 																															x.printStackTrace();
 																														}
 																													}
@@ -379,7 +377,7 @@ public class NewSave {
 																																try {
 																																	set(0, true);
 																																} catch (Exception x) {
-																																	rpg.game.Handler.debug(x.toString(), true);
+																																	Handler.debug(x.toString(), true);
 																																	x.printStackTrace();
 																																}
 																															}
@@ -391,7 +389,7 @@ public class NewSave {
 				Create(txtEnterCharacterName.getText());
 				// add stat array
 				frmNewSave.dispose();
-				Setup.CharDone(h);
+				Setup.CharDone();
 				
 			}
 		});
@@ -426,15 +424,15 @@ public class NewSave {
 		/*
 		 * for (int i = 0; i < 7; i++) { System.out.println(stats[i]); }
 		 */
-		rpg.game.Handler.debug("fetched character info from the gui");
+		Handler.debug("fetched character info from the gui");
 		// GraphicMain.get_Handler().getG().getP().Create(text);
-		rpg.game.Handler.debug("character name: " + stats[0]);
-		if(h.getG().getP() == null){
-			rpg.game.Handler.debug("player is null", true);
+		Handler.debug("character name: " + stats[0]);
+		if(Handler.g.getP() == null){
+			Handler.debug("player is null", true);
 		}else{
-			rpg.game.Handler.debug("player is not null");
+			Handler.debug("player is not null");
 		}
-		h.getG().getP().init(stats, new int[]{0,0});
+		Handler.g.getP().init(stats, new int[]{0,0});
 		return;
 	}
 }
