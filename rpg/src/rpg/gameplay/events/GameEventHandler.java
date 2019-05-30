@@ -6,13 +6,13 @@ import java.util.List;
 import rpg.utilities.listeners.GameEventListener;
 
 public class GameEventHandler {
-    private List<GameEventListener> listeners = new ArrayList<GameEventListener>();
+    private static List<GameEventListener> listeners = new ArrayList<GameEventListener>();
 
-    public void addListener(GameEventListener toAdd) {
+    public static void addListener(GameEventListener toAdd) {
         listeners.add(toAdd);
     }
 
-    public void activate() {
+    public static void activate() {
         
     
         
