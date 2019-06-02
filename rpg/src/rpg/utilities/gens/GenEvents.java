@@ -27,7 +27,7 @@ public class GenEvents {
 
         count = new int[len][3];
     
-        int min = 0, max = 0; // min and max num of event X
+        int min = 0; // min and max num of event X
 
         for(int i = 0; i < len; i++){
             count[i][0] = events[i].getMax();
@@ -38,15 +38,15 @@ public class GenEvents {
 
         Random r = new Random();
 
-        int num = 0;
+
 
         for(int i = 0; i < len; i++){
             min = count[i][1];
-            max =  count[i][0];
+
             int temp = count[i][0] - count[i][1];
 
             count[i][2] = r.nextInt(temp) + min;
-            num += count[i][2];
+
 
         }
 
