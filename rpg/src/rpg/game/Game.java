@@ -4,9 +4,11 @@ import java.io.File;
 
 import javax.swing.JFrame;
 
+import rpg.gameplay.events.GameEventHandler;
 import rpg.guis.GraphicMain;
 import rpg.player.Player;
 import rpg.utilities.Setup;
+import rpg.utilities.listeners.MoveListener;
 import rpg.utilities.memory.Memory;
 //import rpg.utilities.plugin.PluginLoader;
 
@@ -27,6 +29,8 @@ public class Game{
     private Player p;
 
     public Game() {
+        new GameEventHandler();
+        initListeners();
         Handler.debug("started properly");
         gm = new GraphicMain();
         new Handler(this);
@@ -37,6 +41,10 @@ public class Game{
         Handler.debug("properly initiated all vars");
         
         run();
+    }
+
+    private void initListeners(){
+        new MoveListener();
     }
 
     private boolean firstLaunch(){

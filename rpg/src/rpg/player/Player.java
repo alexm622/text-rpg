@@ -1,7 +1,9 @@
 package rpg.player;
 
 import rpg.game.Handler;
+import rpg.gameplay.events.GameEventHandler;
 import rpg.objects.player.Character;
+import rpg.utilities.events.GameEvent;
 import rpg.utilities.map.Direction;
 
 public class Player {
@@ -39,6 +41,7 @@ public class Player {
 	
 	
 	public boolean move(Direction dir) {
+		GameEventHandler.activate(GameEvent.MOVE);
 		int width, height;
 		width = Handler.memory.getMap().getTileids().length;
 		height = Handler.memory.getMap().getTileids()[0].length;
