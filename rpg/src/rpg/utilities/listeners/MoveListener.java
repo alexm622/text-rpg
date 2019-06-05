@@ -1,8 +1,11 @@
 package rpg.utilities.listeners;
 
+import java.util.List;
+
 import rpg.game.Handler;
 import rpg.gameplay.encounters.EncCheck;
 import rpg.gameplay.events.GameEventHandler;
+import rpg.objects.TileEvent;
 import rpg.objects.map.Tile;
 import rpg.utilities.events.GameEvent;
 
@@ -35,6 +38,17 @@ public class MoveListener {
         //check for encounter
 
         EncCheck ec = new EncCheck(current);
+
+        if(ec.getEnabled() == null){
+            return;
+        }
+
+        List<TileEvent> enabled = ec.getEnabled();
+        Handler.debug("there is an event on this tile");
+
+        //trigger encounter
+
+        
 
 
 

@@ -12,14 +12,28 @@ import rpg.utilities.exceptions.NoSuchEvent;
 public class EncCheck {
     private List<StoryEvent> se;
     private List<TileEvent> tileEvents;
+    private List<TileEvent> enabled;
+    private Tile tile;
 
     public EncCheck(Tile tile){
+        this.tile = tile;
+        
+    }
+
+    public List<TileEvent> getEnabled(){
         try {
             this.se = getEvents(tile);
             this.tileEvents = Arrays.asList(tile.getEvents());
+            for(int i = 0; i < tileEvents.size(); i++){
+                if(isEnabled(tileEvents.get(i))){
+                    enabled.add(tileEvents.get(i));
+                }
+            }
+            return enabled;
         } catch (NoSuchEvent e) {
             // TODO Auto-generated catch block
             Handler.debug(e.getMessage(), true);
+            return null;
         }
         
     }
