@@ -3,5 +3,14 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"LineCount.output": {
+			"txt": false,
+			"json": false,
+			"csv": false,
+			"md": false,
+			"outdir": null
+	  }
+	}
 }
