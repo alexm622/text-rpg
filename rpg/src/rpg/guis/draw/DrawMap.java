@@ -69,6 +69,8 @@ public class DrawMap {
         relPos = new int[]{pos[0] + center[0], center[1] - pos[1] };
 
         Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
+
+        Handler.memory.setCurrent(m.getMap()[relPos[0]][relPos[1]]);
         
 
         

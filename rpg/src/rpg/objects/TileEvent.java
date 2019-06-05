@@ -47,13 +47,13 @@ public class TileEvent {
     //req env vars
 
     private String[] reqVar;
-    private String[] reqVal;
+    private Object[] reqVal;
 
     public String[] getReqVar(){
         return this.reqVar;
     }
 
-    public String[] getReqVal(){
+    public Object[] getReqVal(){
         return this.reqVal;
     }
 
@@ -61,7 +61,7 @@ public class TileEvent {
         this.reqVar = reqVar;
     }
 
-    public void setReqVal(String[] reqVal){
+    public void setReqVal(Object[] reqVal){
         this.reqVal = reqVal;
     }
 
