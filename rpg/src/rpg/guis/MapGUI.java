@@ -332,6 +332,41 @@ public class MapGUI {
 
 		}
 
+		for(int i = 0; i < panels.length; i++){
+			JPanel panel = panels[i];
+			Component[] compPanel = panel.getComponents();
+			panel.removeAll();
+			for(int j = 0; j < compPanel.length; j++){
+				Component c = compPanel[j];
+				Rectangle bounds = c.getBounds();
+
+
+				//set bounds
+				Rectangle newBounds;
+				double h, w, x, y;
+				h = bounds.getHeight();
+				w = bounds.getWidth();
+				x = bounds.getX();
+				y = bounds.getY();
+
+				int newH, newW, newX, newY;
+
+				newH = (int) Math.round(h * percentH);
+				newW = (int) Math.round(w * percentW);
+
+				newX = (int) Math.round(x * percentW);
+				newY = (int) Math.round(y * percentH);
+
+				newBounds = new Rectangle(newX, newY, newW, newH);
+
+				c.setBounds(newBounds);
+
+			}
+			for(Component c : compPanel){
+				panel.add(c);
+			}
+		}
+
 		for(Component c : components){
 			frame.getContentPane().add(c);
 		}
