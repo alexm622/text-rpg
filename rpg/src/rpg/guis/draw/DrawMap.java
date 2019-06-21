@@ -16,6 +16,7 @@ public class DrawMap {
     //private vars
 
     // TODO this needs some redesigning
+    // TODO tiles need font resizing
 
 
     public static MapAsTiles m;
