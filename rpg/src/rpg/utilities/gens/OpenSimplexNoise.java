@@ -335,7 +335,7 @@ public class OpenSimplexNoise {
 				value += attn1 * attn1 * extrapolate(xsb + 1, ysb + 0, zsb + 0, dx1, dy1, dz1);
 			}
 
-			//Contribution (0,1,0)
+			//Contribution (0,1,0)`
 			double dx2 = dx0 - 0 - SQUISH_CONSTANT_3D;
 			double dy2 = dy0 - 1 - SQUISH_CONSTANT_3D;
 			double dz2 = dz1;

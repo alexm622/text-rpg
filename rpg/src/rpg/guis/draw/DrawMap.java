@@ -2,10 +2,11 @@ package rpg.guis.draw;
 
 import java.awt.Color;
 
-import javax.swing.JLabel;
+import javax.swing.*;
 
 import rpg.game.Handler;
 import rpg.guis.MapGUI;
+import rpg.guis.MapLblGen;
 import rpg.objects.map.MapAsTiles;
 import rpg.objects.map.Tile;
 
@@ -13,10 +14,13 @@ public class DrawMap {
 
     //private vars
 
+    // TODO this needs some redesigning
+
 
     public static MapAsTiles m;
     public static MapGUI mg;
     private static JLabel[][] labels;
+    private static MapLblGen mlg;
     public static int[] pos, center;
     private static int width, height;
     private static Tile[][] draw;
@@ -28,9 +32,9 @@ public class DrawMap {
         
 
         mg = new MapGUI();
-        
+        mlg = new MapLblGen();
        
-        labels = mg.getLabels();
+        labels = mlg.getLabels();
         m = Handler.memory.getMapTiles();
         Handler.debug(Handler.memory.getMapTiles() == null);
         
@@ -106,9 +110,14 @@ public class DrawMap {
 
                 labels[i][j].setForeground(new Color(Integer.decode(draw[i][j].getIconColor())));
 
+
+
+
+
+
                 
 
-                labels[i][j].setFont(labels[i][j].getFont().deriveFont(labels[i][j].getFont().getStyle(), 18+6));
+                labels[i][j].setFont(labels[i][j].getFont().deriveFont(labels[i][j].getFont().getStyle(), 18));
                 drawPos[0] += 1;
             }
             drawPos[0] = 0 - (labels[0].length - labels[0].length%2)/2;
@@ -132,10 +141,12 @@ public class DrawMap {
     }
 
     public static void update(){
-        DrawMap.mg.getPoslbl().setText("( X:" + DrawMap.pos[0] + " ) ( Y:" + DrawMap.pos[1] + " ) ");
+        DrawMap.mg.getPosLabel().setText("( X:" + DrawMap.pos[0] + " ) ( Y:" + DrawMap.pos[1] + " ) ");
         Handler.debug((DrawMap.m.getCleared() == null));
-        DrawMap.mg.getPoslbl().setText(
-            DrawMap.mg.getPoslbl().getText()
+        Handler.debug("Height " + labels.length);
+        Handler.debug("width " + labels[0].length);
+        DrawMap.mg.getPosLabel().setText(
+            DrawMap.mg.getPosLabel().getText()
              + DrawMap.m.getCleared()
              [DrawMap.relPos[0]]
              [DrawMap.relPos[1]]);

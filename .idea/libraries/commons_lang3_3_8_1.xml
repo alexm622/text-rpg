@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="commons-lang3-3.8.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/rpg/src/res/Libs/commons-lang3-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/rpg/src/res/Libs/jackson-annotations-2.9.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/rpg/src/res/Libs/jackson-core-2.9.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/rpg/src/res/Libs/jackson-databind-2.9.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/rpg/src/res/Libs/pf4j-2.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
