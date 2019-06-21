@@ -1,8 +1,9 @@
 package rpg.guis.draw;
 
-import java.awt.Color;
+import java.awt.*;
 
 import javax.swing.*;
+
 
 import rpg.game.Handler;
 import rpg.guis.MapGUI;
@@ -25,6 +26,7 @@ public class DrawMap {
     private static int width, height;
     private static Tile[][] draw;
     public static int[] relPos;
+    public static boolean isBusy = false;
 
 
     public DrawMap(){
@@ -54,9 +56,17 @@ public class DrawMap {
         
         drawMap();
         update();
+
+
+
+
     }
 
     private static void drawMap(){
+        isBusy = true;
+
+
+
 
         
 
@@ -72,7 +82,7 @@ public class DrawMap {
 
         relPos = new int[]{pos[0] + center[0], center[1] - pos[1] };
 
-        Handler.debug(Integer.toString(relPos[0]) + " , " + Integer.toString(relPos[1]) );
+        Handler.debug(relPos[0] + " , " + relPos[1] );
 
         Handler.memory.setCurrent(m.getMap()[relPos[0]][relPos[1]]);
         
@@ -115,9 +125,9 @@ public class DrawMap {
 
 
 
-                
+                Font f = labels[i][j].getFont();
 
-                labels[i][j].setFont(labels[i][j].getFont().deriveFont(labels[i][j].getFont().getStyle(), 18));
+                labels[i][j].setFont(f.deriveFont((float)(labels[i][j].getWidth() * .60)));
                 drawPos[0] += 1;
             }
             drawPos[0] = 0 - (labels[0].length - labels[0].length%2)/2;
@@ -133,11 +143,20 @@ public class DrawMap {
 
 
 
-
+        isBusy = false;
     }
     
     public static void repaint() {
     	drawMap();
+    }
+
+    public static void refreshFonts(){
+        for(int j = 0; j < labels.length; j++) { //y
+            for (int i = 0; i < labels[0].length; i++) { //x
+                Font f = labels[i][j].getFont();
+                labels[i][j].setFont(f.deriveFont((float)(labels[i][j].getWidth() * .60)));
+            }
+        }
     }
 
     public static void update(){

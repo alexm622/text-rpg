@@ -39,7 +39,7 @@ public class MapLblGen {
             for(int y = 0; y < WIDTH; y++){
                 JLabel temp = new JLabel();
                 temp.setText(Integer.toString((x*15) + y + 1));
-                temp.setFont(new Font("Arial", Font.BOLD, 18));
+                temp.setFont(new Font("Arial", Font.BOLD, (int) Math.round(tempW * .75)));
                 temp.setSize(tempW, tempH);
                 tiles[x][y] = temp;
             }

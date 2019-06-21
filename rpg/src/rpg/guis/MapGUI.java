@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import javax.swing.JPanel;
 
+import org.apache.commons.lang3.time.StopWatch;
 import rpg.game.Handler;
 import rpg.guis.draw.DrawMap;
 import rpg.utilities.map.Direction;
@@ -30,7 +31,8 @@ public class MapGUI {
 
 	private static JPanel[] panels = new JPanel[3];
 
-	private static int width, height;
+	public static int width, height;
+	private StopWatch sw;
 
 	/**
 	 * Launch the application.
@@ -54,6 +56,8 @@ public class MapGUI {
 		initialize();
 		frame.requestFocus();
 		frame.setVisible(true);
+		sw = new StopWatch();
+		sw.start();
 		
 	}
 
@@ -226,6 +230,8 @@ public class MapGUI {
 		lblMap.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMap.setBounds(242, 11, 99, 23);
 		frame.getContentPane().add(lblMap);
+
+
 	}
 	
 
@@ -235,6 +241,10 @@ public class MapGUI {
 		return posLabel;
 	}
 	public JPanel getPanel(){ return panels[0];}
+
+	public JFrame getFrame(){
+		return frame;
+	}
 
 	public void addLabels(JLabel[][] labels){
 		for (JLabel[] label : labels) { //cycle through rows
@@ -372,7 +382,10 @@ public class MapGUI {
 		}
 
 
-		frame.revalidate();
+
+
+
+
 
 
 
