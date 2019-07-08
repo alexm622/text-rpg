@@ -1,7 +1,7 @@
 package rpg.objects.map;
 
 public class Map {
-    private String[][] tileids;
+    private String[][] tileids; // TODO migrate the tileids to a more compact format possibly and int
     private boolean[][] cleared;
     private int height;
     private int width;

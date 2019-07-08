@@ -23,7 +23,7 @@ public class TileEvent {
     }
 
     //event id
-    private String id;
+    private String id; // TODO make this use an integer
 
     public String getId(){
         return this.id;

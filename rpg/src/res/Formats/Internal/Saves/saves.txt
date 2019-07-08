@@ -1,0 +1,40 @@
+store as an image
+
+2 pixels correspond to one object
+
+later on possibly store in one image, where each 2px by 2px  square is one object
+
+bytearray
+
+map:
+
+
+
+[4 bytes, 1 byte, 1 byte padding]
+[tileid, cleared, padding]
+
+index of (O)bject  = 5 bytes * object number (len = 6 bytes)
+
+eventmap:
+
+[4 bytes, 1 byte,    , 1 byte]
+[id     , tile number, unlocked]
+
+
+for 2x2 square
+
+x,y = ( 2 pixels) * object number + 1
+
+x through x + 1 pixel
+y through y + 1 pixel
+
+append hex rgb values for each row to get entries (load as hex string)
+
+split that hex value into individual objects
+
+
+
+
+
+
+
