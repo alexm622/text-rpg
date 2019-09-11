@@ -29,7 +29,7 @@ public class MapGen {
     private void ConvertToMap(double[][] map){
         new ToTiles(map);
         Map m = new Map();
-        String[][] ids = new String[map.length][map[0].length];
+        int[][] ids = new int[map.length][map[0].length];
         boolean[][] clear = new boolean[map.length][map[0].length];
         for(int i = 0; i < map.length; i++){ //x
             for(int j = 0; j < map[0].length; j++){ //y

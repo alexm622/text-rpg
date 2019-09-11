@@ -1,11 +1,11 @@
 {
-    "id":"testtileset8",
-    "name":"testtileset8",
+    "id":"set8",
+    "name":"set8",
     "biome":"beach",
     "tiles":[
         {
             "name":"test71",
-            "id":"testtile71",
+            "id":"71",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -17,7 +17,7 @@
         },
         {
             "name":"test72",
-            "id":"testtile72",
+            "id":"72",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -29,7 +29,7 @@
         },
         {
             "name":"test73",
-            "id":"testtile73",
+            "id":"73",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -41,7 +41,7 @@
         },
         {
             "name":"test74",
-            "id":"testtile74",
+            "id":"74",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -53,7 +53,7 @@
         },
         {
             "name":"test75",
-            "id":"testtile75",
+            "id":"75",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -65,7 +65,7 @@
         },
         {
             "name":"test76",
-            "id":"testtile76",
+            "id":"76",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -77,7 +77,7 @@
         },
         {
             "name":"test77",
-            "id":"testtile77",
+            "id":"77",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -89,7 +89,7 @@
         },
         {
             "name":"test78",
-            "id":"testtile78",
+            "id":"78",
             "biomeId":"beach",
             "difficulty":1,
             
@@ -101,7 +101,7 @@
         },
         {
             "name":"test79",
-            "id":"testtile79",
+            "id":"79",
             "biomeId":"beach",
             "difficulty":1,
             

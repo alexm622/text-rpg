@@ -12,7 +12,7 @@ public class PrepareMap {
     private Tile[][] map;
     private Map m;
     private MapAsTiles mt;
-    private String[] ids;
+    private int[] ids;
     private int height, width;
     private boolean[][] clear;
 
@@ -39,7 +39,7 @@ public class PrepareMap {
         Handler.debug("height: " + height);
 
         //create ids
-        ids = new String[this.tiles.length];
+        ids = new int[this.tiles.length];
 
         //map ids
         for(int i = 0; i < tiles.length; i++){
@@ -69,9 +69,9 @@ public class PrepareMap {
         for(int i = 0; i < height; i++){ //y
             for(int j = 0; j < width; j++){ //x
                 for(int k = 0; k < ids.length; k++){
-                    if(m.getTileids()[j][i].equals(ids[k])){
+                    if(m.getTileids()[j][i] == ids[k]){
                         map[j][i] = Handler.memory.getTiles()[k];
-                        //Handler.debug("is tile null: " + (Handler.memory.getTiles()[k] == null));
+                        Handler.debug("is tile null: " + (Handler.memory.getTiles()[k] == null));
                         
                         k = ids.length;
                     }else if(k == (ids.length - 1)){

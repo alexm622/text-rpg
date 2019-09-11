@@ -3,7 +3,7 @@ package rpg.objects.map;
 import rpg.objects.TileEvent;
 
 public class Tile {
-    private String id;
+    private int id;
     private String name;
     private String biomeId;
     
@@ -22,11 +22,11 @@ public class Tile {
 
     private boolean cleared = false;
 
-    public String getId(){
+    public int getId(){
         return this.id;
     }
 
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
 

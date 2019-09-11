@@ -46,50 +46,50 @@ public class ToTiles extends Thread{
         double num = 0;
         String percentstr;
         pb.setMaximum(((Double)size).intValue());
-       
+
         double per = 0.0;
 
         new ChooseTiles();
 
-        sw.start();
-        
+        //sw.start();
+
 
 
         //-7.5, -5.0 , -2.5, 0, 2.5, 5.0, 7.5
-        for(int i = 0; i < doub.length; i++){
+       /*for(int i = 0; i < doub.length; i++){
             for(int x = 0; x < doub[i].length; x++){
 
                 num++;
 
-               
 
-                
-                    
-               
+
+
+
+
                 if(sw.getTime() > 60 || num == size){
                     sw.reset();
                     sw.start();
-                    
+
                     per = (num/size);
                     per = Math.round(per * 100.0);
                     percentstr = Double.toString(per) + "%";
 
-                    
+
 
                     String assettxt = Double.toString(num) + " / " + Double.toString(size);
                     asset.setText(assettxt);
 
-                    
-                    
+
+
 
                     int pbval = ((Double)(num)).intValue();
                     pb.setValue(pbval);
 
-                    
 
-                 
+
+
                     percent.setText(percentstr);
-                    
+
                     frame.paintAll(frame.getGraphics());;
                 }
             
@@ -162,7 +162,7 @@ public class ToTiles extends Thread{
         Handler.memory.setTileMap(tiles);
         m = new MapAsTiles();
         m.setMap(tiles);
-        Handler.memory.setMapTiles(m);
+        Handler.memory.setMapTiles(m); */
     }
 
     

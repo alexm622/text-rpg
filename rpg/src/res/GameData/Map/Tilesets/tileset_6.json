@@ -1,11 +1,11 @@
 {
-    "id":"testtileset6",
-    "name":"testtileset6",
+    "id":"set6",
+    "name":"set6",
     "biome":"lake",
     "tiles":[
         {
             "name":"test51",
-            "id":"testtile51",
+            "id":"51",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -17,7 +17,7 @@
         },
         {
             "name":"test52",
-            "id":"testtile52",
+            "id":"52",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -29,7 +29,7 @@
         },
         {
             "name":"test53",
-            "id":"testtile53",
+            "id":"53",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -41,7 +41,7 @@
         },
         {
             "name":"test54",
-            "id":"testtile54",
+            "id":"54",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -53,7 +53,7 @@
         },
         {
             "name":"test55",
-            "id":"testtile55",
+            "id":"55",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -65,7 +65,7 @@
         },
         {
             "name":"test56",
-            "id":"testtile56",
+            "id":"56",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -77,7 +77,7 @@
         },
         {
             "name":"test57",
-            "id":"testtile57",
+            "id":"57",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -89,7 +89,7 @@
         },
         {
             "name":"test58",
-            "id":"testtile58",
+            "id":"58",
             "biomeId":"lake",
             "difficulty":1,
             
@@ -101,7 +101,7 @@
         },
         {
             "name":"test59",
-            "id":"testtile59",
+            "id":"59",
             "biomeId":"lake",
             "difficulty":1,
             
