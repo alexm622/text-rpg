@@ -11,9 +11,9 @@ import javax.swing.*;
 public class Converter {
 
     private static String[][] tileBytes;
-    private static int i;
+    private static volatile int i;
     private static double[][] doub;
-    private static volatile int[] lastTile;
+    private static volatile int[] lastTile = new int[2];
     private static int height, width;
     private static int numThreads;
     private MemLoad ml;
@@ -42,13 +42,16 @@ public class Converter {
         JFrame frame = ml.getFrame();
         frame.setTitle("Generating map");
         ml.getLoadingText().setText("Generating map");
-
+        JProgressBar pb;
+        JLabel asset, percent;
         asset = ml.getLoadingAsset();
         percent = ml.getPercent();
         pb = ml.getLoadProgress();
-        sw = new StopWatch();
+
 
         //vars for calculation
+
+        new ChooseTiles();
 
 
 
@@ -59,6 +62,8 @@ public class Converter {
 
         per = 0.0;
 
+        Start(4);
+
 
 
 
@@ -68,18 +73,20 @@ public class Converter {
 
     public static void Start(int threads){
         numThreads = threads;
-        Thread[] t = new Thread[threads-1];
-        lastTile[0] = threads-1;
+        Thread[] t = new Thread[numThreads];
+        lastTile[0] = 0;
         lastTile[1] = 0;
-        sw.start();
+
 
         for(i = 0; i < threads; i++) {
             t[i] = new Thread(new Runnable() {
 
                 @Override
                 public void run() {
+
                     int[] currentTile = new int[]{i, 0};
                     while (!finished) {
+
                         double toConv = doub[currentTile[0]][currentTile[1]];
 
                         String data = convert(toConv);
@@ -94,11 +101,13 @@ public class Converter {
 
         for(i = 0; i < threads; i++){
             t[i].start();
+            Handler.debug("starting thread number " + i);
         }
 
         for(i = 0; i < threads; i++){
             try {
                 t[i].join();
+                Handler.debug("joining thread number " + i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -127,6 +136,7 @@ public class Converter {
 
     private static synchronized String convert(double data){
         int temp = 0;
+
         String datastr = Double.toString(data);
         switch (datastr){
             case "-10.0":
@@ -176,8 +186,9 @@ public class Converter {
 
         }
 
-        String hex;
+        String hex = Integer.toHexString(temp);
 
+        Handler.debug("hex val " + hex);
         return hex;
 
     }
