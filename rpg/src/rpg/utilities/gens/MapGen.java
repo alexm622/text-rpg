@@ -10,7 +10,7 @@ import rpg.utilities.map.ToTiles;
 
 public class MapGen {
 
-    public final int WIDTH = 102, HEIGHT = 102;
+    public final int WIDTH = 2, HEIGHT = 2;
     public final double FEATURE_SIZE = 10;
 
     public MapGen() {
