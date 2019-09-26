@@ -1,11 +1,11 @@
 {
-    "id":"set4",
-    "name":"set4",
+    "id":"testtileset4",
+    "name":"testtileset4",
     "biome":"mountian",
     "tiles":[
         {
             "name":"test31",
-            "id":"31",
+            "id":"testtile31",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -17,7 +17,7 @@
         },
         {
             "name":"test32",
-            "id":"32",
+            "id":"testtile32",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -29,7 +29,7 @@
         },
         {
             "name":"test33",
-            "id":"33",
+            "id":"testtile33",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -41,7 +41,7 @@
         },
         {
             "name":"test34",
-            "id":"34",
+            "id":"testtile34",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -53,7 +53,7 @@
         },
         {
             "name":"test35",
-            "id":"35",
+            "id":"testtile35",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -65,7 +65,7 @@
         },
         {
             "name":"test36",
-            "id":"36",
+            "id":"testtile36",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -77,7 +77,7 @@
         },
         {
             "name":"test37",
-            "id":"37",
+            "id":"testtile37",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -89,7 +89,7 @@
         },
         {
             "name":"test38",
-            "id":"38",
+            "id":"testtile38",
             "biomeId":"mountian",
             "difficulty":1,
             
@@ -101,7 +101,7 @@
         },
         {
             "name":"test39",
-            "id":"39",
+            "id":"testtile39",
             "biomeId":"mountian",
             "difficulty":1,
             

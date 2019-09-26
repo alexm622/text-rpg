@@ -12,7 +12,7 @@ public class ChooseTiles {
     public ChooseTiles(){
     }
 
-    public static int select(double id){
+    public static Tile select(double id){
         //possible tiles
         Tile[] tiles;
 
@@ -43,7 +43,7 @@ public class ChooseTiles {
         return randomTile(tiles, id);
     }
 
-    private static int randomTile(Tile[] tiles, double id){
+    private static Tile randomTile(Tile[] tiles, double id){
 
         Random r = new Random();
         
@@ -51,7 +51,7 @@ public class ChooseTiles {
 
 
 
-        return tiles[temp].getId();
+        return tiles[temp];
     }
 
 }
