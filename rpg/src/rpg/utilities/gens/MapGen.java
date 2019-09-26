@@ -4,13 +4,12 @@ import java.io.IOException;
 
 import rpg.game.Handler;
 import rpg.objects.map.Map;
-import rpg.utilities.converter.Converter;
 import rpg.utilities.map.ToTiles;
 
 
 public class MapGen {
 
-    public final int WIDTH = 2, HEIGHT = 2;
+    public final int WIDTH = 102, HEIGHT = 102;
     public final double FEATURE_SIZE = 10;
 
     public MapGen() {
@@ -28,9 +27,6 @@ public class MapGen {
     }
 
     private void ConvertToMap(double[][] map){
-<<<<<<< HEAD
-        Converter c = new Converter(WIDTH, HEIGHT, map);
-=======
         new ToTiles(map);
         Map m = new Map();
         String[][] ids = new String[map.length][map[0].length];
@@ -46,7 +42,6 @@ public class MapGen {
         m.setHeight(map.length);
         m.setWidth(map[0].length);
         Handler.memory.setMap(m);
->>>>>>> parent of 80feb80... some work on changing things around
         
         
         
